@@ -162,14 +162,14 @@ export const devPods: DevPod[] = [
   },
   {
     id: "pod-6",
-    name: "Dev Pod 2/Sneha G",
+    name: "Dev POD 2/Sneha G",
     valueStream: "Release",
     description: "Managing account updates, modifications, and lifecycle operations",
     color: "from-teal-500/20 to-teal-500/5",
     release: "IR4",
     badges: ["Correspondence", "360s", "PEXT", "Customer Authentication", "Account Maintenance"],
     team: [
-      { name: "Sneha", role: "Lead", status: "Active" },
+      { name: "Sneha Girigoudar", role: "Lead", status: "Active" },
       { name: "Rohan Bandla", role: "Onshore Solution Analyst", status: "Active" },
       { name: "TBD", role: "Offshore Solution Analyst", status: "Open" },
       { name: "Ankit Mishra", role: "Dev", status: "Active" },
