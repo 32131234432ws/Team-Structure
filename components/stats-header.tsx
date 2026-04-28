@@ -68,11 +68,7 @@ export function StatsHeader() {
   const hasFPL = devPodMembers.some((m) => m.name === "FPL" && m.status === "Active");
   const totalUniquePeople = allUniqueNames.size + (hasFPL ? 1 : 0);
 
-  // Count total TBD (open positions) across all sources
-  const totalTBD = 
-    devPodMembers.filter((m) => m.name === "TBD").length +
-    hypercarePodMembers.filter((m) => m.name === "TBD").length +
-    crossFunctionalMembers.filter((m) => m.name === "TBD").length;
+
 
   return (
     <div className="flex flex-col gap-3">
@@ -117,12 +113,6 @@ export function StatsHeader() {
             className="bg-rose-500/20 text-rose-400 border-rose-500/30"
           >
             {totalByRole.QA} QAs
-          </Badge>
-          <Badge
-            variant="outline"
-            className="bg-muted text-muted-foreground border-border"
-          >
-            {totalTBD} TBD/Open
           </Badge>
         </div>
       </div>
