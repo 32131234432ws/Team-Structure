@@ -41,18 +41,43 @@ export function StatsHeader() {
     return uniqueNames;
   };
 
-  // Get unique active members by role from dev pods only (for role breakdown)
+  // Get unique active members by role across ALL data sources
   const getUniqueActiveCountByRole = (role: string) => {
-    const members = devPodMembers.filter(
-      (m) => m.role === role && m.status === "Active"
-    );
-    const uniqueNames = new Set(
-      members
-        .map((m) => m.name)
-        .filter((name) => name !== "TBD" && name !== "FPL")
-    );
-    const fplCount = members.some((m) => m.name === "FPL") ? 1 : 0;
-    return uniqueNames.size + fplCount;
+    const uniqueNames = new Set<string>();
+
+    // Dev pod members
+    devPodMembers
+      .filter((m) => m.role === role && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Hypercare pod members
+    hypercarePodMembers
+      .filter((m) => m.role === role && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Cross-functional team members
+    crossFunctionalMembers
+      .filter((m) => m.role === role && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // SIT/UAT execution team members (QA and QA Lead roles)
+    if (role === "QA") {
+      sitUatMembers
+        .filter((m) => (m.role === "QA" || m.role === "QA Lead") && m.status === "Active" && m.name !== "TBD")
+        .forEach((m) => uniqueNames.add(m.name));
+    }
+
+    // Leadership team members (Leads only)
+    if (role === "Lead") {
+      leadership
+        .filter((m) => m.role === "Lead" && m.status === "Active" && m.name !== "TBD")
+        .forEach((m) => uniqueNames.add(m.name));
+    }
+
+    // Check for FPL in dev pods for this role
+    const hasFPL = devPodMembers.some((m) => m.name === "FPL" && m.role === role && m.status === "Active");
+    
+    return uniqueNames.size + (hasFPL ? 1 : 0);
   };
 
   const totalByRole = {
