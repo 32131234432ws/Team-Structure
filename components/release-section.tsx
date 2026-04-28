@@ -90,36 +90,24 @@ export function ReleaseSection({
             {phase}
           </span>
           <div className="flex flex-wrap items-center gap-1.5 ml-2">
-            {resourceCounts.Lead > 0 && (
-              <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
-                {resourceCounts.Lead} Lead
-              </span>
-            )}
-            {resourceCounts["Onshore SA"] > 0 && (
-              <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-blue-500/20 text-blue-400 border-blue-500/30">
-                {resourceCounts["Onshore SA"]} Onshore SA
-              </span>
-            )}
-            {resourceCounts["Offshore SA"] > 0 && (
-              <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-cyan-500/20 text-cyan-400 border-cyan-500/30">
-                {resourceCounts["Offshore SA"]} Offshore SA
-              </span>
-            )}
-            {resourceCounts.Dev > 0 && (
-              <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-amber-500/20 text-amber-400 border-amber-500/30">
-                {resourceCounts.Dev} Dev
-              </span>
-            )}
-            {resourceCounts.QA > 0 && (
-              <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-rose-500/20 text-rose-400 border-rose-500/30">
-                {resourceCounts.QA} QA
-              </span>
-            )}
-            {resourceCounts.TBD > 0 && (
-              <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-muted text-muted-foreground border-border">
-                {resourceCounts.TBD} TBD
-              </span>
-            )}
+            <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
+              {resourceCounts.Lead} Lead
+            </span>
+            <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-blue-500/20 text-blue-400 border-blue-500/30">
+              {resourceCounts["Onshore SA"]} Onshore SA
+            </span>
+            <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-cyan-500/20 text-cyan-400 border-cyan-500/30">
+              {resourceCounts["Offshore SA"]} Offshore SA
+            </span>
+            <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-amber-500/20 text-amber-400 border-amber-500/30">
+              {resourceCounts.Dev} Dev
+            </span>
+            <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-rose-500/20 text-rose-400 border-rose-500/30">
+              {resourceCounts.QA} QA
+            </span>
+            <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-muted text-muted-foreground border-border">
+              {resourceCounts.TBD} TBD
+            </span>
           </div>
         </div>
       </CollapsibleTrigger>

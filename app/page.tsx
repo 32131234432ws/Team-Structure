@@ -62,7 +62,7 @@ export default function Home() {
           <SitUatSection defaultOpen={true} />
 
           <ReleaseSection
-            title="IR3.3"
+            title="3.X (Outage)"
             phase="Planning"
             pods={ir33Pods}
             badgeColor="bg-cyan-500/20 text-cyan-400 border-cyan-500/30"
