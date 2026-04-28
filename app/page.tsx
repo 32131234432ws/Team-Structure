@@ -5,6 +5,7 @@ import { CrossFunctionalSection } from "@/components/cross-functional-section";
 import { LeadershipSection } from "@/components/leadership-section";
 import { SitUatSection } from "@/components/sit-uat-section";
 import { HypercareSection } from "@/components/hypercare-section";
+import { InternsSection } from "@/components/interns-section";
 
 export default function Home() {
   const ir32Pods = devPods.filter((pod) => pod.release === "IR3.2");
@@ -31,6 +32,9 @@ export default function Home() {
 
         {/* Cross-Functional PODs Section */}
         <CrossFunctionalSection teams={crossFunctionalTeams} defaultOpen={false} />
+
+        {/* Interns Section */}
+        <InternsSection defaultOpen={false} />
 
         {/* Release Sections */}
         <div className="space-y-10">
