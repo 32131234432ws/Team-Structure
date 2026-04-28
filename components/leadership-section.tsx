@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronRight, Crown, Users } from "lucide-react";
+import { ChevronDown, ChevronRight, Crown } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   leadershipTeam,
   leadershipRoleColors,
-  interns,
   LeadershipMember,
 } from "@/lib/team-data";
 import { cn } from "@/lib/utils";
@@ -61,14 +60,6 @@ export function LeadershipSection({ defaultOpen = false }: LeadershipSectionProp
             >
               {leadershipTeam.length} Leaders
             </Badge>
-            {interns.length > 0 && (
-              <Badge
-                variant="outline"
-                className="bg-lime-500/20 text-lime-400 border-lime-500/30"
-              >
-                {interns.length} Intern{interns.length > 1 ? "s" : ""}
-              </Badge>
-            )}
           </div>
           <span className="text-xs text-muted-foreground">
             Program Leadership & Governance
@@ -77,7 +68,7 @@ export function LeadershipSection({ defaultOpen = false }: LeadershipSectionProp
       </CollapsibleTrigger>
 
       <CollapsibleContent className="mt-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {/* Leadership Team Card */}
           <Card className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-border/50">
             <CardHeader className="pb-2">
@@ -139,59 +130,6 @@ export function LeadershipSection({ defaultOpen = false }: LeadershipSectionProp
                   );
                 })}
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Interns Card */}
-          <Card className="bg-gradient-to-br from-lime-500/10 to-green-500/10 border-border/50">
-            <CardHeader className="pb-2">
-              <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-lime-400" />
-                <h3 className="text-lg font-semibold text-foreground">
-                  Interns
-                </h3>
-              </div>
-              <p className="text-sm text-muted-foreground mt-1">
-                Internship program participants
-              </p>
-            </CardHeader>
-            <CardContent className="pt-4">
-              {interns.length > 0 ? (
-                <div className="space-y-2">
-                  {interns.map((intern, idx) => (
-                    <div
-                      key={`${intern.name}-${idx}`}
-                      className="flex items-center justify-between py-2 px-3 rounded-lg bg-background/50 border border-border/50"
-                    >
-                      <div className="flex flex-col">
-                        <span className="text-sm text-foreground">
-                          {intern.name}
-                        </span>
-                        <span className="text-xs text-muted-foreground">
-                          {intern.team}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div
-                          className={cn(
-                            "h-2 w-2 rounded-full",
-                            intern.status === "Active"
-                              ? "bg-emerald-500"
-                              : "bg-amber-500"
-                          )}
-                        />
-                        <span className="text-xs text-muted-foreground">
-                          {intern.status}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-sm text-muted-foreground">
-                  No interns currently assigned
-                </p>
-              )}
             </CardContent>
           </Card>
         </div>
