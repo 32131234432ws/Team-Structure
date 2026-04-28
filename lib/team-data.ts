@@ -8,7 +8,8 @@ export interface TeamMember {
 // Leadership team interface
 export interface LeadershipMember {
   name: string;
-  role: "Lead" | "PMO Lead" | "PMO" | "Architecture" | "DevOps Lead";
+  role: "Lead" | "Architect" | "PMO";
+  subRole?: string; // For architect types: Technical Architect, Solution Architect, Business Architect
   status: "Active" | "Planned" | "Open";
 }
 
@@ -18,13 +19,12 @@ export const leadershipTeam: LeadershipMember[] = [
   { name: "Matthew Rupas", role: "Lead", status: "Active" },
   { name: "Sujith Pillai", role: "Lead", status: "Active" },
   { name: "Anto Germans", role: "Lead", status: "Active" },
-  { name: "Susan Matthews", role: "Lead", status: "Active" },
-  { name: "Shanta", role: "PMO Lead", status: "Active" },
-  { name: "Paarth", role: "PMO Lead", status: "Active" },
-  { name: "Hemant", role: "Architecture", status: "Active" },
-  { name: "Tyaga", role: "Architecture", status: "Active" },
-  { name: "Ritesh", role: "DevOps Lead", status: "Active" },
-  { name: "Courtney", role: "PMO", status: "Active" },
+  { name: "Hemant Jain", role: "Architect", subRole: "Technical Architect", status: "Active" },
+  { name: "Tyaga Pati", role: "Architect", subRole: "Solution Architect", status: "Active" },
+  { name: "Susan Matthews", role: "Architect", subRole: "Business Architect", status: "Active" },
+  { name: "Shanta Samlal", role: "PMO", status: "Active" },
+  { name: "Paarth Sonwaney", role: "PMO", status: "Active" },
+  { name: "Courtney Hawkins", role: "PMO", status: "Active" },
 ];
 
 // Interns data
@@ -311,10 +311,8 @@ export const roleColors: Record<TeamMember["role"], string> = {
 
 export const leadershipRoleColors: Record<LeadershipMember["role"], string> = {
   Lead: "bg-purple-500/20 text-purple-400 border-purple-500/30",
-  "PMO Lead": "bg-pink-500/20 text-pink-400 border-pink-500/30",
+  Architect: "bg-orange-500/20 text-orange-400 border-orange-500/30",
   PMO: "bg-pink-500/20 text-pink-400 border-pink-500/30",
-  Architecture: "bg-orange-500/20 text-orange-400 border-orange-500/30",
-  "DevOps Lead": "bg-sky-500/20 text-sky-400 border-sky-500/30",
 };
 
 export const statusColors: Record<TeamMember["status"], string> = {
@@ -401,6 +399,7 @@ export const crossFunctionalTeams: CrossFunctionalTeam[] = [
     description: "Manages integrations across all value streams and releases",
     color: "from-violet-500/20 to-violet-500/5",
     team: [
+      { name: "Kodi Elangovan", role: "Lead", status: "Active" },
       { name: "Arun Kumar Krishnareddy Obannareddy", role: "Lead", status: "Active" },
       { name: "Pranav Singh", role: "Team", status: "Active" },
       { name: "Vasudha Tandon", role: "Team", status: "Active" },
@@ -412,6 +411,7 @@ export const crossFunctionalTeams: CrossFunctionalTeam[] = [
     description: "CI/CD, infrastructure, and deployment across all releases",
     color: "from-indigo-500/20 to-indigo-500/5",
     team: [
+      { name: "Ritesh Nanda", role: "Lead", status: "Active" },
       { name: "Shabnam Nasreen", role: "Lead", status: "Active" },
       { name: "Santosh Kumar Jangam", role: "Team", status: "Active" },
       { name: "Rhitik Khanna", role: "Team", status: "Active" },
@@ -426,6 +426,19 @@ export const crossFunctionalTeams: CrossFunctionalTeam[] = [
     team: [
       { name: "Harish Govindareddy", role: "Team", status: "Active" },
       { name: "Sanket Mundargi", role: "Team", status: "Active" },
+    ],
+  },
+  {
+    id: "cf-interns",
+    name: "Interns",
+    description: "Internship program participants supporting various teams",
+    color: "from-lime-500/20 to-lime-500/5",
+    team: [
+      { name: "Ziyad Auti", role: "Intern", status: "Active" },
+      { name: "Kishor S", role: "Intern", status: "Active" },
+      { name: "Krithika Harishchandra Shettigar", role: "Intern", status: "Active" },
+      { name: "Potumanchi Sree Yashana", role: "Intern", status: "Active" },
+      { name: "Adithya Sankar S", role: "Intern", status: "Active" },
     ],
   },
 ];

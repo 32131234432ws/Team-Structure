@@ -34,11 +34,15 @@ export function LeadershipSection({ defaultOpen = false }: LeadershipSectionProp
 
   const roleOrder: LeadershipMember["role"][] = [
     "Lead",
-    "PMO Lead",
+    "Architect",
     "PMO",
-    "Architecture",
-    "DevOps Lead",
   ];
+
+  const roleDisplayNames: Record<LeadershipMember["role"], string> = {
+    Lead: "Leads",
+    Architect: "Architects",
+    PMO: "PMO",
+  };
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen} className="mb-8">
@@ -97,7 +101,7 @@ export function LeadershipSection({ defaultOpen = false }: LeadershipSectionProp
                           leadershipRoleColors[role]
                         )}
                       >
-                        {role} ({members.length})
+                        {roleDisplayNames[role]} ({members.length})
                       </Badge>
                       <div className="grid gap-2 ml-2">
                         {members.map((member, idx) => (
@@ -105,9 +109,16 @@ export function LeadershipSection({ defaultOpen = false }: LeadershipSectionProp
                             key={`${member.name}-${idx}`}
                             className="flex items-center justify-between py-2 px-3 rounded-lg bg-background/50 border border-border/50"
                           >
-                            <span className="text-sm text-foreground">
-                              {member.name}
-                            </span>
+                            <div className="flex flex-col">
+                              <span className="text-sm text-foreground">
+                                {member.name}
+                              </span>
+                              {member.subRole && (
+                                <span className="text-xs text-muted-foreground">
+                                  {member.subRole}
+                                </span>
+                              )}
+                            </div>
                             <div className="flex items-center gap-2">
                               <div
                                 className={cn(
