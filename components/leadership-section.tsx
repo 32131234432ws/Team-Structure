@@ -52,7 +52,7 @@ export function LeadershipSection({ defaultOpen = false }: LeadershipSectionProp
             )}
             <Crown className="h-5 w-5 text-purple-400" />
             <h2 className="text-lg font-semibold text-foreground">
-              Leadership & Cross-Functional
+              Leadership
             </h2>
             <Badge
               variant="outline"
