@@ -1,8 +1,33 @@
 export interface TeamMember {
   name: string;
-  role: "Lead" | "Onshore Solution Analyst" | "Offshore Solution Analyst" | "Dev" | "QA" | "Team";
+  role: "Lead" | "Onshore Solution Analyst" | "Offshore Solution Analyst" | "Dev" | "QA" | "Team" | "Program Lead" | "PMO" | "Architecture" | "QA Lead" | "Intern";
+  status: "Active" | "Planned" | "Open";
+  valueStreams?: string[]; // For QA execution team to show which value streams they support
+}
+
+// Leadership team interface
+export interface LeadershipMember {
+  name: string;
+  role: "Program Lead" | "PMO" | "Architecture" | "QA Lead" | "Delivery Lead" | "Technical Lead";
   status: "Active" | "Planned" | "Open";
 }
+
+// Leadership team data
+export const leadershipTeam: LeadershipMember[] = [
+  { name: "Anto", role: "Program Lead", status: "Active" },
+  { name: "Susan", role: "PMO", status: "Active" },
+  { name: "Tyaga", role: "Architecture", status: "Active" },
+  { name: "Ahmed", role: "Technical Lead", status: "Active" },
+  { name: "Sujith", role: "Delivery Lead", status: "Active" },
+  { name: "Ritesh", role: "Technical Lead", status: "Active" },
+  { name: "Shanta", role: "QA Lead", status: "Active" },
+  { name: "Courtney", role: "PMO", status: "Active" },
+];
+
+// Interns data
+export const interns: { name: string; team: string; status: "Active" | "Planned" }[] = [
+  { name: "TBD", team: "Development", status: "Planned" },
+];
 
 export interface DevPod {
   id: string;
@@ -274,6 +299,20 @@ export const roleColors: Record<TeamMember["role"], string> = {
   Dev: "bg-amber-500/20 text-amber-400 border-amber-500/30",
   QA: "bg-rose-500/20 text-rose-400 border-rose-500/30",
   Team: "bg-violet-500/20 text-violet-400 border-violet-500/30",
+  "Program Lead": "bg-purple-500/20 text-purple-400 border-purple-500/30",
+  PMO: "bg-pink-500/20 text-pink-400 border-pink-500/30",
+  Architecture: "bg-orange-500/20 text-orange-400 border-orange-500/30",
+  "QA Lead": "bg-red-500/20 text-red-400 border-red-500/30",
+  Intern: "bg-lime-500/20 text-lime-400 border-lime-500/30",
+};
+
+export const leadershipRoleColors: Record<LeadershipMember["role"], string> = {
+  "Program Lead": "bg-purple-500/20 text-purple-400 border-purple-500/30",
+  PMO: "bg-pink-500/20 text-pink-400 border-pink-500/30",
+  Architecture: "bg-orange-500/20 text-orange-400 border-orange-500/30",
+  "QA Lead": "bg-red-500/20 text-red-400 border-red-500/30",
+  "Delivery Lead": "bg-teal-500/20 text-teal-400 border-teal-500/30",
+  "Technical Lead": "bg-sky-500/20 text-sky-400 border-sky-500/30",
 };
 
 export const statusColors: Record<TeamMember["status"], string> = {
@@ -290,6 +329,68 @@ export interface CrossFunctionalTeam {
   color: string;
   team: TeamMember[];
 }
+
+// SIT/UAT Execution Team - standalone QA pod
+export interface SitUatMember {
+  name: string;
+  role: "QA Lead" | "QA";
+  status: "Active" | "Planned" | "Open";
+  valueStreams: string[];
+}
+
+export const sitUatExecutionTeam: SitUatMember[] = [
+  { name: "Shanta", role: "QA Lead", status: "Active", valueStreams: ["All Value Streams"] },
+  { name: "Maneesha", role: "QA", status: "Active", valueStreams: ["Move In", "Move Out", "Transfer"] },
+  { name: "Bhyravabhotla Naga Lakshmi Sirisha", role: "QA", status: "Active", valueStreams: ["Move In", "Move Out"] },
+  { name: "Dnyanesh Prakash Painjan", role: "QA", status: "Active", valueStreams: ["Move In", "Transfer"] },
+  { name: "Girlee Alvarado", role: "QA", status: "Active", valueStreams: ["Move Out", "Transfer"] },
+  { name: "Venugopal Sinde", role: "QA", status: "Active", valueStreams: ["Move In", "Move Out"] },
+  { name: "Raveendra Reddy", role: "QA", status: "Active", valueStreams: ["Transfer"] },
+  { name: "Naga Srilekha Thummalacheruvu", role: "QA", status: "Active", valueStreams: ["Move In"] },
+  { name: "ISH Jacinto", role: "QA", status: "Active", valueStreams: ["Move Out"] },
+  { name: "Keerthana Manjunath", role: "QA", status: "Active", valueStreams: ["Transfer"] },
+  { name: "Sonal Yadav", role: "QA", status: "Active", valueStreams: ["Move In", "Move Out"] },
+  { name: "Argene Francisco", role: "QA", status: "Active", valueStreams: ["Move In", "Transfer"] },
+  { name: "Sanjana", role: "QA", status: "Active", valueStreams: ["Interactions", "Search"] },
+  { name: "Pratik Mahajan", role: "QA", status: "Active", valueStreams: ["Interactions", "Search"] },
+  { name: "Nilesh", role: "QA", status: "Active", valueStreams: ["Account Maintenance"] },
+  { name: "Pritam", role: "QA", status: "Active", valueStreams: ["Account Maintenance"] },
+  { name: "Smita", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options", "Billing Programs"] },
+  { name: "Vidyashree", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options"] },
+  { name: "Prasanna", role: "QA", status: "Active", valueStreams: ["Billing Programs"] },
+  { name: "Nikita", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options"] },
+  { name: "Akhil", role: "QA", status: "Active", valueStreams: ["Billing Programs"] },
+  { name: "Grace Nazareno", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options", "Billing Programs"] },
+];
+
+// Hypercare pods for IR3.2
+export interface HypercarePod {
+  id: string;
+  name: string;
+  valueStream: string;
+  description: string;
+  team: TeamMember[];
+  color: string;
+  release: "IR3.2-Hypercare" | "IR4-Hypercare";
+  badges?: string[];
+}
+
+export const hypercarePods: HypercarePod[] = [
+  {
+    id: "hc-ir32-1",
+    name: "IR3.2 Hypercare Support",
+    valueStream: "Support",
+    description: "Post-deployment support and issue resolution for IR3.2 features",
+    color: "from-green-500/20 to-green-500/5",
+    release: "IR3.2-Hypercare",
+    badges: ["L2/L3 Support", "Bug Fixes", "Production Monitoring"],
+    team: [
+      { name: "Sneha Girigoudar", role: "Lead", status: "Active" },
+      { name: "TBD", role: "Dev", status: "Open" },
+      { name: "TBD", role: "QA", status: "Open" },
+    ],
+  },
+];
 
 export const crossFunctionalTeams: CrossFunctionalTeam[] = [
   {

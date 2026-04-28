@@ -1,12 +1,16 @@
-import { devPods, crossFunctionalTeams } from "@/lib/team-data";
+import { devPods, crossFunctionalTeams, hypercarePods } from "@/lib/team-data";
 import { ReleaseSection } from "@/components/release-section";
 import { StatsHeader } from "@/components/stats-header";
 import { CrossFunctionalSection } from "@/components/cross-functional-section";
+import { LeadershipSection } from "@/components/leadership-section";
+import { SitUatSection } from "@/components/sit-uat-section";
+import { HypercareSection } from "@/components/hypercare-section";
 
 export default function Home() {
   const ir32Pods = devPods.filter((pod) => pod.release === "IR3.2");
   const ir33Pods = devPods.filter((pod) => pod.release === "IR3.3");
   const ir4Pods = devPods.filter((pod) => pod.release === "IR4");
+  const ir32HypercarePods = hypercarePods.filter((pod) => pod.release === "IR3.2-Hypercare");
 
   return (
     <main className="min-h-screen bg-background">
@@ -22,11 +26,25 @@ export default function Home() {
           <StatsHeader />
         </header>
 
-        {/* Cross-Functional Teams Section */}
+        {/* Leadership & Cross-Functional Section */}
+        <LeadershipSection defaultOpen={false} />
+
+        {/* Cross-Functional PODs Section */}
         <CrossFunctionalSection teams={crossFunctionalTeams} defaultOpen={false} />
 
         {/* Release Sections */}
         <div className="space-y-10">
+          {/* IR3.2 Hypercare Section */}
+          {ir32HypercarePods.length > 0 && (
+            <HypercareSection
+              title="IR3.2 Hypercare"
+              pods={ir32HypercarePods}
+              badgeColor="bg-green-500/20 text-green-400 border-green-500/30"
+              defaultOpen={true}
+            />
+          )}
+
+          {/* IR3.2 SIT Section */}
           <ReleaseSection
             title="IR3.2"
             phase="SIT"
@@ -35,6 +53,9 @@ export default function Home() {
             phaseColor="bg-blue-500/20 text-blue-400 border-blue-500/30"
             defaultOpen={true}
           />
+
+          {/* SIT/UAT Execution Team for IR3.2 */}
+          <SitUatSection defaultOpen={true} />
 
           <ReleaseSection
             title="IR3.3"
