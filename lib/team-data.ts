@@ -11,25 +11,11 @@ export interface DevPod {
   description: string;
   team: TeamMember[];
   color: string;
-  release: "IR3.1" | "IR3.2" | "IR3.3" | "IR4";
+  release: "IR3.2" | "IR3.3" | "IR4";
   badges?: string[];
 }
 
 export const devPods: DevPod[] = [
-  {
-    id: "pod-1a",
-    name: "Dev POD 2/Sneha G",
-    valueStream: "Release",
-    description: "Unified view of account, customer, and premise data for comprehensive insights",
-    color: "from-emerald-500/20 to-emerald-500/5",
-    release: "IR3.1",
-    badges: ["Account 360", "Customer 360", "Premise 360"],
-    team: [
-      { name: "Sneha Girigoudar", role: "Lead", status: "Active" },
-      { name: "Michael O'shea", role: "Onshore Solution Analyst", status: "Active" },
-      { name: "Manu Tyagi", role: "Dev", status: "Active" },
-    ],
-  },
   {
     id: "pod-1b",
     name: "Dev POD 2/Sneha G",

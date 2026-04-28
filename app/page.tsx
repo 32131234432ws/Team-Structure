@@ -4,7 +4,6 @@ import { StatsHeader } from "@/components/stats-header";
 import { CrossFunctionalSection } from "@/components/cross-functional-section";
 
 export default function Home() {
-  const ir31Pods = devPods.filter((pod) => pod.release === "IR3.1");
   const ir32Pods = devPods.filter((pod) => pod.release === "IR3.2");
   const ir33Pods = devPods.filter((pod) => pod.release === "IR3.3");
   const ir4Pods = devPods.filter((pod) => pod.release === "IR4");
@@ -28,15 +27,6 @@ export default function Home() {
 
         {/* Release Sections */}
         <div className="space-y-10">
-          <ReleaseSection
-            title="IR3.1"
-            phase="Hypercare Support"
-            pods={ir31Pods}
-            badgeColor="bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
-            phaseColor="bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
-            defaultOpen={true}
-          />
-
           <ReleaseSection
             title="IR3.2"
             phase="SIT"
