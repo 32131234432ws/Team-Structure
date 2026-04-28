@@ -35,14 +35,12 @@ export function LeadershipSection({ defaultOpen = false }: LeadershipSectionProp
   const roleOrder: LeadershipMember["role"][] = [
     "Lead",
     "Architect",
-    "DevOps Lead",
     "PMO",
   ];
 
   const roleDisplayNames: Record<LeadershipMember["role"], string> = {
     Lead: "Leads",
     Architect: "Architects",
-    "DevOps Lead": "DevOps Lead",
     PMO: "PMO",
   };
 
