@@ -318,6 +318,7 @@ export interface SitUatMember {
 }
 
 export const sitUatExecutionTeam: SitUatMember[] = [
+  { name: "Rajaraman A", role: "QA Lead", status: "Active", valueStreams: ["All Value Streams"] },
   { name: "Shanta", role: "QA Lead", status: "Active", valueStreams: ["All Value Streams"] },
   { name: "Maneesha", role: "QA", status: "Active", valueStreams: ["Move In", "Move Out", "Transfer"] },
   { name: "Bhyravabhotla Naga Lakshmi Sirisha", role: "QA", status: "Active", valueStreams: ["Move In", "Move Out"] },
