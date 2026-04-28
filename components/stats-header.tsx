@@ -1,41 +1,80 @@
-import { devPods } from "@/lib/team-data";
+import { devPods, crossFunctionalTeams, hypercarePods, sitUatExecutionTeam, leadershipTeam } from "@/lib/team-data";
 import { Badge } from "@/components/ui/badge";
 
 export function StatsHeader() {
-  // Get all team members across all pods
-  const allMembers = devPods.flatMap((pod) => pod.team);
+  // Collect all members from all data sources
+  const devPodMembers = devPods.flatMap((pod) => pod.team);
+  const hypercarePodMembers = hypercarePods.flatMap((pod) => pod.team);
+  const crossFunctionalMembers = crossFunctionalTeams.flatMap((team) => team.team);
+  const sitUatMembers = sitUatExecutionTeam;
+  const leadership = leadershipTeam;
 
-  // Normalize names to handle variations - people appearing in multiple pods
-  const normalizeName = (name: string) => {
-    const nameMap: Record<string, string> = {
-      "Sneha Girigoudar": "Sneha",
-      "Michael O'shea": "Michael",
-      "Suraj Ghodmare": "Suraj",
-      "Aditya Talwar": "Aditya",
-      "Gianna Caruso": "Gianna",
-      "Shreya LNU": "Shreya",
-      "Rinky Chawla": "Rinky",
-      "Deneys Van Der Merwe": "Deneys",
-      "Cicily Deng": "Cicily",
-      "Jitain Mohun": "Jitain",
-      "Mayur Kinhekar": "Mayur",
-      "Mounika Depuri": "Mounika",
-    };
-    return nameMap[name] || name;
+  // Create a unified set of all unique active staff names
+  const getAllUniqueActiveNames = () => {
+    const uniqueNames = new Set<string>();
+
+    // Add dev pod members
+    devPodMembers
+      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Add hypercare pod members
+    hypercarePodMembers
+      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Add cross-functional team members
+    crossFunctionalMembers
+      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Add SIT/UAT execution team members
+    sitUatMembers
+      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Add leadership team members
+    leadership
+      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    return uniqueNames;
   };
 
-  // Get unique active members only (excluding TBD) by role
-  const getUniqueActiveCountByRole = (role: string) => {
-    const members = allMembers.filter(
-      (m) => m.role === role && m.status === "Active"
-    );
-    const uniqueNames = new Set(
-      members
-        .map((m) => normalizeName(m.name))
-        .filter((name) => name !== "TBD" && name !== "FPL")
-    );
-    const fplCount = members.some((m) => m.name === "FPL") ? 1 : 0;
-    return uniqueNames.size + fplCount;
+  // Get unique active members by role across ALL data sources
+  const getUniqueActiveCountByRole = (role: string | string[]) => {
+    const roles = Array.isArray(role) ? role : [role];
+    const uniqueNames = new Set<string>();
+
+    // Dev pod members
+    devPodMembers
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Hypercare pod members
+    hypercarePodMembers
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Cross-functional team members
+    crossFunctionalMembers
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // SIT/UAT execution team members
+    sitUatMembers
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Leadership team members
+    leadership
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Check for FPL in dev pods for these roles
+    const hasFPL = devPodMembers.some((m) => m.name === "FPL" && roles.includes(m.role) && m.status === "Active");
+    
+    return uniqueNames.size + (hasFPL ? 1 : 0);
   };
 
   const totalByRole = {
@@ -43,18 +82,19 @@ export function StatsHeader() {
     "Onshore Solution Analyst": getUniqueActiveCountByRole("Onshore Solution Analyst"),
     "Offshore Solution Analyst": getUniqueActiveCountByRole("Offshore Solution Analyst"),
     Dev: getUniqueActiveCountByRole("Dev"),
-    QA: getUniqueActiveCountByRole("QA"),
+    QA: getUniqueActiveCountByRole(["QA", "QA Lead"]),
+    Team: getUniqueActiveCountByRole("Team"),
+    Architect: getUniqueActiveCountByRole("Architect"),
+    PMO: getUniqueActiveCountByRole("PMO"),
+    Intern: getUniqueActiveCountByRole("Intern"),
   };
 
-  // Total unique people across ALL roles (a person can have multiple roles)
-  const totalUniquePeople = new Set(
-    allMembers
-      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
-      .map((m) => normalizeName(m.name))
-  ).size + (allMembers.some((m) => m.name === "FPL" && m.status === "Active") ? 1 : 0);
+  // Total unique people across ALL data sources
+  const allUniqueNames = getAllUniqueActiveNames();
+  const hasFPL = devPodMembers.some((m) => m.name === "FPL" && m.status === "Active");
+  const totalUniquePeople = allUniqueNames.size + (hasFPL ? 1 : 0);
 
-  // Count total TBD (open positions)
-  const totalTBD = allMembers.filter((m) => m.name === "TBD").length;
+
 
   return (
     <div className="flex flex-col gap-3">
@@ -102,9 +142,27 @@ export function StatsHeader() {
           </Badge>
           <Badge
             variant="outline"
-            className="bg-muted text-muted-foreground border-border"
+            className="bg-violet-500/20 text-violet-400 border-violet-500/30"
           >
-            {totalTBD} TBD/Open
+            {totalByRole.Team} Cross Functional
+          </Badge>
+          <Badge
+            variant="outline"
+            className="bg-orange-500/20 text-orange-400 border-orange-500/30"
+          >
+            {totalByRole.Architect} Architects
+          </Badge>
+          <Badge
+            variant="outline"
+            className="bg-pink-500/20 text-pink-400 border-pink-500/30"
+          >
+            {totalByRole.PMO} PMO
+          </Badge>
+          <Badge
+            variant="outline"
+            className="bg-lime-500/20 text-lime-400 border-lime-500/30"
+          >
+            {totalByRole.Intern} Interns
           </Badge>
         </div>
       </div>
