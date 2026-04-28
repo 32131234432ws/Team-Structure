@@ -5,18 +5,21 @@ export function StatsHeader() {
   // Get all team members across all pods
   const allMembers = devPods.flatMap((pod) => pod.team);
 
-  // Normalize names to handle variations
+  // Normalize names to handle variations - people appearing in multiple pods
   const normalizeName = (name: string) => {
-    // Handle known variations - map different appearances to same canonical name
     const nameMap: Record<string, string> = {
       "Sneha Girigoudar": "Sneha",
-      "Sneha": "Sneha",
       "Michael O'shea": "Michael",
-      "Michael": "Michael",
       "Suraj Ghodmare": "Suraj",
-      "Suraj/Aditya": "Suraj/Aditya",
       "Aditya Talwar": "Aditya",
       "Gianna Caruso": "Gianna",
+      "Shreya LNU": "Shreya",
+      "Rinky Chawla": "Rinky",
+      "Deneys Van Der Merwe": "Deneys",
+      "Cicily Deng": "Cicily",
+      "Jitain Mohun": "Jitain",
+      "Mayur Kinhekar": "Mayur",
+      "Mounika Depuri": "Mounika",
     };
     return nameMap[name] || name;
   };
