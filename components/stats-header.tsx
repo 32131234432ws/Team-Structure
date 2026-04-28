@@ -42,40 +42,37 @@ export function StatsHeader() {
   };
 
   // Get unique active members by role across ALL data sources
-  const getUniqueActiveCountByRole = (role: string) => {
+  const getUniqueActiveCountByRole = (role: string | string[]) => {
+    const roles = Array.isArray(role) ? role : [role];
     const uniqueNames = new Set<string>();
 
     // Dev pod members
     devPodMembers
-      .filter((m) => m.role === role && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
       .forEach((m) => uniqueNames.add(m.name));
 
     // Hypercare pod members
     hypercarePodMembers
-      .filter((m) => m.role === role && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
       .forEach((m) => uniqueNames.add(m.name));
 
     // Cross-functional team members
     crossFunctionalMembers
-      .filter((m) => m.role === role && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
       .forEach((m) => uniqueNames.add(m.name));
 
-    // SIT/UAT execution team members (QA and QA Lead roles)
-    if (role === "QA") {
-      sitUatMembers
-        .filter((m) => (m.role === "QA" || m.role === "QA Lead") && m.status === "Active" && m.name !== "TBD")
-        .forEach((m) => uniqueNames.add(m.name));
-    }
+    // SIT/UAT execution team members
+    sitUatMembers
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD")
+      .forEach((m) => uniqueNames.add(m.name));
 
-    // Leadership team members (Leads only)
-    if (role === "Lead") {
-      leadership
-        .filter((m) => m.role === "Lead" && m.status === "Active" && m.name !== "TBD")
-        .forEach((m) => uniqueNames.add(m.name));
-    }
+    // Leadership team members
+    leadership
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD")
+      .forEach((m) => uniqueNames.add(m.name));
 
-    // Check for FPL in dev pods for this role
-    const hasFPL = devPodMembers.some((m) => m.name === "FPL" && m.role === role && m.status === "Active");
+    // Check for FPL in dev pods for these roles
+    const hasFPL = devPodMembers.some((m) => m.name === "FPL" && roles.includes(m.role) && m.status === "Active");
     
     return uniqueNames.size + (hasFPL ? 1 : 0);
   };
@@ -85,7 +82,11 @@ export function StatsHeader() {
     "Onshore Solution Analyst": getUniqueActiveCountByRole("Onshore Solution Analyst"),
     "Offshore Solution Analyst": getUniqueActiveCountByRole("Offshore Solution Analyst"),
     Dev: getUniqueActiveCountByRole("Dev"),
-    QA: getUniqueActiveCountByRole("QA"),
+    QA: getUniqueActiveCountByRole(["QA", "QA Lead"]),
+    Team: getUniqueActiveCountByRole("Team"),
+    Architect: getUniqueActiveCountByRole("Architect"),
+    PMO: getUniqueActiveCountByRole("PMO"),
+    Intern: getUniqueActiveCountByRole("Intern"),
   };
 
   // Total unique people across ALL data sources
@@ -138,6 +139,30 @@ export function StatsHeader() {
             className="bg-rose-500/20 text-rose-400 border-rose-500/30"
           >
             {totalByRole.QA} QAs
+          </Badge>
+          <Badge
+            variant="outline"
+            className="bg-violet-500/20 text-violet-400 border-violet-500/30"
+          >
+            {totalByRole.Team} Team
+          </Badge>
+          <Badge
+            variant="outline"
+            className="bg-orange-500/20 text-orange-400 border-orange-500/30"
+          >
+            {totalByRole.Architect} Architects
+          </Badge>
+          <Badge
+            variant="outline"
+            className="bg-pink-500/20 text-pink-400 border-pink-500/30"
+          >
+            {totalByRole.PMO} PMO
+          </Badge>
+          <Badge
+            variant="outline"
+            className="bg-lime-500/20 text-lime-400 border-lime-500/30"
+          >
+            {totalByRole.Intern} Interns
           </Badge>
         </div>
       </div>
