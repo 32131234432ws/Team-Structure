@@ -1,37 +1,54 @@
-import { devPods } from "@/lib/team-data";
+import { devPods, crossFunctionalTeams, hypercarePods, sitUatExecutionTeam, leadershipTeam } from "@/lib/team-data";
 import { Badge } from "@/components/ui/badge";
 
 export function StatsHeader() {
-  // Get all team members across all pods
-  const allMembers = devPods.flatMap((pod) => pod.team);
+  // Collect all members from all data sources
+  const devPodMembers = devPods.flatMap((pod) => pod.team);
+  const hypercarePodMembers = hypercarePods.flatMap((pod) => pod.team);
+  const crossFunctionalMembers = crossFunctionalTeams.flatMap((team) => team.team);
+  const sitUatMembers = sitUatExecutionTeam;
+  const leadership = leadershipTeam;
 
-  // Normalize names to handle variations - people appearing in multiple pods
-  const normalizeName = (name: string) => {
-    const nameMap: Record<string, string> = {
-      "Sneha Girigoudar": "Sneha",
-      "Michael O'shea": "Michael",
-      "Suraj Ghodmare": "Suraj",
-      "Aditya Talwar": "Aditya",
-      "Gianna Caruso": "Gianna",
-      "Shreya LNU": "Shreya",
-      "Rinky Chawla": "Rinky",
-      "Deneys Van Der Merwe": "Deneys",
-      "Cicily Deng": "Cicily",
-      "Jitain Mohun": "Jitain",
-      "Mayur Kinhekar": "Mayur",
-      "Mounika Depuri": "Mounika",
-    };
-    return nameMap[name] || name;
+  // Create a unified set of all unique active staff names
+  const getAllUniqueActiveNames = () => {
+    const uniqueNames = new Set<string>();
+
+    // Add dev pod members
+    devPodMembers
+      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Add hypercare pod members
+    hypercarePodMembers
+      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Add cross-functional team members
+    crossFunctionalMembers
+      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Add SIT/UAT execution team members
+    sitUatMembers
+      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    // Add leadership team members
+    leadership
+      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .forEach((m) => uniqueNames.add(m.name));
+
+    return uniqueNames;
   };
 
-  // Get unique active members only (excluding TBD) by role
+  // Get unique active members by role from dev pods only (for role breakdown)
   const getUniqueActiveCountByRole = (role: string) => {
-    const members = allMembers.filter(
+    const members = devPodMembers.filter(
       (m) => m.role === role && m.status === "Active"
     );
     const uniqueNames = new Set(
       members
-        .map((m) => normalizeName(m.name))
+        .map((m) => m.name)
         .filter((name) => name !== "TBD" && name !== "FPL")
     );
     const fplCount = members.some((m) => m.name === "FPL") ? 1 : 0;
@@ -46,15 +63,16 @@ export function StatsHeader() {
     QA: getUniqueActiveCountByRole("QA"),
   };
 
-  // Total unique people across ALL roles (a person can have multiple roles)
-  const totalUniquePeople = new Set(
-    allMembers
-      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
-      .map((m) => normalizeName(m.name))
-  ).size + (allMembers.some((m) => m.name === "FPL" && m.status === "Active") ? 1 : 0);
+  // Total unique people across ALL data sources
+  const allUniqueNames = getAllUniqueActiveNames();
+  const hasFPL = devPodMembers.some((m) => m.name === "FPL" && m.status === "Active");
+  const totalUniquePeople = allUniqueNames.size + (hasFPL ? 1 : 0);
 
-  // Count total TBD (open positions)
-  const totalTBD = allMembers.filter((m) => m.name === "TBD").length;
+  // Count total TBD (open positions) across all sources
+  const totalTBD = 
+    devPodMembers.filter((m) => m.name === "TBD").length +
+    hypercarePodMembers.filter((m) => m.name === "TBD").length +
+    crossFunctionalMembers.filter((m) => m.name === "TBD").length;
 
   return (
     <div className="flex flex-col gap-3">
