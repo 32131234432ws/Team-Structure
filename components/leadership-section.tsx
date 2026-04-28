@@ -34,12 +34,11 @@ export function LeadershipSection({ defaultOpen = false }: LeadershipSectionProp
   }, {} as Record<string, LeadershipMember[]>);
 
   const roleOrder: LeadershipMember["role"][] = [
-    "Program Lead",
+    "Lead",
+    "PMO Lead",
     "PMO",
     "Architecture",
-    "Delivery Lead",
-    "Technical Lead",
-    "QA Lead",
+    "DevOps Lead",
   ];
 
   return (

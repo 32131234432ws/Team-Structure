@@ -8,19 +8,22 @@ export interface TeamMember {
 // Leadership team interface
 export interface LeadershipMember {
   name: string;
-  role: "Program Lead" | "PMO" | "Architecture" | "QA Lead" | "Delivery Lead" | "Technical Lead";
+  role: "Lead" | "PMO Lead" | "PMO" | "Architecture" | "DevOps Lead";
   status: "Active" | "Planned" | "Open";
 }
 
 // Leadership team data
 export const leadershipTeam: LeadershipMember[] = [
-  { name: "Anto", role: "Program Lead", status: "Active" },
-  { name: "Susan", role: "PMO", status: "Active" },
+  { name: "Ted Capaldi", role: "Lead", status: "Active" },
+  { name: "Matthew Rupas", role: "Lead", status: "Active" },
+  { name: "Sujith Pillai", role: "Lead", status: "Active" },
+  { name: "Anto Germans", role: "Lead", status: "Active" },
+  { name: "Susan Matthews", role: "Lead", status: "Active" },
+  { name: "Shanta", role: "PMO Lead", status: "Active" },
+  { name: "Paarth", role: "PMO Lead", status: "Active" },
+  { name: "Hemant", role: "Architecture", status: "Active" },
   { name: "Tyaga", role: "Architecture", status: "Active" },
-  { name: "Ahmed", role: "Technical Lead", status: "Active" },
-  { name: "Sujith", role: "Delivery Lead", status: "Active" },
-  { name: "Ritesh", role: "Technical Lead", status: "Active" },
-  { name: "Shanta", role: "QA Lead", status: "Active" },
+  { name: "Ritesh", role: "DevOps Lead", status: "Active" },
   { name: "Courtney", role: "PMO", status: "Active" },
 ];
 
@@ -307,12 +310,11 @@ export const roleColors: Record<TeamMember["role"], string> = {
 };
 
 export const leadershipRoleColors: Record<LeadershipMember["role"], string> = {
-  "Program Lead": "bg-purple-500/20 text-purple-400 border-purple-500/30",
+  Lead: "bg-purple-500/20 text-purple-400 border-purple-500/30",
+  "PMO Lead": "bg-pink-500/20 text-pink-400 border-pink-500/30",
   PMO: "bg-pink-500/20 text-pink-400 border-pink-500/30",
   Architecture: "bg-orange-500/20 text-orange-400 border-orange-500/30",
-  "QA Lead": "bg-red-500/20 text-red-400 border-red-500/30",
-  "Delivery Lead": "bg-teal-500/20 text-teal-400 border-teal-500/30",
-  "Technical Lead": "bg-sky-500/20 text-sky-400 border-sky-500/30",
+  "DevOps Lead": "bg-sky-500/20 text-sky-400 border-sky-500/30",
 };
 
 export const statusColors: Record<TeamMember["status"], string> = {
