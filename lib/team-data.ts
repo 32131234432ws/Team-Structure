@@ -428,17 +428,4 @@ export const crossFunctionalTeams: CrossFunctionalTeam[] = [
       { name: "Sanket Mundargi", role: "Team", status: "Active" },
     ],
   },
-  {
-    id: "cf-interns",
-    name: "Interns",
-    description: "Internship program participants supporting various teams",
-    color: "from-lime-500/20 to-lime-500/5",
-    team: [
-      { name: "Ziyad Auti", role: "Intern", status: "Active" },
-      { name: "Kishor S", role: "Intern", status: "Active" },
-      { name: "Krithika Harishchandra Shettigar", role: "Intern", status: "Active" },
-      { name: "Potumanchi Sree Yashana", role: "Intern", status: "Active" },
-      { name: "Adithya Sankar S", role: "Intern", status: "Active" },
-    ],
-  },
 ];
