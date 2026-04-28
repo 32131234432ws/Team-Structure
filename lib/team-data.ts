@@ -143,6 +143,7 @@ export const devPods: DevPod[] = [
     badges: ["Billing & Usage", "Payment Programs"],
     team: [
       { name: "Shreya LNU", role: "Lead", status: "Active" },
+      { name: "Sahithi Manne", role: "Onshore Solution Analyst", status: "Active" },
       { name: "Namrata Bansode", role: "Offshore Solution Analyst", status: "Active" },
       { name: "Mounika Depuri", role: "Dev", status: "Active" },
       { name: "Shivam Shete", role: "Dev", status: "Active" },
@@ -318,6 +319,7 @@ export interface SitUatMember {
 }
 
 export const sitUatExecutionTeam: SitUatMember[] = [
+  { name: "Rajaraman A", role: "QA Lead", status: "Active", valueStreams: ["All Value Streams"] },
   { name: "Shanta", role: "QA Lead", status: "Active", valueStreams: ["All Value Streams"] },
   { name: "Maneesha", role: "QA", status: "Active", valueStreams: ["Move In", "Move Out", "Transfer"] },
   { name: "Bhyravabhotla Naga Lakshmi Sirisha", role: "QA", status: "Active", valueStreams: ["Move In", "Move Out"] },

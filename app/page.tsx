@@ -1,10 +1,9 @@
-import { devPods, crossFunctionalTeams, hypercarePods } from "@/lib/team-data";
+import { devPods, crossFunctionalTeams, hypercarePods, sitUatExecutionTeam } from "@/lib/team-data";
 import { ReleaseSection } from "@/components/release-section";
 import { StatsHeader } from "@/components/stats-header";
 import { CrossFunctionalSection } from "@/components/cross-functional-section";
 import { LeadershipSection } from "@/components/leadership-section";
-import { SitUatSection } from "@/components/sit-uat-section";
-import { HypercareSection } from "@/components/hypercare-section";
+import { CombinedReleaseSection } from "@/components/combined-release-section";
 
 export default function Home() {
   const ir32Pods = devPods.filter((pod) => pod.release === "IR3.2");
@@ -32,33 +31,22 @@ export default function Home() {
         {/* Cross-Functional PODs Section */}
         <CrossFunctionalSection teams={crossFunctionalTeams} defaultOpen={false} />
 
-        {/* Release Sections */}
+{/* Release Sections */}
         <div className="space-y-10">
-          {/* IR3.2 Hypercare Section */}
-          {ir32HypercarePods.length > 0 && (
-            <HypercareSection
-              title="IR3.2 Hypercare"
-              pods={ir32HypercarePods}
-              badgeColor="bg-green-500/20 text-green-400 border-green-500/30"
-              defaultOpen={true}
-            />
-          )}
-
-          {/* IR3.2 SIT Section */}
-          <ReleaseSection
+          {/* IR3.2 with sub-sections */}
+          <CombinedReleaseSection
             title="IR3.2"
             phase="SIT"
-            pods={ir32Pods}
+            devPods={ir32Pods}
+            hypercarePods={ir32HypercarePods}
+            sitUatTeam={sitUatExecutionTeam}
             badgeColor="bg-blue-500/20 text-blue-400 border-blue-500/30"
             phaseColor="bg-blue-500/20 text-blue-400 border-blue-500/30"
             defaultOpen={true}
           />
 
-          {/* SIT/UAT Execution Team for IR3.2 */}
-          <SitUatSection defaultOpen={true} />
-
           <ReleaseSection
-            title="IR3.3"
+            title="3.X (Outage)"
             phase="Planning"
             pods={ir33Pods}
             badgeColor="bg-cyan-500/20 text-cyan-400 border-cyan-500/30"
@@ -66,10 +54,11 @@ export default function Home() {
             defaultOpen={true}
           />
 
-          <ReleaseSection
+          {/* IR4 with sub-sections */}
+          <CombinedReleaseSection
             title="IR4"
             phase="Development"
-            pods={ir4Pods}
+            devPods={ir4Pods}
             badgeColor="bg-amber-500/20 text-amber-400 border-amber-500/30"
             phaseColor="bg-amber-500/20 text-amber-400 border-amber-500/30"
             defaultOpen={true}
