@@ -144,7 +144,7 @@ export function StatsHeader() {
             variant="outline"
             className="bg-violet-500/20 text-violet-400 border-violet-500/30"
           >
-            {totalByRole.Team} Team
+            {totalByRole.Team} Cross Functional
           </Badge>
           <Badge
             variant="outline"
