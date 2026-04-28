@@ -1,21 +1,7 @@
-export interface TeamMember {
-  name: string;
-  role: "Lead" | "Onshore Solution Analyst" | "Offshore Solution Analyst" | "Dev" | "QA" | "Team";
-  status: "Active" | "Planned" | "Open";
-}
+import XLSX from 'xlsx';
 
-export interface DevPod {
-  id: string;
-  name: string;
-  valueStream: string;
-  description: string;
-  team: TeamMember[];
-  color: string;
-  release: "IR3.1" | "IR3.2" | "IR3.3" | "IR4";
-  badges?: string[];
-}
-
-export const devPods: DevPod[] = [
+// Current Dev Pods Data
+const devPods = [
   {
     id: "pod-1a",
     name: "Dev POD 2/Sneha G",
@@ -116,6 +102,7 @@ export const devPods: DevPod[] = [
     description: "Case handling and resolution workflows",
     color: "from-pink-500/20 to-pink-500/5",
     release: "IR3.2",
+    badges: [],
     team: [
       { name: "Rinky Chawla", role: "Lead", status: "Active" },
       { name: "Deneys Van Der Merwe", role: "Onshore Solution Analyst", status: "Active" },
@@ -170,9 +157,9 @@ export const devPods: DevPod[] = [
       { name: "Sneha Girigoudar", role: "Lead", status: "Active" },
       { name: "Rohan Bandla", role: "Onshore Solution Analyst", status: "Active" },
       { name: "TBD", role: "Offshore Solution Analyst", status: "Open" },
-      { name: "Amarjeet Singh", role: "Dev", status: "Active" },
       { name: "Ankit Mishra", role: "Dev", status: "Active" },
       { name: "Pranay Reddy", role: "Dev", status: "Active" },
+      { name: "TBD", role: "Dev", status: "Open" },
     ],
   },
   {
@@ -281,31 +268,8 @@ export const devPods: DevPod[] = [
   },
 ];
 
-export const roleColors: Record<TeamMember["role"], string> = {
-  Lead: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
-  "Onshore Solution Analyst": "bg-blue-500/20 text-blue-400 border-blue-500/30",
-  "Offshore Solution Analyst": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
-  Dev: "bg-amber-500/20 text-amber-400 border-amber-500/30",
-  QA: "bg-rose-500/20 text-rose-400 border-rose-500/30",
-  Team: "bg-violet-500/20 text-violet-400 border-violet-500/30",
-};
-
-export const statusColors: Record<TeamMember["status"], string> = {
-  Active: "bg-emerald-500",
-  Planned: "bg-amber-500",
-  Open: "bg-muted-foreground",
-};
-
-// Cross-functional teams that work across all releases
-export interface CrossFunctionalTeam {
-  id: string;
-  name: string;
-  description: string;
-  color: string;
-  team: TeamMember[];
-}
-
-export const crossFunctionalTeams: CrossFunctionalTeam[] = [
+// Cross-functional teams
+const crossFunctionalTeams = [
   {
     id: "cf-integration",
     name: "Integration POD",
@@ -340,3 +304,86 @@ export const crossFunctionalTeams: CrossFunctionalTeam[] = [
     ],
   },
 ];
+
+// Create workbook
+const workbook = XLSX.utils.book_new();
+
+// Sheet 1: Dev Pods
+const devPodsData = devPods.map(pod => ({
+  "Pod ID": pod.id,
+  "Pod Name": pod.name,
+  "Value Stream": pod.valueStream,
+  "Description": pod.description,
+  "Release": pod.release,
+  "Badges": (pod.badges || []).join(", "),
+  "Color": pod.color
+}));
+const devPodsSheet = XLSX.utils.json_to_sheet(devPodsData);
+XLSX.utils.book_append_sheet(workbook, devPodsSheet, "Dev Pods");
+
+// Sheet 2: Team Members
+const teamMembersData = [];
+devPods.forEach(pod => {
+  pod.team.forEach(member => {
+    teamMembersData.push({
+      "Pod ID": pod.id,
+      "Pod Name": pod.name,
+      "Release": pod.release,
+      "Member Name": member.name,
+      "Role": member.role,
+      "Status": member.status
+    });
+  });
+});
+const teamMembersSheet = XLSX.utils.json_to_sheet(teamMembersData);
+XLSX.utils.book_append_sheet(workbook, teamMembersSheet, "Team Members");
+
+// Sheet 3: Cross-Functional PODs
+const cfPodsData = crossFunctionalTeams.map(pod => ({
+  "POD ID": pod.id,
+  "POD Name": pod.name,
+  "Description": pod.description,
+  "Color": pod.color
+}));
+const cfPodsSheet = XLSX.utils.json_to_sheet(cfPodsData);
+XLSX.utils.book_append_sheet(workbook, cfPodsSheet, "Cross-Functional PODs");
+
+// Sheet 4: Cross-Functional Members
+const cfMembersData = [];
+crossFunctionalTeams.forEach(pod => {
+  pod.team.forEach(member => {
+    cfMembersData.push({
+      "POD ID": pod.id,
+      "POD Name": pod.name,
+      "Member Name": member.name,
+      "Role": member.role,
+      "Status": member.status
+    });
+  });
+});
+const cfMembersSheet = XLSX.utils.json_to_sheet(cfMembersData);
+XLSX.utils.book_append_sheet(workbook, cfMembersSheet, "Cross-Functional Members");
+
+// Sheet 5: Summary by Release
+const releases = ["IR3.1", "IR3.2", "IR3.3", "IR4"];
+const summaryData = releases.map(release => {
+  const releasePods = devPods.filter(p => p.release === release);
+  const allMembers = releasePods.flatMap(p => p.team);
+  return {
+    "Release": release,
+    "Total PODs": releasePods.length,
+    "Leads": allMembers.filter(m => m.role === "Lead" && m.status === "Active").length,
+    "Onshore SAs": allMembers.filter(m => m.role === "Onshore Solution Analyst" && m.status === "Active").length,
+    "Offshore SAs": allMembers.filter(m => m.role === "Offshore Solution Analyst" && m.status === "Active").length,
+    "Devs": allMembers.filter(m => m.role === "Dev" && m.status === "Active").length,
+    "QAs": allMembers.filter(m => m.role === "QA" && m.status === "Active").length,
+    "TBD/Open": allMembers.filter(m => m.name === "TBD").length
+  };
+});
+const summarySheet = XLSX.utils.json_to_sheet(summaryData);
+XLSX.utils.book_append_sheet(workbook, summarySheet, "Summary by Release");
+
+// Write the file
+XLSX.writeFile(workbook, "public/team-structure-data-export.xlsx");
+
+console.log("Excel file exported successfully to public/team-structure-data-export.xlsx");
