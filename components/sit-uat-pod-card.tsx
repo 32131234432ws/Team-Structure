@@ -21,7 +21,7 @@ export function SitUatPodCard({ team }: SitUatPodCardProps) {
     return acc;
   }, {} as Record<string, SitUatMember[]>);
 
-  const qaLead = team.find((m) => m.role === "QA Lead");
+  const qaLeads = team.filter((m) => m.role === "QA Lead");
   const qaMembers = team.filter((m) => m.role === "QA");
 
   return (
@@ -44,21 +44,30 @@ export function SitUatPodCard({ team }: SitUatPodCardProps) {
       </CardHeader>
       <CardContent className="pt-4">
         <div className="space-y-4">
-          {/* QA Lead */}
-          {qaLead && (
+          {/* QA Leads */}
+          {qaLeads.length > 0 && (
             <div className="mb-4">
-              <h4 className="text-sm font-medium text-muted-foreground mb-2">QA Lead</h4>
-              <div className="flex items-center justify-between py-2 px-3 rounded-lg bg-background/50 border border-border/50">
-                <div className="flex flex-col">
-                  <span className="text-sm text-foreground">{qaLead.name}</span>
-                  <span className="text-xs text-muted-foreground">
-                    {qaLead.valueStreams.join(", ")}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-emerald-500" />
-                  <span className="text-xs text-muted-foreground">{qaLead.status}</span>
-                </div>
+              <h4 className="text-sm font-medium text-muted-foreground mb-2">
+                QA Lead{qaLeads.length > 1 ? "s" : ""}
+              </h4>
+              <div className="space-y-2">
+                {qaLeads.map((lead, idx) => (
+                  <div
+                    key={`${lead.name}-${idx}`}
+                    className="flex items-center justify-between py-2 px-3 rounded-lg bg-background/50 border border-border/50"
+                  >
+                    <div className="flex flex-col">
+                      <span className="text-sm text-foreground">{lead.name}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {lead.valueStreams.join(", ")}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-emerald-500" />
+                      <span className="text-xs text-muted-foreground">{lead.status}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}
