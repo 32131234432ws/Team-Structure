@@ -134,7 +134,7 @@ export function StatsHeader() {
           >
             {totalByRole.Dev} Devs
           </Badge>
-<Badge
+          <Badge
             variant="outline"
             className="bg-rose-500/20 text-rose-400 border-rose-500/30"
           >
