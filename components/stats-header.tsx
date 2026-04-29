@@ -30,12 +30,12 @@ export function StatsHeader() {
 
     // Add SIT/UAT execution team members
     sitUatMembers
-      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .filter((m) => m.status === "Active" && !["TBD", "FPL"].includes(m.name))
       .forEach((m) => uniqueNames.add(m.name));
 
     // Add leadership team members
     leadership
-      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
+      .filter((m) => m.status === "Active" && !["TBD", "FPL"].includes(m.name))
       .forEach((m) => uniqueNames.add(m.name));
 
     return uniqueNames;
@@ -63,12 +63,12 @@ export function StatsHeader() {
 
     // SIT/UAT execution team members
     sitUatMembers
-      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD")
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && !["TBD", "FPL"].includes(m.name))
       .forEach((m) => uniqueNames.add(m.name));
 
     // Leadership team members
     leadership
-      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD")
+      .filter((m) => roles.includes(m.role) && m.status === "Active" && !["TBD", "FPL"].includes(m.name))
       .forEach((m) => uniqueNames.add(m.name));
 
     // Check for FPL in dev pods for these roles
@@ -134,7 +134,7 @@ export function StatsHeader() {
           >
             {totalByRole.Dev} Devs
           </Badge>
-<Badge
+          <Badge
             variant="outline"
             className="bg-rose-500/20 text-rose-400 border-rose-500/30"
           >

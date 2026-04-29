@@ -8,7 +8,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { HypercarePod, TeamMember } from "@/lib/team-data";
-import { DevPodCard } from "@/components/dev-pod-card";
+import { DevPodCard, DevPodCardProps } from "@/components/dev-pod-card";
 import { cn } from "@/lib/utils";
 
 interface HypercareSectionProps {
@@ -106,7 +106,7 @@ export function HypercareSection({
           {pods.map((pod) => (
             <DevPodCard
               key={pod.id}
-              pod={pod as any}
+              pod={pod as DevPodCardProps["pod"]}
               defaultExpanded={true}
             />
           ))}
