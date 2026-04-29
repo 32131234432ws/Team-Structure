@@ -7,14 +7,15 @@ import { Badge } from "@/components/ui/badge";
 import { DevPod, roleColors, statusColors, TeamMember } from "@/lib/team-data";
 import { cn } from "@/lib/utils";
 
-interface DevPodCardProps {
+export interface DevPodCardProps {
   pod: DevPod;
+  defaultExpanded?: boolean;
 }
 
 const roleOrder: TeamMember["role"][] = ["Lead", "Onshore Solution Analyst", "Offshore Solution Analyst", "Dev", "QA"];
 
-export function DevPodCard({ pod }: DevPodCardProps) {
-  const [isExpanded, setIsExpanded] = useState(true);
+export function DevPodCard({ pod, defaultExpanded = true }: DevPodCardProps) {
+  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [expandedRoles, setExpandedRoles] = useState<Record<string, boolean>>({
     Lead: true,
     "Onshore Solution Analyst": true,
