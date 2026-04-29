@@ -4,11 +4,11 @@ import { useState } from "react";
 import { ChevronDown, ChevronRight, Users } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { DevPod, roleColors, statusColors, TeamMember } from "@/lib/team-data";
+import { DevPod, HypercarePod, roleColors, statusColors, TeamMember } from "@/lib/team-data";
 import { cn } from "@/lib/utils";
 
 export interface DevPodCardProps {
-  pod: DevPod;
+  pod: DevPod | HypercarePod;
   defaultExpanded?: boolean;
 }
 
