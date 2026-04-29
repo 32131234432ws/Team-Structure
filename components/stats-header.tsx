@@ -97,8 +97,8 @@ export function StatsHeader() {
 
 
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex flex-wrap items-center gap-4">
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap items-center gap-3">
         <span className="text-sm text-muted-foreground">Total Active Staff:</span>
         <Badge
           variant="outline"
@@ -107,9 +107,9 @@ export function StatsHeader() {
           {totalUniquePeople}
         </Badge>
       </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <span className="text-sm text-muted-foreground">By Role:</span>
-        <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center gap-3">
+        <span className="text-sm text-muted-foreground whitespace-nowrap">By Role:</span>
+        <div className="flex flex-wrap items-center gap-2">
           <Badge
             variant="outline"
             className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
