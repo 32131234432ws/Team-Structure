@@ -371,7 +371,6 @@ export const hypercarePods: HypercarePod[] = [
       { name: "Madhumita Kodidela", role: "Dev", status: "Active" },
       { name: "Piyush Singh", role: "Dev", status: "Active" },
       { name: "Shikhar Sanjeev", role: "Dev", status: "Active" },
-      { name: "Nishi Jain", role: "Dev", status: "Active" },
       { name: "Sandesh Saravanan", role: "Dev", status: "Active" },
       { name: "Pratik Kurdukar", role: "Dev", status: "Active" },
     ],
