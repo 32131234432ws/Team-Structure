@@ -13,58 +13,81 @@ interface TeamPageTabsProps {
 export function TeamPageTabs({ structureView, detailedView, rolesView }: TeamPageTabsProps) {
   const [activeTab, setActiveTab] = useState<"structure" | "detailed" | "roles">("structure");
 
-  const contentBgColors = {
-    structure: "bg-blue-500/5 border-blue-500/20",
-    detailed: "bg-emerald-500/5 border-emerald-500/20",
-    roles: "bg-amber-500/5 border-amber-500/20",
+  const tabConfig = {
+    structure: {
+      activeBg: "bg-blue-500/20",
+      activeText: "text-blue-300",
+      activeBorder: "border-blue-500/40",
+      contentBg: "bg-blue-500/5 border-blue-500/20",
+    },
+    detailed: {
+      activeBg: "bg-emerald-500/20",
+      activeText: "text-emerald-300",
+      activeBorder: "border-emerald-500/40",
+      contentBg: "bg-emerald-500/5 border-emerald-500/20",
+    },
+    roles: {
+      activeBg: "bg-amber-500/20",
+      activeText: "text-amber-300",
+      activeBorder: "border-amber-500/40",
+      contentBg: "bg-amber-500/5 border-amber-500/20",
+    },
   };
 
   return (
     <div>
-      {/* Tab Navigation */}
-      <div className="flex items-center gap-3 mb-4">
+      {/* Tab Navigation - Browser Style */}
+      <div className="flex items-end gap-1 relative">
+        {/* Structure Tab */}
         <button
           onClick={() => setActiveTab("structure")}
           className={cn(
-            "flex items-center gap-2 px-5 py-3 text-sm font-semibold rounded-xl border-2 transition-all",
+            "relative flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-t-xl border border-b-0 transition-all",
             activeTab === "structure"
-              ? "bg-blue-500/30 text-blue-300 border-blue-500/50 shadow-lg shadow-blue-500/20 scale-105"
-              : "bg-muted/20 text-muted-foreground border-border/30 hover:bg-blue-500/10 hover:text-blue-400 hover:border-blue-500/30"
+              ? cn(tabConfig.structure.activeBg, tabConfig.structure.activeText, tabConfig.structure.activeBorder, "z-10 -mb-px")
+              : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50 hover:text-foreground -mb-px"
           )}
         >
-          <LayoutGrid className="h-5 w-5" />
+          <LayoutGrid className="h-4 w-4" />
           Team Structure
         </button>
+
+        {/* Detailed Tab */}
         <button
           onClick={() => setActiveTab("detailed")}
           className={cn(
-            "flex items-center gap-2 px-5 py-3 text-sm font-semibold rounded-xl border-2 transition-all",
+            "relative flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-t-xl border border-b-0 transition-all",
             activeTab === "detailed"
-              ? "bg-emerald-500/30 text-emerald-300 border-emerald-500/50 shadow-lg shadow-emerald-500/20 scale-105"
-              : "bg-muted/20 text-muted-foreground border-border/30 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/30"
+              ? cn(tabConfig.detailed.activeBg, tabConfig.detailed.activeText, tabConfig.detailed.activeBorder, "z-10 -mb-px")
+              : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50 hover:text-foreground -mb-px"
           )}
         >
-          <Users className="h-5 w-5" />
+          <Users className="h-4 w-4" />
           Detailed Team View
         </button>
+
+        {/* Roles Tab */}
         <button
           onClick={() => setActiveTab("roles")}
           className={cn(
-            "flex items-center gap-2 px-5 py-3 text-sm font-semibold rounded-xl border-2 transition-all",
+            "relative flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-t-xl border border-b-0 transition-all",
             activeTab === "roles"
-              ? "bg-amber-500/30 text-amber-300 border-amber-500/50 shadow-lg shadow-amber-500/20 scale-105"
-              : "bg-muted/20 text-muted-foreground border-border/30 hover:bg-amber-500/10 hover:text-amber-400 hover:border-amber-500/30"
+              ? cn(tabConfig.roles.activeBg, tabConfig.roles.activeText, tabConfig.roles.activeBorder, "z-10 -mb-px")
+              : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50 hover:text-foreground -mb-px"
           )}
         >
-          <ClipboardList className="h-5 w-5" />
+          <ClipboardList className="h-4 w-4" />
           Roles & Responsibilities
         </button>
+
+        {/* Tab bar line extending to right */}
+        <div className="flex-1 border-b border-border/30" />
       </div>
 
-      {/* Tab Content with colored background */}
+      {/* Tab Content with colored background - connected to active tab */}
       <div className={cn(
-        "rounded-xl border p-6 transition-colors",
-        contentBgColors[activeTab]
+        "rounded-b-xl rounded-tr-xl border border-t-0 p-6 transition-colors",
+        tabConfig[activeTab].contentBg
       )}>
         {activeTab === "structure" && structureView}
         {activeTab === "detailed" && detailedView}
