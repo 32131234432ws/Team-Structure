@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronDown, ChevronRight, FileText, Pencil, Code, TestTube, Users, Rocket, CheckCircle, RefreshCw, Zap, HeartPulse } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { ChevronDown, ChevronRight, FileText, Pencil, Code, TestTube, Users, Rocket, CheckCircle, RefreshCw, Zap, HeartPulse, X, Filter } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -97,8 +97,21 @@ export function RolesResponsibilitiesView() {
   const [selectedRoles, setSelectedRoles] = useState<Set<string>>(new Set());
   const [selectedRaci, setSelectedRaci] = useState<Set<string>>(new Set());
   const [selectedPhases, setSelectedPhases] = useState<Set<string>>(new Set());
+  const [openDropdown, setOpenDropdown] = useState<"phase" | "role" | "raci" | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   
   const typedRaciData = raciData as RACIData;
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   const phases = Object.keys(typedRaciData.phases);
   const raciTypes = ["R", "A", "C", "I"];
 
@@ -197,99 +210,156 @@ export function RolesResponsibilitiesView() {
         </div>
       </div>
 
-      {/* Filters */}
-      <div className="space-y-3 p-4 bg-muted/20 rounded-lg border border-border/50">
-        <div className="flex items-center justify-between">
-          <span className="text-sm font-medium text-foreground">Filters</span>
-          {hasActiveFilters && (
-            <button
-              onClick={clearAllFilters}
-              className="text-xs text-muted-foreground hover:text-foreground underline"
-            >
-              Clear all filters
-            </button>
+      {/* Filters - 3 dropdowns in one line */}
+      <div ref={dropdownRef} className="flex items-center gap-3 flex-wrap">
+        <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+          <Filter className="h-4 w-4" />
+          <span>Filters:</span>
+        </div>
+
+        {/* Lifecycle Phase Dropdown */}
+        <div className="relative">
+          <button
+            onClick={() => {
+              setOpenDropdown(openDropdown === "phase" ? null : "phase");
+            }}
+            className={cn(
+              "flex items-center gap-2 px-3 py-1.5 text-sm rounded-md border transition-colors",
+              selectedPhases.size > 0
+                ? "bg-primary/20 text-primary border-primary/30"
+                : "bg-background text-muted-foreground border-border hover:border-foreground/30"
+            )}
+          >
+            Lifecycle Phase
+            {selectedPhases.size > 0 && (
+              <Badge variant="secondary" className="h-5 px-1.5 text-xs">
+                {selectedPhases.size}
+              </Badge>
+            )}
+            <ChevronDown className="h-4 w-4" />
+          </button>
+          {openDropdown === "phase" && (
+            <div className="absolute top-full left-0 mt-1 w-48 bg-background border border-border rounded-md shadow-lg z-50 py-1 max-h-64 overflow-y-auto">
+              {phases.map(phase => {
+                const isSelected = selectedPhases.has(phase);
+                return (
+                  <button
+                    key={phase}
+                    onClick={() => toggleFilter(selectedPhases, phase, setSelectedPhases)}
+                    className={cn(
+                      "w-full text-left px-3 py-1.5 text-sm hover:bg-muted/50 transition-colors flex items-center justify-between",
+                      isSelected && "bg-muted/30"
+                    )}
+                  >
+                    <span>{phase}</span>
+                    {isSelected && <CheckCircle className="h-4 w-4 text-primary" />}
+                  </button>
+                );
+              })}
+            </div>
           )}
         </div>
-        
-        {/* Lifecycle Phase Filter */}
-        <div className="space-y-1.5">
-          <span className="text-xs font-medium text-muted-foreground">Lifecycle Phase</span>
-          <div className="flex flex-wrap gap-1.5">
-            {phases.map(phase => {
-              const config = phaseConfig[phase] || defaultConfig;
-              const isSelected = selectedPhases.has(phase);
-              return (
-                <button
-                  key={phase}
-                  onClick={() => toggleFilter(selectedPhases, phase, setSelectedPhases)}
-                  className={cn(
-                    "px-2 py-1 text-xs rounded-md border transition-colors",
-                    isSelected
-                      ? config.badgeColor
-                      : "bg-background/50 text-muted-foreground border-border/50 hover:border-border"
-                  )}
-                >
-                  {phase}
-                </button>
-              );
-            })}
-          </div>
+
+        {/* Role Dropdown */}
+        <div className="relative">
+          <button
+            onClick={() => {
+              setOpenDropdown(openDropdown === "role" ? null : "role");
+            }}
+            className={cn(
+              "flex items-center gap-2 px-3 py-1.5 text-sm rounded-md border transition-colors",
+              selectedRoles.size > 0
+                ? "bg-primary/20 text-primary border-primary/30"
+                : "bg-background text-muted-foreground border-border hover:border-foreground/30"
+            )}
+          >
+            Role
+            {selectedRoles.size > 0 && (
+              <Badge variant="secondary" className="h-5 px-1.5 text-xs">
+                {selectedRoles.size}
+              </Badge>
+            )}
+            <ChevronDown className="h-4 w-4" />
+          </button>
+          {openDropdown === "role" && (
+            <div className="absolute top-full left-0 mt-1 w-56 bg-background border border-border rounded-md shadow-lg z-50 py-1 max-h-64 overflow-y-auto">
+              {typedRaciData.roles.map(role => {
+                const isSelected = selectedRoles.has(role);
+                return (
+                  <button
+                    key={role}
+                    onClick={() => toggleFilter(selectedRoles, role, setSelectedRoles)}
+                    className={cn(
+                      "w-full text-left px-3 py-1.5 text-sm hover:bg-muted/50 transition-colors flex items-center justify-between",
+                      isSelected && "bg-muted/30"
+                    )}
+                  >
+                    <span>{roleAbbreviations[role] || role}</span>
+                    {isSelected && <CheckCircle className="h-4 w-4 text-primary" />}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
 
-        {/* Role Filter */}
-        <div className="space-y-1.5">
-          <span className="text-xs font-medium text-muted-foreground">Role</span>
-          <div className="flex flex-wrap gap-1.5">
-            {typedRaciData.roles.map(role => {
-              const isSelected = selectedRoles.has(role);
-              return (
-                <button
-                  key={role}
-                  onClick={() => toggleFilter(selectedRoles, role, setSelectedRoles)}
-                  className={cn(
-                    "px-2 py-1 text-xs rounded-md border transition-colors",
-                    isSelected
-                      ? "bg-primary/20 text-primary border-primary/30"
-                      : "bg-background/50 text-muted-foreground border-border/50 hover:border-border"
-                  )}
-                >
-                  {roleAbbreviations[role] || role}
-                </button>
-              );
-            })}
-          </div>
+        {/* RACI Type Dropdown */}
+        <div className="relative">
+          <button
+            onClick={() => {
+              setOpenDropdown(openDropdown === "raci" ? null : "raci");
+            }}
+            className={cn(
+              "flex items-center gap-2 px-3 py-1.5 text-sm rounded-md border transition-colors",
+              selectedRaci.size > 0
+                ? "bg-primary/20 text-primary border-primary/30"
+                : "bg-background text-muted-foreground border-border hover:border-foreground/30"
+            )}
+          >
+            RACI Type
+            {selectedRaci.size > 0 && (
+              <Badge variant="secondary" className="h-5 px-1.5 text-xs">
+                {selectedRaci.size}
+              </Badge>
+            )}
+            <ChevronDown className="h-4 w-4" />
+          </button>
+          {openDropdown === "raci" && (
+            <div className="absolute top-full left-0 mt-1 w-48 bg-background border border-border rounded-md shadow-lg z-50 py-1">
+              {raciTypes.map(raci => {
+                const isSelected = selectedRaci.has(raci);
+                const labels: Record<string, string> = { R: "Responsible", A: "Accountable", C: "Consulted", I: "Informed" };
+                return (
+                  <button
+                    key={raci}
+                    onClick={() => toggleFilter(selectedRaci, raci, setSelectedRaci)}
+                    className={cn(
+                      "w-full text-left px-3 py-1.5 text-sm hover:bg-muted/50 transition-colors flex items-center gap-2",
+                      isSelected && "bg-muted/30"
+                    )}
+                  >
+                    <Badge className={cn("text-xs w-6 h-6 flex items-center justify-center p-0 rounded-full", raciColors[raci])}>
+                      {raci}
+                    </Badge>
+                    <span>{labels[raci]}</span>
+                    {isSelected && <CheckCircle className="h-4 w-4 text-primary ml-auto" />}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
 
-        {/* RACI Filter */}
-        <div className="space-y-1.5">
-          <span className="text-xs font-medium text-muted-foreground">RACI Type</span>
-          <div className="flex flex-wrap gap-1.5">
-            {raciTypes.map(raci => {
-              const isSelected = selectedRaci.has(raci);
-              const labels: Record<string, string> = { R: "Responsible", A: "Accountable", C: "Consulted", I: "Informed" };
-              return (
-                <button
-                  key={raci}
-                  onClick={() => toggleFilter(selectedRaci, raci, setSelectedRaci)}
-                  className={cn(
-                    "flex items-center gap-1.5 px-2 py-1 text-xs rounded-md border transition-colors",
-                    isSelected
-                      ? raciColors[raci] + " border-transparent"
-                      : "bg-background/50 text-muted-foreground border-border/50 hover:border-border"
-                  )}
-                >
-                  <span className={cn(
-                    "w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold",
-                    isSelected ? "bg-white/20" : raciColors[raci]
-                  )}>
-                    {raci}
-                  </span>
-                  {labels[raci]}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+        {/* Clear Filters */}
+        {hasActiveFilters && (
+          <button
+            onClick={clearAllFilters}
+            className="flex items-center gap-1 px-2 py-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <X className="h-3 w-3" />
+            Clear
+          </button>
+        )}
       </div>
 
       {/* Legend */}
