@@ -1,0 +1,183 @@
+[
+  {
+    "category": "LEADERSHIP",
+    "role": "Engagement Lead",
+    "responsibilities": [
+      "Own client relationship and overall program health",
+      "Escalation point for risks, blockers, and strategic decisions",
+      "Align program goals with client executive stakeholders",
+      "Review and approve program status, scope changes, and budgets",
+      "Facilitate steering committee meetings and executive reviews"
+    ]
+  },
+  {
+    "category": "LEADERSHIP",
+    "role": "Technical Architect",
+    "responsibilities": [
+      "Define and govern end-to-end technical architecture",
+      "Establish coding standards, integration patterns, and design principles",
+      "Review technical designs and approve architectural decisions",
+      "Resolve cross-pod technical dependencies and conflicts",
+      "Provide guidance on performance, scalability, and security"
+    ]
+  },
+  {
+    "category": "LEADERSHIP",
+    "role": "Solution Architect",
+    "responsibilities": [
+      "Translate business requirements into solution designs",
+      "Own solution blueprints across value streams",
+      "Validate technical feasibility of proposed solutions",
+      "Support Dev Leads with design reviews and technical guidance",
+      "Bridge gap between business requirements and development teams"
+    ]
+  },
+  {
+    "category": "LEADERSHIP",
+    "role": "Business Architect",
+    "responsibilities": [
+      "Map business processes and identify transformation opportunities",
+      "Define future-state operating model and capability framework",
+      "Facilitate requirements workshops with business stakeholders",
+      "Ensure solutions align with business strategy and process goals",
+      "Produce business architecture artefacts (process maps, RACI, etc.)"
+    ]
+  },
+  {
+    "category": "LEADERSHIP",
+    "role": "PMO",
+    "responsibilities": [
+      "Maintain program plan, milestones, and RAID log",
+      "Track and report on program status, budget, and resource utilisation",
+      "Coordinate cross-team dependencies and sprint planning",
+      "Manage change control, governance artefacts, and meeting cadence",
+      "Support onboarding, off-boarding, and resource management"
+    ]
+  },
+  {
+    "category": "CROSS-FUNCTIONAL PODS",
+    "role": "Integration Lead",
+    "responsibilities": [
+      "Own integration architecture across all value streams and releases",
+      "Define API contracts, data mapping standards, and middleware patterns",
+      "Review and approve integration designs before development",
+      "Manage integration dependencies between pods and external systems",
+      "Coordinate integration testing strategy with QA Leads"
+    ]
+  },
+  {
+    "category": "CROSS-FUNCTIONAL PODS",
+    "role": "Integration Dev",
+    "responsibilities": [
+      "Build and maintain APIs, middleware, and integration components",
+      "Execute integration development per approved design",
+      "Debug and resolve integration defects and data issues",
+      "Participate in integration SIT/UAT support activities",
+      "Document integration flows and technical specifications"
+    ]
+  },
+  {
+    "category": "CROSS-FUNCTIONAL PODS",
+    "role": "DevOps Lead",
+    "responsibilities": [
+      "Own CI/CD pipeline design, tooling, and governance",
+      "Manage infrastructure provisioning and environment strategy",
+      "Define branching strategy, release management, and deployment playbooks",
+      "Oversee platform stability, monitoring, and incident response",
+      "Ensure security, compliance, and access controls across environments"
+    ]
+  },
+  {
+    "category": "CROSS-FUNCTIONAL PODS",
+    "role": "DevOps",
+    "responsibilities": [
+      "Build and maintain CI/CD pipelines and automation scripts",
+      "Manage environment configuration and infrastructure-as-code",
+      "Support deployment activities across all releases",
+      "Monitor system health and respond to alerts and incidents",
+      "Troubleshoot build, deployment, and environment issues"
+    ]
+  },
+  {
+    "category": "CROSS-FUNCTIONAL PODS",
+    "role": "Windsurf/Performance Dev",
+    "responsibilities": [
+      "Own Windsurf AI-assisted development tooling setup and adoption",
+      "Conduct performance profiling and identify bottlenecks across pods",
+      "Define and enforce performance benchmarks and SLAs",
+      "Implement performance fixes and optimisations",
+      "Share best practices and enablement across development teams"
+    ]
+  },
+  {
+    "category": "DEVELOPMENT PODS",
+    "role": "Dev Lead",
+    "responsibilities": [
+      "Lead day-to-day delivery of the pod's value stream(s)",
+      "Own sprint planning, story grooming, and task assignment for the pod",
+      "Review code, enforce standards, and approve pull requests",
+      "Identify and escalate technical risks and blockers",
+      "Coordinate with Onshore/Offshore SA on requirement clarity",
+      "Track pod velocity and report progress to Engagement Lead"
+    ]
+  },
+  {
+    "category": "DEVELOPMENT PODS",
+    "role": "Onshore SA\r\n(Solution Analyst)",
+    "responsibilities": [
+      "Translate functional requirements into detailed user stories and acceptance criteria",
+      "Serve as primary liaison between business stakeholders and the dev pod",
+      "Facilitate requirement walkthroughs, demos, and sign-offs",
+      "Maintain functional specification documents and traceability matrix",
+      "Support UAT by clarifying requirements and validating test cases",
+      "Identify functional gaps and raise change requests as needed"
+    ]
+  },
+  {
+    "category": "DEVELOPMENT PODS",
+    "role": "Offshore SA\r\n(Solution Analyst)",
+    "responsibilities": [
+      "Support Onshore SA in requirements analysis and documentation",
+      "Prepare detailed functional designs and process flow diagrams",
+      "Perform functional review of developed features against requirements",
+      "Coordinate with offshore dev team on requirement queries",
+      "Assist in defect triage and requirement clarification during SIT/UAT"
+    ]
+  },
+  {
+    "category": "DEVELOPMENT PODS",
+    "role": "Dev",
+    "responsibilities": [
+      "Design, build, and unit-test features per user stories and technical design",
+      "Follow coding standards, branching strategy, and peer review process",
+      "Participate in sprint ceremonies (planning, standups, retrospectives)",
+      "Fix defects raised during SIT/UAT within agreed SLAs",
+      "Document code, APIs, and configuration changes",
+      "Support deployments and post-deployment validation"
+    ]
+  },
+  {
+    "category": "QA / SIT / UAT",
+    "role": "QA Lead",
+    "responsibilities": [
+      "Own the test strategy, test plan, and QA governance for all value streams",
+      "Allocate QA resources across value streams and manage bandwidth",
+      "Define entry/exit criteria for SIT and UAT phases",
+      "Track and report defect metrics, test coverage, and release readiness",
+      "Escalate critical defects and coordinate with Dev Leads for resolution",
+      "Facilitate UAT sessions with business stakeholders"
+    ]
+  },
+  {
+    "category": "QA / SIT / UAT",
+    "role": "QA",
+    "responsibilities": [
+      "Author, review, and execute test cases for assigned value streams",
+      "Perform functional, regression, and integration testing",
+      "Log defects with clear steps to reproduce, severity, and evidence",
+      "Retest fixed defects and confirm closure before release",
+      "Maintain test artefacts (test cases, execution logs, traceability)",
+      "Support UAT by guiding business users through test scenarios"
+    ]
+  }
+]

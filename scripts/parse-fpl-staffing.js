@@ -39,3 +39,47 @@ fs.writeFileSync(
   JSON.stringify(jsonData, null, 2)
 );
 console.log('\nJSON data written to lib/fpl-staffing-data.json');
+
+// Parse second sheet (Roles and Responsibilities)
+if (workbook.SheetNames.length > 1) {
+  const rolesSheet = workbook.Sheets[workbook.SheetNames[1]];
+  const rawData = XLSX.utils.sheet_to_json(rolesSheet, { header: 1 });
+  
+  // Parse the structured data - skip title row, process sections
+  const rolesData = [];
+  let currentCategory = '';
+  
+  for (let i = 1; i < rawData.length; i++) {
+    const row = rawData[i];
+    if (!row || row.length === 0) continue;
+    
+    const firstCell = row[0] || '';
+    const secondCell = row[1] || '';
+    
+    // Check if this is a category header (all caps, no responsibilities)
+    if (firstCell && !secondCell && firstCell === firstCell.toUpperCase() && firstCell.length > 2) {
+      currentCategory = firstCell;
+    } else if (firstCell === 'Role' && secondCell === 'Responsibilities') {
+      // Skip header row
+      continue;
+    } else if (firstCell && secondCell) {
+      // This is a role with responsibilities
+      rolesData.push({
+        category: currentCategory,
+        role: firstCell,
+        responsibilities: secondCell.split('\r\n').map(r => r.replace(/^[•\-]\s*/, '').trim()).filter(r => r)
+      });
+    }
+  }
+  
+  console.log('\n=== Roles and Responsibilities ===');
+  console.log('Total roles:', rolesData.length);
+  console.log('Categories:', [...new Set(rolesData.map(r => r.category))]);
+  console.log('Sample:', JSON.stringify(rolesData.slice(0, 2), null, 2));
+  
+  fs.writeFileSync(
+    path.join(__dirname, '../lib/roles-responsibilities-data.json'),
+    JSON.stringify(rolesData, null, 2)
+  );
+  console.log('\nRoles data written to lib/roles-responsibilities-data.json');
+}

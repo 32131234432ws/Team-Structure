@@ -6,6 +6,7 @@ import { LeadershipSection } from "@/components/leadership-section";
 import { CombinedReleaseSection } from "@/components/combined-release-section";
 import { TeamPageTabs } from "@/components/team-page-tabs";
 import { DetailedTeamView } from "@/components/detailed-team-view";
+import { RolesResponsibilitiesView } from "@/components/roles-responsibilities-view";
 
 export default function Home() {
   const ir32Pods = devPods.filter((pod) => pod.release === "IR3.2");
@@ -59,6 +60,8 @@ export default function Home() {
 
   const detailedView = <DetailedTeamView />;
 
+  const rolesView = <RolesResponsibilitiesView />;
+
   return (
     <main className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -77,6 +80,7 @@ export default function Home() {
         <TeamPageTabs
           structureView={structureView}
           detailedView={detailedView}
+          rolesView={rolesView}
         />
       </div>
     </main>
