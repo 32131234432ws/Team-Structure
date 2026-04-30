@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronRight, Briefcase, Users, Code, TestTube } from "lucide-react";
+import { ChevronDown, ChevronRight, Users, Code, TestTube, Settings, FileText } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -13,55 +13,64 @@ interface RoleData {
   responsibilities: string[];
 }
 
-const categoryIcons: Record<string, React.ReactNode> = {
-  LEADERSHIP: <Briefcase className="h-5 w-5" />,
-  "CROSS-FUNCTIONAL PODS": <Users className="h-5 w-5" />,
-  "DEVELOPMENT PODS": <Code className="h-5 w-5" />,
-  "QA / SIT / UAT": <TestTube className="h-5 w-5" />,
-};
-
-const categoryColors: Record<string, string> = {
-  LEADERSHIP: "from-purple-500/20 to-purple-500/5 border-purple-500/30",
-  "CROSS-FUNCTIONAL PODS": "from-violet-500/20 to-violet-500/5 border-violet-500/30",
-  "DEVELOPMENT PODS": "from-amber-500/20 to-amber-500/5 border-amber-500/30",
-  "QA / SIT / UAT": "from-rose-500/20 to-rose-500/5 border-rose-500/30",
-};
-
-const categoryBadgeColors: Record<string, string> = {
-  LEADERSHIP: "bg-purple-500/20 text-purple-400 border-purple-500/30",
-  "CROSS-FUNCTIONAL PODS": "bg-violet-500/20 text-violet-400 border-violet-500/30",
-  "DEVELOPMENT PODS": "bg-amber-500/20 text-amber-400 border-amber-500/30",
-  "QA / SIT / UAT": "bg-rose-500/20 text-rose-400 border-rose-500/30",
+// Map roles to categories and icons
+const roleCategories: Record<string, { category: string; icon: React.ReactNode; color: string; badgeColor: string }> = {
+  "ONSHORE SOLUTION ANALYST": { 
+    category: "Solution Analysts", 
+    icon: <FileText className="h-4 w-4" />,
+    color: "from-blue-500/20 to-blue-500/5",
+    badgeColor: "bg-blue-500/20 text-blue-400 border-blue-500/30"
+  },
+  "OFFSHORE SOLUTION ANALYST": { 
+    category: "Solution Analysts", 
+    icon: <FileText className="h-4 w-4" />,
+    color: "from-cyan-500/20 to-cyan-500/5",
+    badgeColor: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30"
+  },
+  "DEVELOPER": { 
+    category: "Development", 
+    icon: <Code className="h-4 w-4" />,
+    color: "from-amber-500/20 to-amber-500/5",
+    badgeColor: "bg-amber-500/20 text-amber-400 border-amber-500/30"
+  },
+  "DEVELOPMENT LEAD": { 
+    category: "Development", 
+    icon: <Code className="h-4 w-4" />,
+    color: "from-emerald-500/20 to-emerald-500/5",
+    badgeColor: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
+  },
+  "QUALITY ASSURANCE": { 
+    category: "QA / Testing", 
+    icon: <TestTube className="h-4 w-4" />,
+    color: "from-rose-500/20 to-rose-500/5",
+    badgeColor: "bg-rose-500/20 text-rose-400 border-rose-500/30"
+  },
+  "INTEGRATION POD": { 
+    category: "Cross-Functional", 
+    icon: <Settings className="h-4 w-4" />,
+    color: "from-violet-500/20 to-violet-500/5",
+    badgeColor: "bg-violet-500/20 text-violet-400 border-violet-500/30"
+  },
+  "DEVOPS POD": { 
+    category: "Cross-Functional", 
+    icon: <Settings className="h-4 w-4" />,
+    color: "from-indigo-500/20 to-indigo-500/5",
+    badgeColor: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30"
+  },
+  "PROGRAM MANAGEMENT OFFICE (PMO)": { 
+    category: "Program Management", 
+    icon: <Users className="h-4 w-4" />,
+    color: "from-pink-500/20 to-pink-500/5",
+    badgeColor: "bg-pink-500/20 text-pink-400 border-pink-500/30"
+  },
 };
 
 export function RolesResponsibilitiesView() {
-  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(
-    new Set(["LEADERSHIP", "CROSS-FUNCTIONAL PODS", "DEVELOPMENT PODS", "QA / SIT / UAT"])
-  );
   const [expandedRoles, setExpandedRoles] = useState<Set<string>>(new Set());
 
-  const typedRolesData = rolesData as RoleData[];
-  
-  // Group roles by category
-  const groupedRoles = typedRolesData.reduce((acc, role) => {
-    if (!acc[role.category]) {
-      acc[role.category] = [];
-    }
-    acc[role.category].push(role);
-    return acc;
-  }, {} as Record<string, RoleData[]>);
-
-  const categories = Object.keys(groupedRoles);
-
-  const toggleCategory = (category: string) => {
-    const newExpanded = new Set(expandedCategories);
-    if (newExpanded.has(category)) {
-      newExpanded.delete(category);
-    } else {
-      newExpanded.add(category);
-    }
-    setExpandedCategories(newExpanded);
-  };
+  const typedRolesData = (rolesData as RoleData[]).filter(
+    (r) => r.role !== "Role" && r.responsibilities.length > 0
+  );
 
   const toggleRole = (roleKey: string) => {
     const newExpanded = new Set(expandedRoles);
@@ -73,6 +82,14 @@ export function RolesResponsibilitiesView() {
     setExpandedRoles(newExpanded);
   };
 
+  const expandAll = () => {
+    setExpandedRoles(new Set(typedRolesData.map((r) => r.role)));
+  };
+
+  const collapseAll = () => {
+    setExpandedRoles(new Set());
+  };
+
   return (
     <div className="space-y-4">
       {/* Header */}
@@ -80,114 +97,109 @@ export function RolesResponsibilitiesView() {
         <div>
           <h2 className="text-xl font-semibold text-foreground">Roles & Responsibilities</h2>
           <p className="text-sm text-muted-foreground mt-1">
-            FPL Program role definitions and key responsibilities
+            FPL Program role definitions derived from RACI matrix
           </p>
         </div>
         <div className="flex items-center gap-2">
+          <button
+            onClick={expandAll}
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors px-2 py-1 rounded hover:bg-muted"
+          >
+            Expand All
+          </button>
+          <button
+            onClick={collapseAll}
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors px-2 py-1 rounded hover:bg-muted"
+          >
+            Collapse All
+          </button>
           <Badge variant="outline" className="bg-primary/20 text-primary border-primary/30">
             {typedRolesData.length} Roles
-          </Badge>
-          <Badge variant="outline" className="bg-muted text-muted-foreground border-border">
-            {categories.length} Categories
           </Badge>
         </div>
       </div>
 
-      {/* Categories */}
-      <div className="space-y-4">
-        {categories.map((category) => {
-          const roles = groupedRoles[category];
-          const isExpanded = expandedCategories.has(category);
+      {/* Legend */}
+      <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground bg-muted/30 rounded-lg px-3 py-2">
+        <span className="font-medium">Legend:</span>
+        <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400">R = Responsible</span>
+        <span className="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-400">A = Accountable</span>
+        <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400">C = Consulted</span>
+      </div>
+
+      {/* Roles List */}
+      <div className="space-y-3">
+        {typedRolesData.map((role) => {
+          const isExpanded = expandedRoles.has(role.role);
+          const roleInfo = roleCategories[role.role] || {
+            category: "Other",
+            icon: <Users className="h-4 w-4" />,
+            color: "from-muted/20 to-muted/5",
+            badgeColor: "bg-muted text-muted-foreground border-border"
+          };
 
           return (
             <Card
-              key={category}
+              key={role.role}
               className={cn(
-                "bg-gradient-to-br border-border/50",
-                categoryColors[category] || "from-muted/20 to-muted/5"
+                "bg-gradient-to-br border-border/50 overflow-hidden",
+                roleInfo.color
               )}
             >
-              <CardHeader className="pb-2">
+              <CardHeader className="py-3 px-4">
                 <button
-                  onClick={() => toggleCategory(category)}
+                  onClick={() => toggleRole(role.role)}
                   className="flex items-center justify-between w-full text-left"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="text-muted-foreground">
-                      {categoryIcons[category] || <Briefcase className="h-5 w-5" />}
+                    <div className={cn("p-1.5 rounded", roleInfo.badgeColor)}>
+                      {roleInfo.icon}
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-foreground">{category}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {roles.length} role{roles.length !== 1 ? "s" : ""}
-                      </p>
+                      <h3 className="text-sm font-semibold text-foreground">{role.role}</h3>
+                      <p className="text-xs text-muted-foreground">{roleInfo.category}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Badge
-                      variant="outline"
-                      className={categoryBadgeColors[category] || "bg-muted text-muted-foreground"}
-                    >
-                      {roles.length}
+                    <Badge variant="outline" className={cn("text-xs", roleInfo.badgeColor)}>
+                      {role.responsibilities.length} items
                     </Badge>
                     {isExpanded ? (
-                      <ChevronDown className="h-5 w-5 text-muted-foreground" />
+                      <ChevronDown className="h-4 w-4 text-muted-foreground" />
                     ) : (
-                      <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                      <ChevronRight className="h-4 w-4 text-muted-foreground" />
                     )}
                   </div>
                 </button>
               </CardHeader>
 
               {isExpanded && (
-                <CardContent className="pt-2">
-                  <div className="space-y-2">
-                    {roles.map((role, idx) => {
-                      const roleKey = `${category}-${role.role}-${idx}`;
-                      const isRoleExpanded = expandedRoles.has(roleKey);
+                <CardContent className="pt-0 pb-4 px-4">
+                  <div className="border-t border-border/30 pt-3">
+                    <div className="space-y-2">
+                      {role.responsibilities.map((resp, idx) => {
+                        // Parse the responsibility to highlight phase and R/A/C markers
+                        const parts = resp.split("|");
+                        const phase = parts[0]?.trim() || "";
+                        const details = parts[1]?.trim() || resp;
 
-                      return (
-                        <div
-                          key={roleKey}
-                          className="bg-background/50 border border-border/50 rounded-lg overflow-hidden"
-                        >
-                          <button
-                            onClick={() => toggleRole(roleKey)}
-                            className="flex items-center justify-between w-full px-4 py-3 text-left hover:bg-muted/30 transition-colors"
+                        return (
+                          <div
+                            key={idx}
+                            className="flex items-start gap-3 py-2 px-3 rounded-lg bg-background/50 border border-border/30"
                           >
-                            <span className="text-sm font-medium text-foreground">
-                              {role.role}
-                            </span>
-                            <div className="flex items-center gap-2">
-                              <span className="text-xs text-muted-foreground">
-                                {role.responsibilities.length} responsibilities
+                            {phase && parts.length > 1 && (
+                              <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded whitespace-nowrap">
+                                {phase}
                               </span>
-                              {isRoleExpanded ? (
-                                <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                              ) : (
-                                <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                              )}
-                            </div>
-                          </button>
-
-                          {isRoleExpanded && (
-                            <div className="px-4 pb-3 pt-1 border-t border-border/30">
-                              <ul className="space-y-1.5">
-                                {role.responsibilities.map((resp, respIdx) => (
-                                  <li
-                                    key={respIdx}
-                                    className="flex items-start gap-2 text-sm text-muted-foreground"
-                                  >
-                                    <span className="text-primary mt-1.5 text-xs">●</span>
-                                    <span>{resp}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
+                            )}
+                            <span className="text-sm text-muted-foreground flex-1">
+                              {parts.length > 1 ? details : resp}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </CardContent>
               )}
