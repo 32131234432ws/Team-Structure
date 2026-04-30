@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronRight, UserCircle, Code, TestTube, Network, Server, ClipboardList } from "lucide-react";
+import { ChevronDown, ChevronRight, FileText, Pencil, Code, TestTube, Users, Rocket, CheckCircle, RefreshCw, Zap, HeartPulse } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -13,60 +13,57 @@ interface RACIData {
   activities: { phase: string; activity: string; raci: Record<string, string> }[];
 }
 
-const roleConfig: Record<string, { icon: React.ReactNode; color: string; badgeColor: string }> = {
-  "Onshore Solution Analyst": {
-    icon: <UserCircle className="h-5 w-5" />,
+const phaseConfig: Record<string, { icon: React.ReactNode; color: string; badgeColor: string }> = {
+  "Requirements": {
+    icon: <FileText className="h-5 w-5" />,
     color: "from-blue-500/20 to-blue-500/5 border-blue-500/30",
     badgeColor: "bg-blue-500/20 text-blue-400 border-blue-500/30",
   },
-  "Offshore Solution Analyst": {
-    icon: <UserCircle className="h-5 w-5" />,
-    color: "from-cyan-500/20 to-cyan-500/5 border-cyan-500/30",
-    badgeColor: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+  "Design": {
+    icon: <Pencil className="h-5 w-5" />,
+    color: "from-purple-500/20 to-purple-500/5 border-purple-500/30",
+    badgeColor: "bg-purple-500/20 text-purple-400 border-purple-500/30",
   },
-  "Developer": {
+  "Development": {
     icon: <Code className="h-5 w-5" />,
     color: "from-amber-500/20 to-amber-500/5 border-amber-500/30",
     badgeColor: "bg-amber-500/20 text-amber-400 border-amber-500/30",
   },
-  "Development Lead": {
-    icon: <Code className="h-5 w-5" />,
-    color: "from-emerald-500/20 to-emerald-500/5 border-emerald-500/30",
-    badgeColor: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
-  },
-  "Quality Assurance": {
+  "SIT": {
     icon: <TestTube className="h-5 w-5" />,
     color: "from-rose-500/20 to-rose-500/5 border-rose-500/30",
     badgeColor: "bg-rose-500/20 text-rose-400 border-rose-500/30",
   },
-  "Integration POD": {
-    icon: <Network className="h-5 w-5" />,
-    color: "from-violet-500/20 to-violet-500/5 border-violet-500/30",
-    badgeColor: "bg-violet-500/20 text-violet-400 border-violet-500/30",
+  "UAT": {
+    icon: <Users className="h-5 w-5" />,
+    color: "from-orange-500/20 to-orange-500/5 border-orange-500/30",
+    badgeColor: "bg-orange-500/20 text-orange-400 border-orange-500/30",
   },
-  "DevOps POD": {
-    icon: <Server className="h-5 w-5" />,
+  "Cutover": {
+    icon: <RefreshCw className="h-5 w-5" />,
+    color: "from-teal-500/20 to-teal-500/5 border-teal-500/30",
+    badgeColor: "bg-teal-500/20 text-teal-400 border-teal-500/30",
+  },
+  "Go Live": {
+    icon: <Rocket className="h-5 w-5" />,
+    color: "from-green-500/20 to-green-500/5 border-green-500/30",
+    badgeColor: "bg-green-500/20 text-green-400 border-green-500/30",
+  },
+  "Post-Dev": {
+    icon: <CheckCircle className="h-5 w-5" />,
+    color: "from-cyan-500/20 to-cyan-500/5 border-cyan-500/30",
+    badgeColor: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+  },
+  "Sprint": {
+    icon: <Zap className="h-5 w-5" />,
     color: "from-indigo-500/20 to-indigo-500/5 border-indigo-500/30",
     badgeColor: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
   },
-  "Program Management Office": {
-    icon: <ClipboardList className="h-5 w-5" />,
-    color: "from-pink-500/20 to-pink-500/5 border-pink-500/30",
-    badgeColor: "bg-pink-500/20 text-pink-400 border-pink-500/30",
+  "Hypercare": {
+    icon: <HeartPulse className="h-5 w-5" />,
+    color: "from-red-500/20 to-red-500/5 border-red-500/30",
+    badgeColor: "bg-red-500/20 text-red-400 border-red-500/30",
   },
-};
-
-const phaseColors: Record<string, string> = {
-  "Requirements": "bg-blue-500/20 text-blue-400 border-blue-500/30",
-  "Design": "bg-purple-500/20 text-purple-400 border-purple-500/30",
-  "Development": "bg-amber-500/20 text-amber-400 border-amber-500/30",
-  "SIT": "bg-rose-500/20 text-rose-400 border-rose-500/30",
-  "UAT": "bg-orange-500/20 text-orange-400 border-orange-500/30",
-  "Cutover": "bg-teal-500/20 text-teal-400 border-teal-500/30",
-  "Go Live": "bg-green-500/20 text-green-400 border-green-500/30",
-  "Post-Dev": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
-  "Sprint": "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
-  "Hypercare": "bg-red-500/20 text-red-400 border-red-500/30",
 };
 
 const raciColors: Record<string, string> = {
@@ -75,40 +72,47 @@ const raciColors: Record<string, string> = {
   "C": "bg-amber-500 text-white",
   "I": "bg-slate-400 text-white",
   "R/A": "bg-purple-500 text-white",
-  "-": "bg-muted text-muted-foreground",
+  "-": "bg-transparent",
+};
+
+const roleAbbreviations: Record<string, string> = {
+  "Onshore Solution Analyst": "Onshore SA",
+  "Offshore Solution Analyst": "Offshore SA",
+  "Developer": "Dev",
+  "Development Lead": "Dev Lead",
+  "Quality Assurance": "QA",
+  "Integration POD": "Integration",
+  "DevOps POD": "DevOps",
+  "Program Management Office": "PMO",
 };
 
 const defaultConfig = {
-  icon: <Code className="h-5 w-5" />,
+  icon: <FileText className="h-5 w-5" />,
   color: "from-muted/20 to-muted/5 border-border",
   badgeColor: "bg-muted text-muted-foreground border-border",
 };
 
 export function RolesResponsibilitiesView() {
-  const [expandedRoles, setExpandedRoles] = useState<Set<string>>(new Set());
+  const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set());
   const typedRaciData = raciData as RACIData;
+  const phases = Object.keys(typedRaciData.phases);
 
-  const toggleRole = (role: string) => {
-    const newExpanded = new Set(expandedRoles);
-    if (newExpanded.has(role)) {
-      newExpanded.delete(role);
+  const togglePhase = (phase: string) => {
+    const newExpanded = new Set(expandedPhases);
+    if (newExpanded.has(phase)) {
+      newExpanded.delete(phase);
     } else {
-      newExpanded.add(role);
+      newExpanded.add(phase);
     }
-    setExpandedRoles(newExpanded);
+    setExpandedPhases(newExpanded);
   };
 
   const expandAll = () => {
-    setExpandedRoles(new Set(typedRaciData.roles));
+    setExpandedPhases(new Set(phases));
   };
 
   const collapseAll = () => {
-    setExpandedRoles(new Set());
-  };
-
-  // Get activities by RACI type for a role
-  const getRoleActivitiesByType = (role: string, types: string[]) => {
-    return typedRaciData.activities.filter((a) => types.includes(a.raci[role]));
+    setExpandedPhases(new Set());
   };
 
   return (
@@ -135,42 +139,50 @@ export function RolesResponsibilitiesView() {
             Collapse All
           </button>
           <Badge variant="outline" className="bg-primary/20 text-primary border-primary/30">
-            {typedRaciData.roles.length} Roles
+            {phases.length} Phases
           </Badge>
         </div>
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap items-center gap-2 p-3 bg-muted/30 rounded-lg border border-border/50">
-        <span className="text-xs font-medium text-muted-foreground mr-2">RACI Legend:</span>
-        <Badge className={cn("text-xs", raciColors["R"])}>R = Responsible</Badge>
-        <Badge className={cn("text-xs", raciColors["A"])}>A = Accountable</Badge>
-        <Badge className={cn("text-xs", raciColors["C"])}>C = Consulted</Badge>
-        <Badge className={cn("text-xs", raciColors["I"])}>I = Informed</Badge>
+      <div className="flex flex-wrap items-center gap-3 p-3 bg-muted/30 rounded-lg border border-border/50">
+        <span className="text-xs font-medium text-muted-foreground">RACI Legend:</span>
+        <div className="flex items-center gap-1">
+          <Badge className={cn("text-xs w-6 h-6 flex items-center justify-center p-0 rounded-full", raciColors["R"])}>R</Badge>
+          <span className="text-xs text-muted-foreground">Responsible</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <Badge className={cn("text-xs w-6 h-6 flex items-center justify-center p-0 rounded-full", raciColors["A"])}>A</Badge>
+          <span className="text-xs text-muted-foreground">Accountable</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <Badge className={cn("text-xs w-6 h-6 flex items-center justify-center p-0 rounded-full", raciColors["C"])}>C</Badge>
+          <span className="text-xs text-muted-foreground">Consulted</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <Badge className={cn("text-xs w-6 h-6 flex items-center justify-center p-0 rounded-full", raciColors["I"])}>I</Badge>
+          <span className="text-xs text-muted-foreground">Informed</span>
+        </div>
       </div>
 
-      {/* Role Tiles */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {typedRaciData.roles.map((role) => {
-          const config = roleConfig[role] || defaultConfig;
-          const isExpanded = expandedRoles.has(role);
-          const responsibleActivities = getRoleActivitiesByType(role, ["R", "R/A"]);
-          const accountableActivities = getRoleActivitiesByType(role, ["A", "R/A"]);
-          const consultedActivities = getRoleActivitiesByType(role, ["C"]);
-          const informedActivities = getRoleActivitiesByType(role, ["I"]);
+      {/* Phase Tiles */}
+      <div className="grid grid-cols-1 gap-4">
+        {phases.map((phase) => {
+          const config = phaseConfig[phase] || defaultConfig;
+          const isExpanded = expandedPhases.has(phase);
+          const activities = typedRaciData.phases[phase] || [];
 
           return (
             <Card
-              key={role}
+              key={phase}
               className={cn(
                 "bg-gradient-to-br border transition-all duration-200",
-                config.color,
-                isExpanded ? "md:col-span-2" : ""
+                config.color
               )}
             >
               <CardHeader className="p-4 pb-2">
                 <button
-                  onClick={() => toggleRole(role)}
+                  onClick={() => togglePhase(phase)}
                   className="flex items-center justify-between w-full text-left"
                 >
                   <div className="flex items-center gap-3">
@@ -178,21 +190,10 @@ export function RolesResponsibilitiesView() {
                       {config.icon}
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-foreground">{role}</h3>
-                      <div className="flex items-center gap-1.5 mt-1 flex-wrap">
-                        <Badge variant="outline" className="text-xs bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
-                          {responsibleActivities.length} R
-                        </Badge>
-                        <Badge variant="outline" className="text-xs bg-blue-500/20 text-blue-400 border-blue-500/30">
-                          {accountableActivities.length} A
-                        </Badge>
-                        <Badge variant="outline" className="text-xs bg-amber-500/20 text-amber-400 border-amber-500/30">
-                          {consultedActivities.length} C
-                        </Badge>
-                        <Badge variant="outline" className="text-xs bg-slate-400/20 text-slate-400 border-slate-400/30">
-                          {informedActivities.length} I
-                        </Badge>
-                      </div>
+                      <h3 className="text-base font-semibold text-foreground">{phase}</h3>
+                      <span className="text-xs text-muted-foreground">
+                        {activities.length} {activities.length === 1 ? "activity" : "activities"}
+                      </span>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -207,86 +208,76 @@ export function RolesResponsibilitiesView() {
 
               {isExpanded && (
                 <CardContent className="p-4 pt-2">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Responsible Activities */}
-                    {responsibleActivities.length > 0 && (
-                      <div className="space-y-2">
-                        <h4 className="text-xs font-medium text-emerald-400 uppercase tracking-wide flex items-center gap-2">
-                          <Badge className={cn("text-xs", raciColors["R"])}>R</Badge>
-                          Responsible ({responsibleActivities.length})
-                        </h4>
-                        <div className="space-y-1 max-h-48 overflow-y-auto">
-                          {responsibleActivities.map((activity, idx) => (
-                            <div key={idx} className="flex items-start gap-2 p-2 rounded bg-background/50 border border-border/30">
-                              <Badge variant="outline" className={cn("text-xs shrink-0", phaseColors[activity.phase] || "bg-muted")}>
-                                {activity.phase}
-                              </Badge>
-                              <span className="text-xs text-foreground/90">{activity.activity}</span>
-                            </div>
-                          ))}
-                        </div>
+                  <div className="space-y-2">
+                    {/* Activity Header Row */}
+                    <div className="hidden md:grid md:grid-cols-12 gap-2 px-3 py-2 bg-background/30 rounded-lg border border-border/30">
+                      <div className="col-span-4 text-xs font-medium text-muted-foreground">Activity</div>
+                      <div className="col-span-8 grid grid-cols-8 gap-1">
+                        {typedRaciData.roles.map((role) => (
+                          <div key={role} className="text-center">
+                            <span className="text-xs font-medium text-muted-foreground truncate block" title={role}>
+                              {roleAbbreviations[role] || role}
+                            </span>
+                          </div>
+                        ))}
                       </div>
-                    )}
+                    </div>
 
-                    {/* Accountable Activities */}
-                    {accountableActivities.length > 0 && (
-                      <div className="space-y-2">
-                        <h4 className="text-xs font-medium text-blue-400 uppercase tracking-wide flex items-center gap-2">
-                          <Badge className={cn("text-xs", raciColors["A"])}>A</Badge>
-                          Accountable ({accountableActivities.length})
-                        </h4>
-                        <div className="space-y-1 max-h-48 overflow-y-auto">
-                          {accountableActivities.map((activity, idx) => (
-                            <div key={idx} className="flex items-start gap-2 p-2 rounded bg-background/50 border border-border/30">
-                              <Badge variant="outline" className={cn("text-xs shrink-0", phaseColors[activity.phase] || "bg-muted")}>
-                                {activity.phase}
-                              </Badge>
-                              <span className="text-xs text-foreground/90">{activity.activity}</span>
-                            </div>
-                          ))}
+                    {/* Activity Rows */}
+                    {activities.map((activity, idx) => (
+                      <div
+                        key={idx}
+                        className="grid grid-cols-1 md:grid-cols-12 gap-2 p-3 rounded-lg bg-background/50 border border-border/30 hover:bg-background/70 transition-colors"
+                      >
+                        <div className="col-span-4 text-sm text-foreground">
+                          {activity.activity}
+                        </div>
+                        <div className="col-span-8 grid grid-cols-8 gap-1">
+                          {typedRaciData.roles.map((role) => {
+                            const raciValue = activity.raci[role] || "-";
+                            return (
+                              <div key={role} className="flex justify-center items-center">
+                                {raciValue !== "-" ? (
+                                  <Badge 
+                                    className={cn(
+                                      "text-xs w-7 h-7 flex items-center justify-center p-0 rounded-full font-bold",
+                                      raciColors[raciValue] || raciColors["-"]
+                                    )}
+                                    title={`${role}: ${raciValue}`}
+                                  >
+                                    {raciValue}
+                                  </Badge>
+                                ) : (
+                                  <span className="text-xs text-muted-foreground/50">-</span>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
+                        {/* Mobile view - show role labels */}
+                        <div className="md:hidden col-span-1 flex flex-wrap gap-2 mt-2">
+                          {typedRaciData.roles.map((role) => {
+                            const raciValue = activity.raci[role] || "-";
+                            if (raciValue === "-") return null;
+                            return (
+                              <div key={role} className="flex items-center gap-1">
+                                <Badge 
+                                  className={cn(
+                                    "text-xs w-5 h-5 flex items-center justify-center p-0 rounded-full",
+                                    raciColors[raciValue]
+                                  )}
+                                >
+                                  {raciValue}
+                                </Badge>
+                                <span className="text-xs text-muted-foreground">
+                                  {roleAbbreviations[role] || role}
+                                </span>
+                              </div>
+                            );
+                          })}
                         </div>
                       </div>
-                    )}
-
-                    {/* Consulted Activities */}
-                    {consultedActivities.length > 0 && (
-                      <div className="space-y-2">
-                        <h4 className="text-xs font-medium text-amber-400 uppercase tracking-wide flex items-center gap-2">
-                          <Badge className={cn("text-xs", raciColors["C"])}>C</Badge>
-                          Consulted ({consultedActivities.length})
-                        </h4>
-                        <div className="space-y-1 max-h-48 overflow-y-auto">
-                          {consultedActivities.map((activity, idx) => (
-                            <div key={idx} className="flex items-start gap-2 p-2 rounded bg-background/50 border border-border/30">
-                              <Badge variant="outline" className={cn("text-xs shrink-0", phaseColors[activity.phase] || "bg-muted")}>
-                                {activity.phase}
-                              </Badge>
-                              <span className="text-xs text-foreground/90">{activity.activity}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Informed Activities */}
-                    {informedActivities.length > 0 && (
-                      <div className="space-y-2">
-                        <h4 className="text-xs font-medium text-slate-400 uppercase tracking-wide flex items-center gap-2">
-                          <Badge className={cn("text-xs", raciColors["I"])}>I</Badge>
-                          Informed ({informedActivities.length})
-                        </h4>
-                        <div className="space-y-1 max-h-48 overflow-y-auto">
-                          {informedActivities.map((activity, idx) => (
-                            <div key={idx} className="flex items-start gap-2 p-2 rounded bg-background/50 border border-border/30">
-                              <Badge variant="outline" className={cn("text-xs shrink-0", phaseColors[activity.phase] || "bg-muted")}>
-                                {activity.phase}
-                              </Badge>
-                              <span className="text-xs text-foreground/90">{activity.activity}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                    ))}
                   </div>
                 </CardContent>
               )}
