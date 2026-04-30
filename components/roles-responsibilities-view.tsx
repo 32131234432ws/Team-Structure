@@ -384,7 +384,7 @@ export function RolesResponsibilitiesView() {
       </div>
 
       {/* Phase Tiles */}
-      <div className="grid grid-cols-1 gap-0.5">
+      <div className="grid grid-cols-1 gap-1">
         {filteredPhases.map((phase) => {
           const config = phaseConfig[phase] || defaultConfig;
           const isExpanded = expandedPhases.has(phase);
@@ -401,21 +401,21 @@ export function RolesResponsibilitiesView() {
             >
               <button
                 onClick={() => togglePhase(phase)}
-                className="flex items-center justify-between w-full text-left px-2 py-0.5"
+                className="flex items-center justify-between w-full text-left px-3 py-1.5"
               >
-                <div className="flex items-center gap-1">
-                  <span className={cn("text-xs", config.badgeColor.replace("bg-", "text-").split(" ")[0])}>
+                <div className="flex items-center gap-2">
+                  <span className={cn(config.badgeColor.replace("bg-", "text-").split(" ")[0])}>
                     {config.icon}
                   </span>
-                  <span className="text-xs font-medium text-foreground">{phase}</span>
-                  <span className="text-[10px] text-muted-foreground">
+                  <span className="text-sm font-medium text-foreground">{phase}</span>
+                  <span className="text-xs text-muted-foreground">
                     ({activities.length}{activities.length !== allActivities.length && `/${allActivities.length}`})
                   </span>
                 </div>
                 {isExpanded ? (
-                  <ChevronDown className="h-3 w-3 text-muted-foreground" />
+                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
                 ) : (
-                  <ChevronRight className="h-3 w-3 text-muted-foreground" />
+                  <ChevronRight className="h-4 w-4 text-muted-foreground" />
                 )}
               </button>
 
