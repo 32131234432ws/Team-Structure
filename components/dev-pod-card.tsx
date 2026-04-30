@@ -110,9 +110,16 @@ export function DevPodCard({ pod, defaultExpanded = true }: DevPodCardProps) {
                         key={`${member.name}-${idx}`}
                         className="flex items-center justify-between py-2 px-3 rounded-lg bg-background/50 border border-border/50"
                       >
-                        <span className="text-sm text-foreground">
-                          {member.name}
-                        </span>
+                        <div className="flex flex-col">
+                          <span className="text-sm text-foreground">
+                            {member.name}
+                          </span>
+                          {member.valueStreams && member.valueStreams.length > 0 && (
+                            <span className="text-xs text-muted-foreground">
+                              {member.valueStreams.join(", ")}
+                            </span>
+                          )}
+                        </div>
                         <div className="flex items-center gap-2">
                           <div
                             className={cn(
