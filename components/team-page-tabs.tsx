@@ -15,21 +15,33 @@ export function TeamPageTabs({ structureView, detailedView, rolesView }: TeamPag
 
   const tabConfig = {
     structure: {
-      activeBg: "bg-blue-500/20",
+      activeBg: "bg-blue-500/25",
       activeText: "text-blue-300",
-      activeBorder: "border-blue-500/40",
+      activeBorder: "border-blue-500/50",
+      inactiveBg: "bg-blue-500/10",
+      inactiveText: "text-blue-400/70",
+      inactiveBorder: "border-blue-500/20",
+      hoverBg: "hover:bg-blue-500/15",
       contentBg: "bg-blue-500/5 border-blue-500/20",
     },
     detailed: {
-      activeBg: "bg-emerald-500/20",
+      activeBg: "bg-emerald-500/25",
       activeText: "text-emerald-300",
-      activeBorder: "border-emerald-500/40",
+      activeBorder: "border-emerald-500/50",
+      inactiveBg: "bg-emerald-500/10",
+      inactiveText: "text-emerald-400/70",
+      inactiveBorder: "border-emerald-500/20",
+      hoverBg: "hover:bg-emerald-500/15",
       contentBg: "bg-emerald-500/5 border-emerald-500/20",
     },
     roles: {
-      activeBg: "bg-amber-500/20",
+      activeBg: "bg-amber-500/25",
       activeText: "text-amber-300",
-      activeBorder: "border-amber-500/40",
+      activeBorder: "border-amber-500/50",
+      inactiveBg: "bg-amber-500/10",
+      inactiveText: "text-amber-400/70",
+      inactiveBorder: "border-amber-500/20",
+      hoverBg: "hover:bg-amber-500/15",
       contentBg: "bg-amber-500/5 border-amber-500/20",
     },
   };
@@ -45,7 +57,7 @@ export function TeamPageTabs({ structureView, detailedView, rolesView }: TeamPag
             "relative flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-t-xl border border-b-0 transition-all",
             activeTab === "structure"
               ? cn(tabConfig.structure.activeBg, tabConfig.structure.activeText, tabConfig.structure.activeBorder, "z-10 -mb-px")
-              : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50 hover:text-foreground -mb-px"
+              : cn(tabConfig.structure.inactiveBg, tabConfig.structure.inactiveText, tabConfig.structure.inactiveBorder, tabConfig.structure.hoverBg, "hover:text-blue-300 -mb-px")
           )}
         >
           <LayoutGrid className="h-4 w-4" />
@@ -59,7 +71,7 @@ export function TeamPageTabs({ structureView, detailedView, rolesView }: TeamPag
             "relative flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-t-xl border border-b-0 transition-all",
             activeTab === "detailed"
               ? cn(tabConfig.detailed.activeBg, tabConfig.detailed.activeText, tabConfig.detailed.activeBorder, "z-10 -mb-px")
-              : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50 hover:text-foreground -mb-px"
+              : cn(tabConfig.detailed.inactiveBg, tabConfig.detailed.inactiveText, tabConfig.detailed.inactiveBorder, tabConfig.detailed.hoverBg, "hover:text-emerald-300 -mb-px")
           )}
         >
           <Users className="h-4 w-4" />
@@ -73,7 +85,7 @@ export function TeamPageTabs({ structureView, detailedView, rolesView }: TeamPag
             "relative flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-t-xl border border-b-0 transition-all",
             activeTab === "roles"
               ? cn(tabConfig.roles.activeBg, tabConfig.roles.activeText, tabConfig.roles.activeBorder, "z-10 -mb-px")
-              : "bg-muted/30 text-muted-foreground border-border/30 hover:bg-muted/50 hover:text-foreground -mb-px"
+              : cn(tabConfig.roles.inactiveBg, tabConfig.roles.inactiveText, tabConfig.roles.inactiveBorder, tabConfig.roles.hoverBg, "hover:text-amber-300 -mb-px")
           )}
         >
           <ClipboardList className="h-4 w-4" />
