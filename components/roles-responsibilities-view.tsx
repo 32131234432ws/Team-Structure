@@ -106,11 +106,9 @@ export function RolesResponsibilitiesView() {
     setExpandedRoles(new Set());
   };
 
-  // Get activities where role has R or A
-  const getRoleKeyActivities = (role: string) => {
-    return typedRaciData.activities.filter(
-      (a) => a.raci[role] === "R" || a.raci[role] === "A" || a.raci[role] === "R/A"
-    );
+  // Get activities by RACI type for a role
+  const getRoleActivitiesByType = (role: string, types: string[]) => {
+    return typedRaciData.activities.filter((a) => types.includes(a.raci[role]));
   };
 
   return (
@@ -156,9 +154,10 @@ export function RolesResponsibilitiesView() {
         {typedRaciData.roles.map((role) => {
           const config = roleConfig[role] || defaultConfig;
           const isExpanded = expandedRoles.has(role);
-          const keyActivities = getRoleKeyActivities(role);
-          const responsibleCount = typedRaciData.activities.filter((a) => a.raci[role] === "R" || a.raci[role] === "R/A").length;
-          const accountableCount = typedRaciData.activities.filter((a) => a.raci[role] === "A" || a.raci[role] === "R/A").length;
+          const responsibleActivities = getRoleActivitiesByType(role, ["R", "R/A"]);
+          const accountableActivities = getRoleActivitiesByType(role, ["A", "R/A"]);
+          const consultedActivities = getRoleActivitiesByType(role, ["C"]);
+          const informedActivities = getRoleActivitiesByType(role, ["I"]);
 
           return (
             <Card
@@ -180,12 +179,18 @@ export function RolesResponsibilitiesView() {
                     </div>
                     <div>
                       <h3 className="text-sm font-semibold text-foreground">{role}</h3>
-                      <div className="flex items-center gap-2 mt-1">
+                      <div className="flex items-center gap-1.5 mt-1 flex-wrap">
                         <Badge variant="outline" className="text-xs bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
-                          {responsibleCount} R
+                          {responsibleActivities.length} R
                         </Badge>
                         <Badge variant="outline" className="text-xs bg-blue-500/20 text-blue-400 border-blue-500/30">
-                          {accountableCount} A
+                          {accountableActivities.length} A
+                        </Badge>
+                        <Badge variant="outline" className="text-xs bg-amber-500/20 text-amber-400 border-amber-500/30">
+                          {consultedActivities.length} C
+                        </Badge>
+                        <Badge variant="outline" className="text-xs bg-slate-400/20 text-slate-400 border-slate-400/30">
+                          {informedActivities.length} I
                         </Badge>
                       </div>
                     </div>
@@ -202,38 +207,86 @@ export function RolesResponsibilitiesView() {
 
               {isExpanded && (
                 <CardContent className="p-4 pt-2">
-                  <div className="space-y-3">
-                    <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                      Key Responsibilities (R/A Activities)
-                    </h4>
-                    {Object.keys(typedRaciData.phases).map((phase) => {
-                      const phaseActivities = keyActivities.filter((a) => a.phase === phase);
-                      if (phaseActivities.length === 0) return null;
-
-                      return (
-                        <div key={phase} className="space-y-1.5">
-                          <Badge
-                            variant="outline"
-                            className={cn("text-xs", phaseColors[phase] || "bg-muted text-muted-foreground")}
-                          >
-                            {phase}
-                          </Badge>
-                          <div className="ml-2 space-y-1">
-                            {phaseActivities.map((activity, idx) => (
-                              <div
-                                key={idx}
-                                className="flex items-center gap-2 p-2 rounded bg-background/50 border border-border/30"
-                              >
-                                <Badge className={cn("text-xs w-6 h-6 flex items-center justify-center p-0", raciColors[activity.raci[role]])}>
-                                  {activity.raci[role]}
-                                </Badge>
-                                <span className="text-sm text-foreground/90">{activity.activity}</span>
-                              </div>
-                            ))}
-                          </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Responsible Activities */}
+                    {responsibleActivities.length > 0 && (
+                      <div className="space-y-2">
+                        <h4 className="text-xs font-medium text-emerald-400 uppercase tracking-wide flex items-center gap-2">
+                          <Badge className={cn("text-xs", raciColors["R"])}>R</Badge>
+                          Responsible ({responsibleActivities.length})
+                        </h4>
+                        <div className="space-y-1 max-h-48 overflow-y-auto">
+                          {responsibleActivities.map((activity, idx) => (
+                            <div key={idx} className="flex items-start gap-2 p-2 rounded bg-background/50 border border-border/30">
+                              <Badge variant="outline" className={cn("text-xs shrink-0", phaseColors[activity.phase] || "bg-muted")}>
+                                {activity.phase}
+                              </Badge>
+                              <span className="text-xs text-foreground/90">{activity.activity}</span>
+                            </div>
+                          ))}
                         </div>
-                      );
-                    })}
+                      </div>
+                    )}
+
+                    {/* Accountable Activities */}
+                    {accountableActivities.length > 0 && (
+                      <div className="space-y-2">
+                        <h4 className="text-xs font-medium text-blue-400 uppercase tracking-wide flex items-center gap-2">
+                          <Badge className={cn("text-xs", raciColors["A"])}>A</Badge>
+                          Accountable ({accountableActivities.length})
+                        </h4>
+                        <div className="space-y-1 max-h-48 overflow-y-auto">
+                          {accountableActivities.map((activity, idx) => (
+                            <div key={idx} className="flex items-start gap-2 p-2 rounded bg-background/50 border border-border/30">
+                              <Badge variant="outline" className={cn("text-xs shrink-0", phaseColors[activity.phase] || "bg-muted")}>
+                                {activity.phase}
+                              </Badge>
+                              <span className="text-xs text-foreground/90">{activity.activity}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Consulted Activities */}
+                    {consultedActivities.length > 0 && (
+                      <div className="space-y-2">
+                        <h4 className="text-xs font-medium text-amber-400 uppercase tracking-wide flex items-center gap-2">
+                          <Badge className={cn("text-xs", raciColors["C"])}>C</Badge>
+                          Consulted ({consultedActivities.length})
+                        </h4>
+                        <div className="space-y-1 max-h-48 overflow-y-auto">
+                          {consultedActivities.map((activity, idx) => (
+                            <div key={idx} className="flex items-start gap-2 p-2 rounded bg-background/50 border border-border/30">
+                              <Badge variant="outline" className={cn("text-xs shrink-0", phaseColors[activity.phase] || "bg-muted")}>
+                                {activity.phase}
+                              </Badge>
+                              <span className="text-xs text-foreground/90">{activity.activity}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Informed Activities */}
+                    {informedActivities.length > 0 && (
+                      <div className="space-y-2">
+                        <h4 className="text-xs font-medium text-slate-400 uppercase tracking-wide flex items-center gap-2">
+                          <Badge className={cn("text-xs", raciColors["I"])}>I</Badge>
+                          Informed ({informedActivities.length})
+                        </h4>
+                        <div className="space-y-1 max-h-48 overflow-y-auto">
+                          {informedActivities.map((activity, idx) => (
+                            <div key={idx} className="flex items-start gap-2 p-2 rounded bg-background/50 border border-border/30">
+                              <Badge variant="outline" className={cn("text-xs shrink-0", phaseColors[activity.phase] || "bg-muted")}>
+                                {activity.phase}
+                              </Badge>
+                              <span className="text-xs text-foreground/90">{activity.activity}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </CardContent>
               )}
