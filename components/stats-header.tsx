@@ -1,98 +1,47 @@
-import { devPods, crossFunctionalTeams, hypercarePods, sitUatExecutionTeam, leadershipTeam } from "@/lib/team-data";
+import { crossFunctionalTeams } from "@/lib/team-data";
 import { Badge } from "@/components/ui/badge";
+import fplStaffingData from "@/lib/fpl-staffing-data.json";
 
 export function StatsHeader() {
-  // Collect all members from all data sources
-  const devPodMembers = devPods.flatMap((pod) => pod.team);
-  const hypercarePodMembers = hypercarePods.flatMap((pod) => pod.team);
+  // Use FPL Staffing data as the source of truth for counts
+  const staffData = fplStaffingData as Array<{
+    Name: string;
+    Role: string;
+    Workstream: string;
+    Release: string;
+  }>;
+
+  // Count unique active staff from FPL Staffing (excluding TBD)
+  const uniqueStaff = new Set(staffData.filter(m => m.Name && m.Name !== "TBD").map(m => m.Name));
+  
+  // Also count interns from team-data (they're not in FPL staffing)
   const crossFunctionalMembers = crossFunctionalTeams.flatMap((team) => team.team);
-  const sitUatMembers = sitUatExecutionTeam;
-  const leadership = leadershipTeam;
+  const interns = crossFunctionalMembers.filter(m => m.role === "Intern" && m.status === "Active");
+  interns.forEach(intern => uniqueStaff.add(intern.name));
+  
+  const totalUniquePeople = uniqueStaff.size;
 
-  // Create a unified set of all unique active staff names
-  const getAllUniqueActiveNames = () => {
-    const uniqueNames = new Set<string>();
-
-    // Add dev pod members
-    devPodMembers
-      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
-      .forEach((m) => uniqueNames.add(m.name));
-
-    // Add hypercare pod members
-    hypercarePodMembers
-      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
-      .forEach((m) => uniqueNames.add(m.name));
-
-    // Add cross-functional team members
-    crossFunctionalMembers
-      .filter((m) => m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
-      .forEach((m) => uniqueNames.add(m.name));
-
-    // Add SIT/UAT execution team members
-    sitUatMembers
-      .filter((m) => m.status === "Active" && !["TBD", "FPL"].includes(m.name))
-      .forEach((m) => uniqueNames.add(m.name));
-
-    // Add leadership team members
-    leadership
-      .filter((m) => m.status === "Active" && !["TBD", "FPL"].includes(m.name))
-      .forEach((m) => uniqueNames.add(m.name));
-
-    return uniqueNames;
-  };
-
-  // Get unique active members by role across ALL data sources
-  const getUniqueActiveCountByRole = (role: string | string[]) => {
-    const roles = Array.isArray(role) ? role : [role];
-    const uniqueNames = new Set<string>();
-
-    // Dev pod members
-    devPodMembers
-      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
-      .forEach((m) => uniqueNames.add(m.name));
-
-    // Hypercare pod members
-    hypercarePodMembers
-      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
-      .forEach((m) => uniqueNames.add(m.name));
-
-    // Cross-functional team members
-    crossFunctionalMembers
-      .filter((m) => roles.includes(m.role) && m.status === "Active" && m.name !== "TBD" && m.name !== "FPL")
-      .forEach((m) => uniqueNames.add(m.name));
-
-    // SIT/UAT execution team members
-    sitUatMembers
-      .filter((m) => roles.includes(m.role) && m.status === "Active" && !["TBD", "FPL"].includes(m.name))
-      .forEach((m) => uniqueNames.add(m.name));
-
-    // Leadership team members
-    leadership
-      .filter((m) => roles.includes(m.role) && m.status === "Active" && !["TBD", "FPL"].includes(m.name))
-      .forEach((m) => uniqueNames.add(m.name));
-
-    // Check for FPL in dev pods for these roles
-    const hasFPL = devPodMembers.some((m) => m.name === "FPL" && roles.includes(m.role) && m.status === "Active");
-    
-    return uniqueNames.size + (hasFPL ? 1 : 0);
+  // Count by role from FPL Staffing data
+  const countByRole = (roles: string[]) => {
+    const names = new Set(
+      staffData
+        .filter(m => m.Name && m.Name !== "TBD" && roles.some(r => m.Role?.includes(r)))
+        .map(m => m.Name)
+    );
+    return names.size;
   };
 
   const totalByRole = {
-    Lead: getUniqueActiveCountByRole("Lead"),
-    "Onshore Solution Analyst": getUniqueActiveCountByRole("Onshore Solution Analyst"),
-    "Offshore Solution Analyst": getUniqueActiveCountByRole("Offshore Solution Analyst"),
-    Dev: getUniqueActiveCountByRole("Dev"),
-    QA: getUniqueActiveCountByRole(["QA", "QA Lead"]),
-    Team: getUniqueActiveCountByRole("Team"),
-    Architect: getUniqueActiveCountByRole("Architect"),
-    PMO: getUniqueActiveCountByRole("PMO"),
-    Intern: getUniqueActiveCountByRole("Intern"),
+    Lead: countByRole(["Engagement Lead", "Dev Lead", "Integration Lead", "DevOps Lead"]),
+    "Onshore Solution Analyst": countByRole(["Onshore SA"]),
+    "Offshore Solution Analyst": countByRole(["Offshore SA"]),
+    Dev: countByRole(["Dev"]) - countByRole(["Dev Lead", "DevOps"]), // Exclude leads and devops
+    QA: countByRole(["QA"]),
+    Team: countByRole(["Integration Dev", "DevOps", "Windsurf/Performance Dev"]),
+    Architect: countByRole(["Architect"]),
+    PMO: countByRole(["PMO"]),
+    Intern: interns.length,
   };
-
-  // Total unique people across ALL data sources
-  const allUniqueNames = getAllUniqueActiveNames();
-  const hasFPL = devPodMembers.some((m) => m.name === "FPL" && m.status === "Active");
-  const totalUniquePeople = allUniqueNames.size + (hasFPL ? 1 : 0);
 
 
 
