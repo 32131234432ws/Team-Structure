@@ -16,14 +16,14 @@ export function TeamPageTabs({ structureView, detailedView, rolesView }: TeamPag
   return (
     <div>
       {/* Tab Navigation */}
-      <div className="flex items-center gap-2 mb-6 border-b border-border">
+      <div className="flex items-center gap-3 mb-6">
         <button
           onClick={() => setActiveTab("structure")}
           className={cn(
-            "flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors",
+            "flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg border transition-all",
             activeTab === "structure"
-              ? "border-primary text-primary"
-              : "border-transparent text-muted-foreground hover:text-foreground"
+              ? "bg-blue-500/20 text-blue-400 border-blue-500/30 shadow-sm"
+              : "bg-muted/30 text-muted-foreground border-border/50 hover:bg-muted/50 hover:text-foreground"
           )}
         >
           <LayoutGrid className="h-4 w-4" />
@@ -32,10 +32,10 @@ export function TeamPageTabs({ structureView, detailedView, rolesView }: TeamPag
         <button
           onClick={() => setActiveTab("detailed")}
           className={cn(
-            "flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors",
+            "flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg border transition-all",
             activeTab === "detailed"
-              ? "border-primary text-primary"
-              : "border-transparent text-muted-foreground hover:text-foreground"
+              ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30 shadow-sm"
+              : "bg-muted/30 text-muted-foreground border-border/50 hover:bg-muted/50 hover:text-foreground"
           )}
         >
           <Users className="h-4 w-4" />
@@ -44,10 +44,10 @@ export function TeamPageTabs({ structureView, detailedView, rolesView }: TeamPag
         <button
           onClick={() => setActiveTab("roles")}
           className={cn(
-            "flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors",
+            "flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-lg border transition-all",
             activeTab === "roles"
-              ? "border-primary text-primary"
-              : "border-transparent text-muted-foreground hover:text-foreground"
+              ? "bg-amber-500/20 text-amber-400 border-amber-500/30 shadow-sm"
+              : "bg-muted/30 text-muted-foreground border-border/50 hover:bg-muted/50 hover:text-foreground"
           )}
         >
           <ClipboardList className="h-4 w-4" />
