@@ -274,6 +274,21 @@ export const devPods: DevPod[] = [
       { name: "John Jyothula", role: "Dev", status: "Active" },
     ],
   },
+  {
+    id: "pod-14",
+    name: "Field Management POD",
+    valueStream: "Release",
+    description: "Field operations and service management workflows",
+    color: "from-sky-500/20 to-sky-500/5",
+    release: "IR4",
+    badges: ["Field Management"],
+    team: [
+      { name: "Niket Saxena", role: "Lead", status: "Active" },
+      { name: "Chaitra Hanchinal", role: "Dev", status: "Active" },
+      { name: "Jaya Lakshmi Papolu", role: "Dev", status: "Active" },
+      { name: "Mrithika Kumaresan", role: "Dev", status: "Active" },
+    ],
+  },
 ];
 
 export const roleColors: Record<TeamMember["role"], string> = {
