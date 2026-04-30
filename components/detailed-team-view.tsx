@@ -8,18 +8,29 @@ import { cn } from "@/lib/utils";
 import { Search, ChevronDown, X } from "lucide-react";
 
 const roleColors: Record<string, string> = {
-  Lead: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
-  "Solution Analyst": "bg-blue-500/20 text-blue-400 border-blue-500/30",
-  Developer: "bg-amber-500/20 text-amber-400 border-amber-500/30",
+  "Engagement Lead": "bg-purple-500/20 text-purple-400 border-purple-500/30",
+  "Dev Lead": "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+  "Integration Lead": "bg-violet-500/20 text-violet-400 border-violet-500/30",
+  "DevOps Lead": "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
+  "QA Lead": "bg-red-500/20 text-red-400 border-red-500/30",
+  "Technical Architect": "bg-orange-500/20 text-orange-400 border-orange-500/30",
+  "Solution Architect": "bg-orange-500/20 text-orange-400 border-orange-500/30",
+  "Business Architect": "bg-orange-500/20 text-orange-400 border-orange-500/30",
+  PMO: "bg-pink-500/20 text-pink-400 border-pink-500/30",
+  "Onshore SA": "bg-blue-500/20 text-blue-400 border-blue-500/30",
+  "Offshore SA": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+  Dev: "bg-amber-500/20 text-amber-400 border-amber-500/30",
   QA: "bg-rose-500/20 text-rose-400 border-rose-500/30",
   DevOps: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30",
-  Integration: "bg-violet-500/20 text-violet-400 border-violet-500/30",
-  PMO: "bg-pink-500/20 text-pink-400 border-pink-500/30",
-  Architecture: "bg-orange-500/20 text-orange-400 border-orange-500/30",
+  "Integration Dev": "bg-violet-500/20 text-violet-400 border-violet-500/30",
+  "Windsurf/Performance Dev": "bg-lime-500/20 text-lime-400 border-lime-500/30",
 };
 
 const releaseColors: Record<string, string> = {
-  IR3: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+  "IR3.2": "bg-blue-500/20 text-blue-400 border-blue-500/30",
+  "IR3.X": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+  "IR3.2/IR4": "bg-teal-500/20 text-teal-400 border-teal-500/30",
+  "IR3.X/IR4": "bg-teal-500/20 text-teal-400 border-teal-500/30",
   IR4: "bg-amber-500/20 text-amber-400 border-amber-500/30",
   All: "bg-violet-500/20 text-violet-400 border-violet-500/30",
 };
@@ -132,7 +143,7 @@ export function DetailedTeamView() {
       const matchesSearch =
         searchTerm === "" ||
         member.Name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        member.Email.toLowerCase().includes(searchTerm.toLowerCase());
+        (member.Email && member.Email.toLowerCase().includes(searchTerm.toLowerCase()));
       const matchesRole = !filterRole || member.Role === filterRole;
       const matchesRelease = !filterRelease || member.Release === filterRelease;
       const matchesWorkstream = !filterWorkstream || member.Workstream === filterWorkstream;
@@ -228,7 +239,9 @@ export function DetailedTeamView() {
             >
               <div className="col-span-3">
                 <div className="text-sm font-medium text-foreground leading-tight">{member.Name}</div>
-                <div className="text-xs text-muted-foreground truncate">{member.Email}</div>
+                {member.Email && (
+                  <div className="text-xs text-muted-foreground truncate">{member.Email}</div>
+                )}
               </div>
               <div className="col-span-2">
                 {member.Role && (
