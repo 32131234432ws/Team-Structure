@@ -29,6 +29,7 @@ const roleOrder: TeamMember["role"][] = [
   "Team",
   "Dev",
   "QA",
+  "Intern",
 ];
 
 export function CrossFunctionalSection({
@@ -46,6 +47,7 @@ export function CrossFunctionalSection({
     Team: true,
     Dev: true,
     QA: true,
+    Intern: true,
   });
 
   const toggleTeam = (teamId: string) => {
