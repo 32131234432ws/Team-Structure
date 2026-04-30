@@ -21,25 +21,25 @@ export function StatsHeader() {
   
   const totalUniquePeople = uniqueStaff.size;
 
-  // Count by role from FPL Staffing data
-  const countByRole = (roles: string[]) => {
+  // Count by exact role from FPL Staffing data
+  const countByExactRole = (roles: string[]) => {
     const names = new Set(
       staffData
-        .filter(m => m.Name && m.Name !== "TBD" && roles.some(r => m.Role?.includes(r)))
+        .filter(m => m.Name && m.Name !== "TBD" && roles.includes(m.Role))
         .map(m => m.Name)
     );
     return names.size;
   };
 
   const totalByRole = {
-    Lead: countByRole(["Engagement Lead", "Dev Lead", "Integration Lead", "DevOps Lead"]),
-    "Onshore Solution Analyst": countByRole(["Onshore SA"]),
-    "Offshore Solution Analyst": countByRole(["Offshore SA"]),
-    Dev: countByRole(["Dev"]) - countByRole(["Dev Lead", "DevOps"]), // Exclude leads and devops
-    QA: countByRole(["QA"]),
-    Team: countByRole(["Integration Dev", "DevOps", "Windsurf/Performance Dev"]),
-    Architect: countByRole(["Architect"]),
-    PMO: countByRole(["PMO"]),
+    Lead: countByExactRole(["Engagement Lead", "Dev Lead", "Integration Lead", "DevOps Lead", "QA Lead"]),
+    "Onshore Solution Analyst": countByExactRole(["Onshore SA"]),
+    "Offshore Solution Analyst": countByExactRole(["Offshore SA"]),
+    Dev: countByExactRole(["Dev"]),
+    QA: countByExactRole(["QA"]),
+    Team: countByExactRole(["Integration Dev", "DevOps", "Windsurf/Performance Dev"]),
+    Architect: countByExactRole(["Technical Architect", "Solution Architect", "Business Architect"]),
+    PMO: countByExactRole(["PMO"]),
     Intern: interns.length,
   };
 

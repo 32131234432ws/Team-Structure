@@ -355,7 +355,6 @@ export const sitUatExecutionTeam: SitUatMember[] = [
   { name: "Vidyashree", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options"] },
   { name: "Prasanna", role: "QA", status: "Active", valueStreams: ["Billing Programs"] },
   { name: "Nikita", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options"] },
-  { name: "Akhil", role: "QA", status: "Active", valueStreams: ["Billing Programs"] },
   { name: "Grace Nazareno", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options", "Billing Programs"] },
 ];
 
