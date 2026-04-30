@@ -143,6 +143,7 @@ export const devPods: DevPod[] = [
     badges: ["Billing & Usage", "Payment Programs"],
     team: [
       { name: "Shreya LNU", role: "Lead", status: "Active" },
+      { name: "Russell Stein", role: "Onshore Solution Analyst", status: "Active" },
       { name: "Sahithi Manne", role: "Onshore Solution Analyst", status: "Active" },
       { name: "Namrata Bansode", role: "Offshore Solution Analyst", status: "Active" },
       { name: "Mounika Depuri", role: "Dev", status: "Active" },
