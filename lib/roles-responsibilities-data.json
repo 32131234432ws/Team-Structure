@@ -1,183 +1,102 @@
 [
   {
-    "category": "LEADERSHIP",
-    "role": "Engagement Lead",
+    "category": "",
+    "role": "Role",
     "responsibilities": [
-      "Own client relationship and overall program health",
-      "Escalation point for risks, blockers, and strategic decisions",
-      "Align program goals with client executive stakeholders",
-      "Review and approve program status, scope changes, and budgets",
-      "Facilitate steering committee meetings and executive reviews"
+      "Responsibilities  (R = Responsible · A = Accountable for these activities)"
     ]
   },
   {
-    "category": "LEADERSHIP",
-    "role": "Technical Architect",
+    "category": "",
+    "role": "ONSHORE SOLUTION ANALYST",
     "responsibilities": [
-      "Define and govern end-to-end technical architecture",
-      "Establish coding standards, integration patterns, and design principles",
-      "Review technical designs and approve architectural decisions",
-      "Resolve cross-pod technical dependencies and conflicts",
-      "Provide guidance on performance, scalability, and security"
+      "Requirements  |  Gather & own requirements (R); accountable for detailing, sign-off, and intake validation (A)",
+      "Design  |  Accountable for Functional Design, FPL Solution Review, Decision Review Board, and Design Sign-off (A); lead Solution Workshops (R)",
+      "Development  |  Drive SME reviews to validate built features against requirements (R)",
+      "SIT  |  Accountable for Test Planning; lead Defect Triage alongside QA (R)",
+      "UAT  |  Lead UAT Coordination (R); accountable for Business Validation (A)",
+      "Post-Dev  |  Capture and log feedback in JIRA (R)",
+      "Sprint Ceremonies  |  Drive Daily Standup, Sprint Planning, and Sprint Demo (R)",
+      "Hypercare  |  Lead Incident Triage for production issues (R)"
     ]
   },
   {
-    "category": "LEADERSHIP",
-    "role": "Solution Architect",
+    "category": "",
+    "role": "OFFSHORE SOLUTION ANALYST",
     "responsibilities": [
-      "Translate business requirements into solution designs",
-      "Own solution blueprints across value streams",
-      "Validate technical feasibility of proposed solutions",
-      "Support Dev Leads with design reviews and technical guidance",
-      "Bridge gap between business requirements and development teams"
+      "Requirements  |  Responsible for Requirement Detailing, Requirement Sign-off, and Intake Validation (R)",
+      "Design  |  Own Functional Design documentation and Design Sign-off (R)",
+      "Development  |  Maintain all documentation on Confluence and tracking tools (R)",
+      "SIT  |  Own Test Planning documentation; participate in Defect Triage (R)",
+      "Hypercare  |  Co-lead Incident Triage alongside Onshore SA (R)"
     ]
   },
   {
-    "category": "LEADERSHIP",
-    "role": "Business Architect",
+    "category": "",
+    "role": "DEVELOPER",
     "responsibilities": [
-      "Map business processes and identify transformation opportunities",
-      "Define future-state operating model and capability framework",
-      "Facilitate requirements workshops with business stakeholders",
-      "Ensure solutions align with business strategy and process goals",
-      "Produce business architecture artefacts (process maps, RACI, etc.)"
+      "Design  |  Own Technical Approach Documentation (R)",
+      "Development  |  Build and configure all features (R); execute Unit Testing, PMD Code Scans, and Peer Reviews (R)",
+      "SIT  |  Perform Smoke Testing post-deployment (R); execute Defect Resolution during test cycles (R)",
+      "UAT  |  Resolve defects raised by business during UAT (R)"
     ]
   },
   {
-    "category": "LEADERSHIP",
-    "role": "PMO",
+    "category": "",
+    "role": "DEVELOPMENT LEAD",
     "responsibilities": [
-      "Maintain program plan, milestones, and RAID log",
-      "Track and report on program status, budget, and resource utilisation",
-      "Coordinate cross-team dependencies and sprint planning",
-      "Manage change control, governance artefacts, and meeting cadence",
-      "Support onboarding, off-boarding, and resource management"
+      "Requirements  |  Accountable for Intake Validation outcomes (A)",
+      "Design  |  Own Architecture Review (R/A); responsible for FPL Solution Review, Decision Review Board, and Design Sign-off (R); accountable for Technical Approach, Effort Estimation, and Technical Design (A)",
+      "Development  |  Accountable for Build & Configuration, Unit Testing, PMD Scans, Peer Review, SME Review, and Documentation (A)",
+      "SIT  |  Accountable for Smoke Testing and Defect Triage resolution (A)",
+      "UAT  |  Accountable for Defect Resolution during UAT (A)",
+      "Cutover & Go-Live  |  Responsible for Cutover Planning and Go-live Coordination (R)",
+      "Hypercare  |  Accountable for Incident Triage and Bug Fixing resolution (A)"
     ]
   },
   {
-    "category": "CROSS-FUNCTIONAL PODS",
-    "role": "Integration Lead",
+    "category": "",
+    "role": "QUALITY ASSURANCE",
     "responsibilities": [
-      "Own integration architecture across all value streams and releases",
-      "Define API contracts, data mapping standards, and middleware patterns",
-      "Review and approve integration designs before development",
-      "Manage integration dependencies between pods and external systems",
-      "Coordinate integration testing strategy with QA Leads"
+      "SIT  |  Execute Test Execution across all value streams (R); actively participate in Defect Triage (R); validate Environment Readiness and Integration readiness (C)",
+      "UAT  |  Responsible for Business Validation testing (R)",
+      "Post-Dev  |  Capture feedback and defects in JIRA post-release (R)",
+      "Hypercare  |  Participate in Incident Triage and Bug Fixing validation (C)"
     ]
   },
   {
-    "category": "CROSS-FUNCTIONAL PODS",
-    "role": "Integration Dev",
+    "category": "",
+    "role": "INTEGRATION POD",
     "responsibilities": [
-      "Build and maintain APIs, middleware, and integration components",
-      "Execute integration development per approved design",
-      "Debug and resolve integration defects and data issues",
-      "Participate in integration SIT/UAT support activities",
-      "Document integration flows and technical specifications"
+      "Requirements & Design  |  Consulted on all requirements, architecture, and design activities to ensure integration alignment (C)",
+      "Development  |  Consulted on Technical Design; ensure integration components are factored into build (C)",
+      "SIT  |  Own Integration Validation end-to-end (R/A); participate in Defect Triage (C)",
+      "Cutover & Go-Live  |  Consulted on Cutover Planning and Go-live Coordination (C)",
+      "Hypercare  |  Participate in Incident Triage; support integration-related bug fixes (C)"
     ]
   },
   {
-    "category": "CROSS-FUNCTIONAL PODS",
-    "role": "DevOps Lead",
+    "category": "",
+    "role": "DEVOPS POD",
     "responsibilities": [
-      "Own CI/CD pipeline design, tooling, and governance",
-      "Manage infrastructure provisioning and environment strategy",
-      "Define branching strategy, release management, and deployment playbooks",
-      "Oversee platform stability, monitoring, and incident response",
-      "Ensure security, compliance, and access controls across environments"
+      "SIT  |  Own Code Promotion to Test and Deployment Validation (R/A); own Environment Readiness (R/A)",
+      "UAT  |  Support environment stability and readiness for UAT execution",
+      "Cutover  |  Responsible for Deployment Execution and contribute to Cutover Planning (R/A)",
+      "Go-Live  |  Responsible for Go-live deployment execution (R)",
+      "Hypercare  |  Monitor production environment health post go-live (C)"
     ]
   },
   {
-    "category": "CROSS-FUNCTIONAL PODS",
-    "role": "DevOps",
+    "category": "",
+    "role": "PROGRAM MANAGEMENT OFFICE (PMO)",
     "responsibilities": [
-      "Build and maintain CI/CD pipelines and automation scripts",
-      "Manage environment configuration and infrastructure-as-code",
-      "Support deployment activities across all releases",
-      "Monitor system health and respond to alerts and incidents",
-      "Troubleshoot build, deployment, and environment issues"
-    ]
-  },
-  {
-    "category": "CROSS-FUNCTIONAL PODS",
-    "role": "Windsurf/Performance Dev",
-    "responsibilities": [
-      "Own Windsurf AI-assisted development tooling setup and adoption",
-      "Conduct performance profiling and identify bottlenecks across pods",
-      "Define and enforce performance benchmarks and SLAs",
-      "Implement performance fixes and optimisations",
-      "Share best practices and enablement across development teams"
-    ]
-  },
-  {
-    "category": "DEVELOPMENT PODS",
-    "role": "Dev Lead",
-    "responsibilities": [
-      "Lead day-to-day delivery of the pod's value stream(s)",
-      "Own sprint planning, story grooming, and task assignment for the pod",
-      "Review code, enforce standards, and approve pull requests",
-      "Identify and escalate technical risks and blockers",
-      "Coordinate with Onshore/Offshore SA on requirement clarity",
-      "Track pod velocity and report progress to Engagement Lead"
-    ]
-  },
-  {
-    "category": "DEVELOPMENT PODS",
-    "role": "Onshore SA\r\n(Solution Analyst)",
-    "responsibilities": [
-      "Translate functional requirements into detailed user stories and acceptance criteria",
-      "Serve as primary liaison between business stakeholders and the dev pod",
-      "Facilitate requirement walkthroughs, demos, and sign-offs",
-      "Maintain functional specification documents and traceability matrix",
-      "Support UAT by clarifying requirements and validating test cases",
-      "Identify functional gaps and raise change requests as needed"
-    ]
-  },
-  {
-    "category": "DEVELOPMENT PODS",
-    "role": "Offshore SA\r\n(Solution Analyst)",
-    "responsibilities": [
-      "Support Onshore SA in requirements analysis and documentation",
-      "Prepare detailed functional designs and process flow diagrams",
-      "Perform functional review of developed features against requirements",
-      "Coordinate with offshore dev team on requirement queries",
-      "Assist in defect triage and requirement clarification during SIT/UAT"
-    ]
-  },
-  {
-    "category": "DEVELOPMENT PODS",
-    "role": "Dev",
-    "responsibilities": [
-      "Design, build, and unit-test features per user stories and technical design",
-      "Follow coding standards, branching strategy, and peer review process",
-      "Participate in sprint ceremonies (planning, standups, retrospectives)",
-      "Fix defects raised during SIT/UAT within agreed SLAs",
-      "Document code, APIs, and configuration changes",
-      "Support deployments and post-deployment validation"
-    ]
-  },
-  {
-    "category": "QA / SIT / UAT",
-    "role": "QA Lead",
-    "responsibilities": [
-      "Own the test strategy, test plan, and QA governance for all value streams",
-      "Allocate QA resources across value streams and manage bandwidth",
-      "Define entry/exit criteria for SIT and UAT phases",
-      "Track and report defect metrics, test coverage, and release readiness",
-      "Escalate critical defects and coordinate with Dev Leads for resolution",
-      "Facilitate UAT sessions with business stakeholders"
-    ]
-  },
-  {
-    "category": "QA / SIT / UAT",
-    "role": "QA",
-    "responsibilities": [
-      "Author, review, and execute test cases for assigned value streams",
-      "Perform functional, regression, and integration testing",
-      "Log defects with clear steps to reproduce, severity, and evidence",
-      "Retest fixed defects and confirm closure before release",
-      "Maintain test artefacts (test cases, execution logs, traceability)",
-      "Support UAT by guiding business users through test scenarios"
+      "Requirements  |  Own Intake Tracking and status reporting (R/A)",
+      "SIT  |  Accountable for overall Test Execution governance (A)",
+      "UAT  |  Accountable for UAT Coordination and Progress Tracking (A/R)",
+      "Cutover & Go-Live  |  Accountable for Cutover Planning, Readiness Checklist, and Go-live Coordination (A)",
+      "Post-Dev  |  Accountable for Feedback Capture in JIRA and Continuous Improvement Tracking (A/R)",
+      "Sprint Ceremonies  |  Accountable for Daily Standup, Sprint Planning, and Sprint Demo cadence (A)",
+      "Hypercare  |  Own Reporting on production issues and resolution status (R/A)"
     ]
   }
 ]
