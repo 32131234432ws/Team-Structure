@@ -384,7 +384,7 @@ export function RolesResponsibilitiesView() {
       </div>
 
       {/* Phase Tiles */}
-      <div className="grid grid-cols-1 gap-1.5">
+      <div className="grid grid-cols-1 gap-1">
         {filteredPhases.map((phase) => {
           const config = phaseConfig[phase] || defaultConfig;
           const isExpanded = expandedPhases.has(phase);
@@ -399,16 +399,16 @@ export function RolesResponsibilitiesView() {
                 config.color
               )}
             >
-              <CardHeader className="px-3 py-2">
+              <CardHeader className="px-3 py-1.5">
                 <button
                   onClick={() => togglePhase(phase)}
                   className="flex items-center justify-between w-full text-left"
                 >
                   <div className="flex items-center gap-2">
-                    <div className={cn("p-1.5 rounded-md", config.badgeColor)}>
+                    <div className={cn("p-1 rounded", config.badgeColor)}>
                       {config.icon}
                     </div>
-                    <h3 className="text-sm font-semibold text-foreground">{phase}</h3>
+                    <h3 className="text-sm font-medium text-foreground">{phase}</h3>
                     <span className="text-xs text-muted-foreground">
                       ({activities.length}{activities.length !== allActivities.length && `/${allActivities.length}`})
                     </span>
