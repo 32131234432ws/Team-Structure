@@ -107,12 +107,105 @@ function FilterDropdown({
   );
 }
 
+function MultiSelectFilterDropdown({
+  label,
+  options,
+  values,
+  onChange,
+}: {
+  label: string;
+  options: string[];
+  values: Set<string>;
+  onChange: (vals: Set<string>) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const toggleOption = (opt: string) => {
+    const newSet = new Set(values);
+    if (newSet.has(opt)) {
+      newSet.delete(opt);
+    } else {
+      newSet.add(opt);
+    }
+    onChange(newSet);
+  };
+
+  const clearAll = () => {
+    onChange(new Set());
+  };
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className={cn(
+          "flex items-center gap-1 text-xs font-medium uppercase tracking-wider transition-colors",
+          values.size > 0 ? "text-primary" : "text-muted-foreground hover:text-foreground"
+        )}
+      >
+        {label}
+        {values.size > 0 && (
+          <Badge variant="secondary" className="h-4 px-1 text-xs ml-1">
+            {values.size}
+          </Badge>
+        )}
+        <ChevronDown className={cn("h-3 w-3 transition-transform", open && "rotate-180")} />
+      </button>
+      {open && (
+        <div className="absolute top-full left-0 mt-1 z-50 bg-background border border-border rounded-md shadow-lg min-w-[180px] max-h-[250px] overflow-y-auto">
+          {values.size > 0 && (
+            <button
+              onClick={clearAll}
+              className="block w-full text-left px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-muted border-b border-border/50"
+            >
+              Clear all
+            </button>
+          )}
+          {options.map((opt) => (
+            <button
+              key={opt}
+              onClick={() => toggleOption(opt)}
+              className={cn(
+                "flex items-center gap-2 w-full text-left px-3 py-1.5 text-sm transition-colors",
+                values.has(opt) ? "bg-primary/10 text-primary" : "hover:bg-muted"
+              )}
+            >
+              <div
+                className={cn(
+                  "w-4 h-4 rounded border flex items-center justify-center text-xs",
+                  values.has(opt)
+                    ? "bg-primary border-primary text-primary-foreground"
+                    : "border-border"
+                )}
+              >
+                {values.has(opt) && "✓"}
+              </div>
+              <span className="truncate">{opt}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function DetailedTeamView() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterRole, setFilterRole] = useState<string | null>(null);
   const [filterRelease, setFilterRelease] = useState<string | null>(null);
   const [filterWorkstream, setFilterWorkstream] = useState<string | null>(null);
-  const [filterPod, setFilterPod] = useState<string | null>(null);
+  const [filterPods, setFilterPods] = useState<Set<string>>(new Set());
 
   const roles = useMemo(() => {
     const set = new Set<string>();
@@ -147,18 +240,18 @@ export function DetailedTeamView() {
       const matchesRole = !filterRole || member.Role === filterRole;
       const matchesRelease = !filterRelease || member.Release === filterRelease;
       const matchesWorkstream = !filterWorkstream || member.Workstream === filterWorkstream;
-      const matchesPod = !filterPod || member.Valuestream === filterPod;
+      const matchesPod = filterPods.size === 0 || filterPods.has(member.Valuestream);
       return matchesSearch && matchesRole && matchesRelease && matchesWorkstream && matchesPod;
     });
-  }, [searchTerm, filterRole, filterRelease, filterWorkstream, filterPod]);
+  }, [searchTerm, filterRole, filterRelease, filterWorkstream, filterPods]);
 
-  const hasFilters = filterRole || filterRelease || filterWorkstream || filterPod || searchTerm;
+  const hasFilters = filterRole || filterRelease || filterWorkstream || filterPods.size > 0 || searchTerm;
 
   const clearAllFilters = () => {
     setFilterRole(null);
     setFilterRelease(null);
     setFilterWorkstream(null);
-    setFilterPod(null);
+    setFilterPods(new Set());
     setSearchTerm("");
   };
 
@@ -221,11 +314,11 @@ export function DetailedTeamView() {
             />
           </div>
           <div className="col-span-3">
-            <FilterDropdown
+            <MultiSelectFilterDropdown
               label="POD"
               options={pods}
-              value={filterPod}
-              onChange={setFilterPod}
+              values={filterPods}
+              onChange={setFilterPods}
             />
           </div>
         </div>
