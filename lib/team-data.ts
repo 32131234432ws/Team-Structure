@@ -440,15 +440,4 @@ export const crossFunctionalTeams: CrossFunctionalTeam[] = [
       { name: "Adithya Sankar S", role: "Intern", status: "Active" },
     ],
   },
-  {
-    id: "cf-pmo",
-    name: "PMO",
-    description: "Program management and coordination across all releases",
-    color: "from-pink-500/20 to-pink-500/5",
-    team: [
-      { name: "Shanta Samlal", role: "PMO", status: "Active" },
-      { name: "Paarth Sonwaney", role: "PMO", status: "Active" },
-      { name: "Courtney Hawkins", role: "PMO", status: "Active" },
-    ],
-  },
 ];
