@@ -1,102 +1,1324 @@
-[
-  {
-    "category": "",
-    "role": "Role",
-    "responsibilities": [
-      "Responsibilities  (R = Responsible · A = Accountable for these activities)"
+{
+  "roles": [
+    "Onshore Solution Analyst",
+    "Offshore Solution Analyst",
+    "Developer",
+    "Development Lead",
+    "Quality Assurance",
+    "Integration POD",
+    "DevOps POD",
+    "Program Management Office"
+  ],
+  "phases": {
+    "Requirements": [
+      {
+        "phase": "Requirements",
+        "activity": "Requirement Gathering",
+        "raci": {
+          "Onshore Solution Analyst": "R",
+          "Offshore Solution Analyst": "C",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Requirements",
+        "activity": "Requirement Detailing",
+        "raci": {
+          "Onshore Solution Analyst": "A",
+          "Offshore Solution Analyst": "R",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Requirements",
+        "activity": "Requirement Sign-off",
+        "raci": {
+          "Onshore Solution Analyst": "A",
+          "Offshore Solution Analyst": "R",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Requirements",
+        "activity": "Intake Validation",
+        "raci": {
+          "Onshore Solution Analyst": "C",
+          "Offshore Solution Analyst": "R",
+          "Developer": "I",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "Requirements",
+        "activity": "Intake Tracking",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "R/A"
+        }
+      }
+    ],
+    "Design": [
+      {
+        "phase": "Design",
+        "activity": "Technical Approach Documentation",
+        "raci": {
+          "Onshore Solution Analyst": "C",
+          "Offshore Solution Analyst": "C",
+          "Developer": "R",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Design",
+        "activity": "Architecture Review",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "C",
+          "Development Lead": "R/A",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Design",
+        "activity": "FPL Solution Review",
+        "raci": {
+          "Onshore Solution Analyst": "A",
+          "Offshore Solution Analyst": "C",
+          "Developer": "I",
+          "Development Lead": "R",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Design",
+        "activity": "Decision Review Board",
+        "raci": {
+          "Onshore Solution Analyst": "A",
+          "Offshore Solution Analyst": "C",
+          "Developer": "I",
+          "Development Lead": "R",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "Design",
+        "activity": "Functional Design",
+        "raci": {
+          "Onshore Solution Analyst": "A",
+          "Offshore Solution Analyst": "R",
+          "Developer": "C",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Design",
+        "activity": "Technical Design",
+        "raci": {
+          "Onshore Solution Analyst": "C",
+          "Offshore Solution Analyst": "C",
+          "Developer": "R",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "R",
+          "DevOps POD": "C",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Design",
+        "activity": "Solution Workshops",
+        "raci": {
+          "Onshore Solution Analyst": "R",
+          "Offshore Solution Analyst": "C",
+          "Developer": "C",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "Design",
+        "activity": "Effort Estimation",
+        "raci": {
+          "Onshore Solution Analyst": "C",
+          "Offshore Solution Analyst": "C",
+          "Developer": "R",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Design",
+        "activity": "Design Sign-off",
+        "raci": {
+          "Onshore Solution Analyst": "A",
+          "Offshore Solution Analyst": "R",
+          "Developer": "I",
+          "Development Lead": "R",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      }
+    ],
+    "Development": [
+      {
+        "phase": "Development",
+        "activity": "Build & Configuration",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "R",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "C",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Development",
+        "activity": "Unit Testing",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "R",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Development",
+        "activity": "PMD Code Scan",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "R",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Development",
+        "activity": "Peer Review",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "R",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Development",
+        "activity": "UI/UX Review",
+        "raci": {
+          "Onshore Solution Analyst": "C",
+          "Offshore Solution Analyst": "C",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Development",
+        "activity": "SME Review",
+        "raci": {
+          "Onshore Solution Analyst": "R",
+          "Offshore Solution Analyst": "C",
+          "Developer": "I",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Development",
+        "activity": "Documentation (Confluence & Tracker)",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "R",
+          "Developer": "C",
+          "Development Lead": "A",
+          "Quality Assurance": "I",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      }
+    ],
+    "SIT": [
+      {
+        "phase": "SIT",
+        "activity": "Code Promotion to Test",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "C",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "R/A",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "SIT",
+        "activity": "Smoke Testing",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "R",
+          "Development Lead": "A",
+          "Quality Assurance": "C",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "SIT",
+        "activity": "Deployment Validation",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "C",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "R/A",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "SIT",
+        "activity": "Test Planning",
+        "raci": {
+          "Onshore Solution Analyst": "A",
+          "Offshore Solution Analyst": "R",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "C",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "SIT",
+        "activity": "Test Execution",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "C",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "R",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "A"
+        }
+      },
+      {
+        "phase": "SIT",
+        "activity": "Defect Triage",
+        "raci": {
+          "Onshore Solution Analyst": "R",
+          "Offshore Solution Analyst": "R",
+          "Developer": "C",
+          "Development Lead": "A",
+          "Quality Assurance": "R",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "SIT",
+        "activity": "Integration Validation",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "C",
+          "Development Lead": "C",
+          "Quality Assurance": "C",
+          "Integration POD": "R/A",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "SIT",
+        "activity": "Environment Readiness",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "C",
+          "Integration POD": "C",
+          "DevOps POD": "R/A",
+          "Program Management Office": "C"
+        }
+      }
+    ],
+    "UAT": [
+      {
+        "phase": "UAT",
+        "activity": "UAT Coordination",
+        "raci": {
+          "Onshore Solution Analyst": "R",
+          "Offshore Solution Analyst": "C",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "C",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "A"
+        }
+      },
+      {
+        "phase": "UAT",
+        "activity": "Business Validation",
+        "raci": {
+          "Onshore Solution Analyst": "A",
+          "Offshore Solution Analyst": "C",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "R",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "UAT",
+        "activity": "Defect Resolution",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "C",
+          "Developer": "R",
+          "Development Lead": "A",
+          "Quality Assurance": "C",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "UAT",
+        "activity": "Progress Tracking",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "C",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "R/A"
+        }
+      }
+    ],
+    "Cutover": [
+      {
+        "phase": "Cutover",
+        "activity": "Cutover Planning",
+        "raci": {
+          "Onshore Solution Analyst": "C",
+          "Offshore Solution Analyst": "C",
+          "Developer": "C",
+          "Development Lead": "R",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "R",
+          "Program Management Office": "A"
+        }
+      },
+      {
+        "phase": "Cutover",
+        "activity": "Deployment Execution",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "R/A",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "Cutover",
+        "activity": "Readiness Checklist",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "C",
+          "Integration POD": "C",
+          "DevOps POD": "C",
+          "Program Management Office": "R/A"
+        }
+      }
+    ],
+    "Go Live": [
+      {
+        "phase": "Go Live",
+        "activity": "Go-live Coordination",
+        "raci": {
+          "Onshore Solution Analyst": "C",
+          "Offshore Solution Analyst": "C",
+          "Developer": "C",
+          "Development Lead": "R",
+          "Quality Assurance": "I",
+          "Integration POD": "C",
+          "DevOps POD": "R",
+          "Program Management Office": "A"
+        }
+      }
+    ],
+    "Post-Dev": [
+      {
+        "phase": "Post-Dev",
+        "activity": "Feedback Capture (JIRA)",
+        "raci": {
+          "Onshore Solution Analyst": "R",
+          "Offshore Solution Analyst": "C",
+          "Developer": "C",
+          "Development Lead": "C",
+          "Quality Assurance": "R",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "A"
+        }
+      },
+      {
+        "phase": "Post-Dev",
+        "activity": "Continuous Improvement Tracking",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "C",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "C",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "R/A"
+        }
+      }
+    ],
+    "Sprint": [
+      {
+        "phase": "Sprint",
+        "activity": "Daily Standup",
+        "raci": {
+          "Onshore Solution Analyst": "R",
+          "Offshore Solution Analyst": "C",
+          "Developer": "C",
+          "Development Lead": "C",
+          "Quality Assurance": "C",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "A"
+        }
+      },
+      {
+        "phase": "Sprint",
+        "activity": "Sprint Planning",
+        "raci": {
+          "Onshore Solution Analyst": "R",
+          "Offshore Solution Analyst": "C",
+          "Developer": "C",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "A"
+        }
+      },
+      {
+        "phase": "Sprint",
+        "activity": "Sprint Demo",
+        "raci": {
+          "Onshore Solution Analyst": "R",
+          "Offshore Solution Analyst": "C",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "C",
+          "Integration POD": "-",
+          "DevOps POD": "-",
+          "Program Management Office": "A"
+        }
+      }
+    ],
+    "Hypercare": [
+      {
+        "phase": "Hypercare",
+        "activity": "Incident Triage",
+        "raci": {
+          "Onshore Solution Analyst": "R",
+          "Offshore Solution Analyst": "R",
+          "Developer": "C",
+          "Development Lead": "A",
+          "Quality Assurance": "C",
+          "Integration POD": "C",
+          "DevOps POD": "I",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "Hypercare",
+        "activity": "Bug Fixing",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "C",
+          "Developer": "R",
+          "Development Lead": "A",
+          "Quality Assurance": "C",
+          "Integration POD": "C",
+          "DevOps POD": "-",
+          "Program Management Office": "I"
+        }
+      },
+      {
+        "phase": "Hypercare",
+        "activity": "Production Monitoring",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "I",
+          "DevOps POD": "C",
+          "Program Management Office": "C"
+        }
+      },
+      {
+        "phase": "Hypercare",
+        "activity": "Reporting",
+        "raci": {
+          "Onshore Solution Analyst": "I",
+          "Offshore Solution Analyst": "I",
+          "Developer": "I",
+          "Development Lead": "C",
+          "Quality Assurance": "I",
+          "Integration POD": "I",
+          "DevOps POD": "-",
+          "Program Management Office": "R/A"
+        }
+      }
     ]
   },
-  {
-    "category": "",
-    "role": "ONSHORE SOLUTION ANALYST",
-    "responsibilities": [
-      "Requirements  |  Gather & own requirements (R); accountable for detailing, sign-off, and intake validation (A)",
-      "Design  |  Accountable for Functional Design, FPL Solution Review, Decision Review Board, and Design Sign-off (A); lead Solution Workshops (R)",
-      "Development  |  Drive SME reviews to validate built features against requirements (R)",
-      "SIT  |  Accountable for Test Planning; lead Defect Triage alongside QA (R)",
-      "UAT  |  Lead UAT Coordination (R); accountable for Business Validation (A)",
-      "Post-Dev  |  Capture and log feedback in JIRA (R)",
-      "Sprint Ceremonies  |  Drive Daily Standup, Sprint Planning, and Sprint Demo (R)",
-      "Hypercare  |  Lead Incident Triage for production issues (R)"
-    ]
-  },
-  {
-    "category": "",
-    "role": "OFFSHORE SOLUTION ANALYST",
-    "responsibilities": [
-      "Requirements  |  Responsible for Requirement Detailing, Requirement Sign-off, and Intake Validation (R)",
-      "Design  |  Own Functional Design documentation and Design Sign-off (R)",
-      "Development  |  Maintain all documentation on Confluence and tracking tools (R)",
-      "SIT  |  Own Test Planning documentation; participate in Defect Triage (R)",
-      "Hypercare  |  Co-lead Incident Triage alongside Onshore SA (R)"
-    ]
-  },
-  {
-    "category": "",
-    "role": "DEVELOPER",
-    "responsibilities": [
-      "Design  |  Own Technical Approach Documentation (R)",
-      "Development  |  Build and configure all features (R); execute Unit Testing, PMD Code Scans, and Peer Reviews (R)",
-      "SIT  |  Perform Smoke Testing post-deployment (R); execute Defect Resolution during test cycles (R)",
-      "UAT  |  Resolve defects raised by business during UAT (R)"
-    ]
-  },
-  {
-    "category": "",
-    "role": "DEVELOPMENT LEAD",
-    "responsibilities": [
-      "Requirements  |  Accountable for Intake Validation outcomes (A)",
-      "Design  |  Own Architecture Review (R/A); responsible for FPL Solution Review, Decision Review Board, and Design Sign-off (R); accountable for Technical Approach, Effort Estimation, and Technical Design (A)",
-      "Development  |  Accountable for Build & Configuration, Unit Testing, PMD Scans, Peer Review, SME Review, and Documentation (A)",
-      "SIT  |  Accountable for Smoke Testing and Defect Triage resolution (A)",
-      "UAT  |  Accountable for Defect Resolution during UAT (A)",
-      "Cutover & Go-Live  |  Responsible for Cutover Planning and Go-live Coordination (R)",
-      "Hypercare  |  Accountable for Incident Triage and Bug Fixing resolution (A)"
-    ]
-  },
-  {
-    "category": "",
-    "role": "QUALITY ASSURANCE",
-    "responsibilities": [
-      "SIT  |  Execute Test Execution across all value streams (R); actively participate in Defect Triage (R); validate Environment Readiness and Integration readiness (C)",
-      "UAT  |  Responsible for Business Validation testing (R)",
-      "Post-Dev  |  Capture feedback and defects in JIRA post-release (R)",
-      "Hypercare  |  Participate in Incident Triage and Bug Fixing validation (C)"
-    ]
-  },
-  {
-    "category": "",
-    "role": "INTEGRATION POD",
-    "responsibilities": [
-      "Requirements & Design  |  Consulted on all requirements, architecture, and design activities to ensure integration alignment (C)",
-      "Development  |  Consulted on Technical Design; ensure integration components are factored into build (C)",
-      "SIT  |  Own Integration Validation end-to-end (R/A); participate in Defect Triage (C)",
-      "Cutover & Go-Live  |  Consulted on Cutover Planning and Go-live Coordination (C)",
-      "Hypercare  |  Participate in Incident Triage; support integration-related bug fixes (C)"
-    ]
-  },
-  {
-    "category": "",
-    "role": "DEVOPS POD",
-    "responsibilities": [
-      "SIT  |  Own Code Promotion to Test and Deployment Validation (R/A); own Environment Readiness (R/A)",
-      "UAT  |  Support environment stability and readiness for UAT execution",
-      "Cutover  |  Responsible for Deployment Execution and contribute to Cutover Planning (R/A)",
-      "Go-Live  |  Responsible for Go-live deployment execution (R)",
-      "Hypercare  |  Monitor production environment health post go-live (C)"
-    ]
-  },
-  {
-    "category": "",
-    "role": "PROGRAM MANAGEMENT OFFICE (PMO)",
-    "responsibilities": [
-      "Requirements  |  Own Intake Tracking and status reporting (R/A)",
-      "SIT  |  Accountable for overall Test Execution governance (A)",
-      "UAT  |  Accountable for UAT Coordination and Progress Tracking (A/R)",
-      "Cutover & Go-Live  |  Accountable for Cutover Planning, Readiness Checklist, and Go-live Coordination (A)",
-      "Post-Dev  |  Accountable for Feedback Capture in JIRA and Continuous Improvement Tracking (A/R)",
-      "Sprint Ceremonies  |  Accountable for Daily Standup, Sprint Planning, and Sprint Demo cadence (A)",
-      "Hypercare  |  Own Reporting on production issues and resolution status (R/A)"
-    ]
-  }
-]
+  "activities": [
+    {
+      "phase": "Requirements",
+      "activity": "Requirement Gathering",
+      "raci": {
+        "Onshore Solution Analyst": "R",
+        "Offshore Solution Analyst": "C",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Requirements",
+      "activity": "Requirement Detailing",
+      "raci": {
+        "Onshore Solution Analyst": "A",
+        "Offshore Solution Analyst": "R",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Requirements",
+      "activity": "Requirement Sign-off",
+      "raci": {
+        "Onshore Solution Analyst": "A",
+        "Offshore Solution Analyst": "R",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Requirements",
+      "activity": "Intake Validation",
+      "raci": {
+        "Onshore Solution Analyst": "C",
+        "Offshore Solution Analyst": "R",
+        "Developer": "I",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "Requirements",
+      "activity": "Intake Tracking",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "R/A"
+      }
+    },
+    {
+      "phase": "Design",
+      "activity": "Technical Approach Documentation",
+      "raci": {
+        "Onshore Solution Analyst": "C",
+        "Offshore Solution Analyst": "C",
+        "Developer": "R",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Design",
+      "activity": "Architecture Review",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "C",
+        "Development Lead": "R/A",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Design",
+      "activity": "FPL Solution Review",
+      "raci": {
+        "Onshore Solution Analyst": "A",
+        "Offshore Solution Analyst": "C",
+        "Developer": "I",
+        "Development Lead": "R",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Design",
+      "activity": "Decision Review Board",
+      "raci": {
+        "Onshore Solution Analyst": "A",
+        "Offshore Solution Analyst": "C",
+        "Developer": "I",
+        "Development Lead": "R",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "Design",
+      "activity": "Functional Design",
+      "raci": {
+        "Onshore Solution Analyst": "A",
+        "Offshore Solution Analyst": "R",
+        "Developer": "C",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Design",
+      "activity": "Technical Design",
+      "raci": {
+        "Onshore Solution Analyst": "C",
+        "Offshore Solution Analyst": "C",
+        "Developer": "R",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "R",
+        "DevOps POD": "C",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Design",
+      "activity": "Solution Workshops",
+      "raci": {
+        "Onshore Solution Analyst": "R",
+        "Offshore Solution Analyst": "C",
+        "Developer": "C",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "Design",
+      "activity": "Effort Estimation",
+      "raci": {
+        "Onshore Solution Analyst": "C",
+        "Offshore Solution Analyst": "C",
+        "Developer": "R",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Design",
+      "activity": "Design Sign-off",
+      "raci": {
+        "Onshore Solution Analyst": "A",
+        "Offshore Solution Analyst": "R",
+        "Developer": "I",
+        "Development Lead": "R",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Development",
+      "activity": "Build & Configuration",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "R",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "C",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Development",
+      "activity": "Unit Testing",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "R",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Development",
+      "activity": "PMD Code Scan",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "R",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Development",
+      "activity": "Peer Review",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "R",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Development",
+      "activity": "UI/UX Review",
+      "raci": {
+        "Onshore Solution Analyst": "C",
+        "Offshore Solution Analyst": "C",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Development",
+      "activity": "SME Review",
+      "raci": {
+        "Onshore Solution Analyst": "R",
+        "Offshore Solution Analyst": "C",
+        "Developer": "I",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Development",
+      "activity": "Documentation (Confluence & Tracker)",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "R",
+        "Developer": "C",
+        "Development Lead": "A",
+        "Quality Assurance": "I",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "SIT",
+      "activity": "Code Promotion to Test",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "C",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "R/A",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "SIT",
+      "activity": "Smoke Testing",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "R",
+        "Development Lead": "A",
+        "Quality Assurance": "C",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "SIT",
+      "activity": "Deployment Validation",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "C",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "R/A",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "SIT",
+      "activity": "Test Planning",
+      "raci": {
+        "Onshore Solution Analyst": "A",
+        "Offshore Solution Analyst": "R",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "C",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "SIT",
+      "activity": "Test Execution",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "C",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "R",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "A"
+      }
+    },
+    {
+      "phase": "SIT",
+      "activity": "Defect Triage",
+      "raci": {
+        "Onshore Solution Analyst": "R",
+        "Offshore Solution Analyst": "R",
+        "Developer": "C",
+        "Development Lead": "A",
+        "Quality Assurance": "R",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "SIT",
+      "activity": "Integration Validation",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "C",
+        "Development Lead": "C",
+        "Quality Assurance": "C",
+        "Integration POD": "R/A",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "SIT",
+      "activity": "Environment Readiness",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "C",
+        "Integration POD": "C",
+        "DevOps POD": "R/A",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "UAT",
+      "activity": "UAT Coordination",
+      "raci": {
+        "Onshore Solution Analyst": "R",
+        "Offshore Solution Analyst": "C",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "C",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "A"
+      }
+    },
+    {
+      "phase": "UAT",
+      "activity": "Business Validation",
+      "raci": {
+        "Onshore Solution Analyst": "A",
+        "Offshore Solution Analyst": "C",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "R",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "UAT",
+      "activity": "Defect Resolution",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "C",
+        "Developer": "R",
+        "Development Lead": "A",
+        "Quality Assurance": "C",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "UAT",
+      "activity": "Progress Tracking",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "C",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "R/A"
+      }
+    },
+    {
+      "phase": "Cutover",
+      "activity": "Cutover Planning",
+      "raci": {
+        "Onshore Solution Analyst": "C",
+        "Offshore Solution Analyst": "C",
+        "Developer": "C",
+        "Development Lead": "R",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "R",
+        "Program Management Office": "A"
+      }
+    },
+    {
+      "phase": "Cutover",
+      "activity": "Deployment Execution",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "R/A",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "Cutover",
+      "activity": "Readiness Checklist",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "C",
+        "Integration POD": "C",
+        "DevOps POD": "C",
+        "Program Management Office": "R/A"
+      }
+    },
+    {
+      "phase": "Go Live",
+      "activity": "Go-live Coordination",
+      "raci": {
+        "Onshore Solution Analyst": "C",
+        "Offshore Solution Analyst": "C",
+        "Developer": "C",
+        "Development Lead": "R",
+        "Quality Assurance": "I",
+        "Integration POD": "C",
+        "DevOps POD": "R",
+        "Program Management Office": "A"
+      }
+    },
+    {
+      "phase": "Post-Dev",
+      "activity": "Feedback Capture (JIRA)",
+      "raci": {
+        "Onshore Solution Analyst": "R",
+        "Offshore Solution Analyst": "C",
+        "Developer": "C",
+        "Development Lead": "C",
+        "Quality Assurance": "R",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "A"
+      }
+    },
+    {
+      "phase": "Post-Dev",
+      "activity": "Continuous Improvement Tracking",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "C",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "C",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "R/A"
+      }
+    },
+    {
+      "phase": "Sprint",
+      "activity": "Daily Standup",
+      "raci": {
+        "Onshore Solution Analyst": "R",
+        "Offshore Solution Analyst": "C",
+        "Developer": "C",
+        "Development Lead": "C",
+        "Quality Assurance": "C",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "A"
+      }
+    },
+    {
+      "phase": "Sprint",
+      "activity": "Sprint Planning",
+      "raci": {
+        "Onshore Solution Analyst": "R",
+        "Offshore Solution Analyst": "C",
+        "Developer": "C",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "A"
+      }
+    },
+    {
+      "phase": "Sprint",
+      "activity": "Sprint Demo",
+      "raci": {
+        "Onshore Solution Analyst": "R",
+        "Offshore Solution Analyst": "C",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "C",
+        "Integration POD": "-",
+        "DevOps POD": "-",
+        "Program Management Office": "A"
+      }
+    },
+    {
+      "phase": "Hypercare",
+      "activity": "Incident Triage",
+      "raci": {
+        "Onshore Solution Analyst": "R",
+        "Offshore Solution Analyst": "R",
+        "Developer": "C",
+        "Development Lead": "A",
+        "Quality Assurance": "C",
+        "Integration POD": "C",
+        "DevOps POD": "I",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "Hypercare",
+      "activity": "Bug Fixing",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "C",
+        "Developer": "R",
+        "Development Lead": "A",
+        "Quality Assurance": "C",
+        "Integration POD": "C",
+        "DevOps POD": "-",
+        "Program Management Office": "I"
+      }
+    },
+    {
+      "phase": "Hypercare",
+      "activity": "Production Monitoring",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "I",
+        "DevOps POD": "C",
+        "Program Management Office": "C"
+      }
+    },
+    {
+      "phase": "Hypercare",
+      "activity": "Reporting",
+      "raci": {
+        "Onshore Solution Analyst": "I",
+        "Offshore Solution Analyst": "I",
+        "Developer": "I",
+        "Development Lead": "C",
+        "Quality Assurance": "I",
+        "Integration POD": "I",
+        "DevOps POD": "-",
+        "Program Management Office": "R/A"
+      }
+    }
+  ]
+}

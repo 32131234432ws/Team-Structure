@@ -40,46 +40,61 @@ fs.writeFileSync(
 );
 console.log('\nJSON data written to lib/fpl-staffing-data.json');
 
-// Parse second sheet (Roles and Responsibilities)
+// Parse second sheet (Roles and Responsibilities) - RACI Matrix format
 if (workbook.SheetNames.length > 1) {
   const rolesSheet = workbook.Sheets[workbook.SheetNames[1]];
   const rawData = XLSX.utils.sheet_to_json(rolesSheet, { header: 1 });
   
-  // Parse the structured data - skip title row, process sections
-  const rolesData = [];
-  let currentCategory = '';
+  // Get headers (role names) from first row
+  const headers = rawData[0];
+  const roleNames = headers.slice(2); // Skip "Lifecycle Phase" and "Activity"
+  
+  // Parse the RACI matrix data
+  const raciData = {
+    roles: roleNames,
+    phases: {},
+    activities: []
+  };
   
   for (let i = 1; i < rawData.length; i++) {
     const row = rawData[i];
     if (!row || row.length === 0) continue;
     
-    const firstCell = row[0] || '';
-    const secondCell = row[1] || '';
+    const phase = row[0] || '';
+    const activity = row[1] || '';
     
-    // Check if this is a category header (all caps, no responsibilities)
-    if (firstCell && !secondCell && firstCell === firstCell.toUpperCase() && firstCell.length > 2) {
-      currentCategory = firstCell;
-    } else if (firstCell === 'Role' && secondCell === 'Responsibilities') {
-      // Skip header row
-      continue;
-    } else if (firstCell && secondCell) {
-      // This is a role with responsibilities
-      rolesData.push({
-        category: currentCategory,
-        role: firstCell,
-        responsibilities: secondCell.split('\r\n').map(r => r.replace(/^[•\-]\s*/, '').trim()).filter(r => r)
-      });
+    if (!phase || !activity) continue;
+    
+    // Track phases
+    if (!raciData.phases[phase]) {
+      raciData.phases[phase] = [];
     }
+    
+    // Build activity entry with RACI values for each role
+    const activityEntry = {
+      phase,
+      activity,
+      raci: {}
+    };
+    
+    roleNames.forEach((role, idx) => {
+      const value = row[idx + 2] || '-';
+      activityEntry.raci[role] = value;
+    });
+    
+    raciData.phases[phase].push(activityEntry);
+    raciData.activities.push(activityEntry);
   }
   
-  console.log('\n=== Roles and Responsibilities ===');
-  console.log('Total roles:', rolesData.length);
-  console.log('Categories:', [...new Set(rolesData.map(r => r.category))]);
-  console.log('Sample:', JSON.stringify(rolesData.slice(0, 2), null, 2));
+  console.log('\n=== Roles and Responsibilities (RACI Matrix) ===');
+  console.log('Roles:', raciData.roles);
+  console.log('Phases:', Object.keys(raciData.phases));
+  console.log('Total activities:', raciData.activities.length);
+  console.log('Sample activity:', JSON.stringify(raciData.activities[0], null, 2));
   
   fs.writeFileSync(
     path.join(__dirname, '../lib/roles-responsibilities-data.json'),
-    JSON.stringify(rolesData, null, 2)
+    JSON.stringify(raciData, null, 2)
   );
   console.log('\nRoles data written to lib/roles-responsibilities-data.json');
 }
