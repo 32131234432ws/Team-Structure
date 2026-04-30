@@ -117,7 +117,7 @@ export function StatsHeader() {
       </div>
       
       {/* Separator line */}
-      <div className="border-t border-border/50 mt-2" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent mt-4" />
     </div>
   );
 }
