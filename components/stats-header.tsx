@@ -115,6 +115,9 @@ export function StatsHeader() {
           </Badge>
         </div>
       </div>
+      
+      {/* Separator line */}
+      <div className="border-t border-border/50 mt-2" />
     </div>
   );
 }
