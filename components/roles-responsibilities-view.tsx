@@ -392,37 +392,35 @@ export function RolesResponsibilitiesView() {
           const activities = filterActivities(allActivities);
 
           return (
-            <Card
+            <div
               key={phase}
               className={cn(
-                "bg-gradient-to-br border transition-all duration-200",
+                "bg-gradient-to-br border rounded-md transition-all duration-200",
                 config.color
               )}
             >
-              <CardHeader className="px-3 py-1">
-                <button
-                  onClick={() => togglePhase(phase)}
-                  className="flex items-center justify-between w-full text-left"
-                >
-                  <div className="flex items-center gap-1.5">
-                    <div className={cn("p-0.5 rounded", config.badgeColor)}>
-                      {config.icon}
-                    </div>
-                    <h3 className="text-sm font-medium text-foreground">{phase}</h3>
-                    <span className="text-xs text-muted-foreground">
-                      ({activities.length}{activities.length !== allActivities.length && `/${allActivities.length}`})
-                    </span>
-                  </div>
-                  {isExpanded ? (
-                    <ChevronDown className="h-3.5 w-3.5 text-muted-foreground" />
-                  ) : (
-                    <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
-                  )}
-                </button>
-              </CardHeader>
+              <button
+                onClick={() => togglePhase(phase)}
+                className="flex items-center justify-between w-full text-left px-2 py-0.5"
+              >
+                <div className="flex items-center gap-1">
+                  <span className={cn("text-xs", config.badgeColor.replace("bg-", "text-").split(" ")[0])}>
+                    {config.icon}
+                  </span>
+                  <span className="text-xs font-medium text-foreground">{phase}</span>
+                  <span className="text-[10px] text-muted-foreground">
+                    ({activities.length}{activities.length !== allActivities.length && `/${allActivities.length}`})
+                  </span>
+                </div>
+                {isExpanded ? (
+                  <ChevronDown className="h-3 w-3 text-muted-foreground" />
+                ) : (
+                  <ChevronRight className="h-3 w-3 text-muted-foreground" />
+                )}
+              </button>
 
               {isExpanded && (
-                <CardContent className="px-3 pb-2 pt-0">
+                <div className="px-2 pb-1">
                   <div className="space-y-1">
                     {/* Activity Header Row */}
                     <div className="hidden md:grid md:grid-cols-12 gap-1 px-2 py-1 bg-background/30 rounded border border-border/30">
@@ -494,9 +492,9 @@ export function RolesResponsibilitiesView() {
                       </div>
                     ))}
                   </div>
-                </CardContent>
+                </div>
               )}
-            </Card>
+            </div>
           );
         })}
       </div>
