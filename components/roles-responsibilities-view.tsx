@@ -94,8 +94,13 @@ const defaultConfig = {
 
 export function RolesResponsibilitiesView() {
   const [expandedPhases, setExpandedPhases] = useState<Set<string>>(new Set());
+  const [selectedRoles, setSelectedRoles] = useState<Set<string>>(new Set());
+  const [selectedRaci, setSelectedRaci] = useState<Set<string>>(new Set());
+  const [selectedPhases, setSelectedPhases] = useState<Set<string>>(new Set());
+  
   const typedRaciData = raciData as RACIData;
   const phases = Object.keys(typedRaciData.phases);
+  const raciTypes = ["R", "A", "C", "I"];
 
   const togglePhase = (phase: string) => {
     const newExpanded = new Set(expandedPhases);
@@ -107,8 +112,56 @@ export function RolesResponsibilitiesView() {
     setExpandedPhases(newExpanded);
   };
 
+  const toggleFilter = (set: Set<string>, value: string, setter: (s: Set<string>) => void) => {
+    const newSet = new Set(set);
+    if (newSet.has(value)) {
+      newSet.delete(value);
+    } else {
+      newSet.add(value);
+    }
+    setter(newSet);
+  };
+
+  const clearAllFilters = () => {
+    setSelectedRoles(new Set());
+    setSelectedRaci(new Set());
+    setSelectedPhases(new Set());
+  };
+
+  const hasActiveFilters = selectedRoles.size > 0 || selectedRaci.size > 0 || selectedPhases.size > 0;
+
+  // Filter phases based on selected phase filter
+  const filteredPhases = selectedPhases.size > 0 
+    ? phases.filter(p => selectedPhases.has(p))
+    : phases;
+
+  // Filter activities based on role and RACI filters
+  const filterActivities = (activities: { phase: string; activity: string; raci: Record<string, string> }[]) => {
+    return activities.filter(activity => {
+      // If role filter is active, check if any selected role has a RACI value
+      if (selectedRoles.size > 0) {
+        const hasMatchingRole = Array.from(selectedRoles).some(role => {
+          const raciValue = activity.raci[role];
+          return raciValue && raciValue !== "-";
+        });
+        if (!hasMatchingRole) return false;
+      }
+      
+      // If RACI filter is active, check if any role has the selected RACI value
+      if (selectedRaci.size > 0) {
+        const hasMatchingRaci = typedRaciData.roles.some(role => {
+          const raciValue = activity.raci[role];
+          return selectedRaci.has(raciValue);
+        });
+        if (!hasMatchingRaci) return false;
+      }
+      
+      return true;
+    });
+  };
+
   const expandAll = () => {
-    setExpandedPhases(new Set(phases));
+    setExpandedPhases(new Set(filteredPhases));
   };
 
   const collapseAll = () => {
@@ -118,7 +171,7 @@ export function RolesResponsibilitiesView() {
   return (
     <div className="space-y-4">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap gap-2">
         <div>
           <h2 className="text-xl font-semibold text-foreground">Roles & Responsibilities</h2>
           <p className="text-sm text-muted-foreground mt-1">
@@ -139,8 +192,103 @@ export function RolesResponsibilitiesView() {
             Collapse All
           </button>
           <Badge variant="outline" className="bg-primary/20 text-primary border-primary/30">
-            {phases.length} Phases
+            {filteredPhases.length} Phases
           </Badge>
+        </div>
+      </div>
+
+      {/* Filters */}
+      <div className="space-y-3 p-4 bg-muted/20 rounded-lg border border-border/50">
+        <div className="flex items-center justify-between">
+          <span className="text-sm font-medium text-foreground">Filters</span>
+          {hasActiveFilters && (
+            <button
+              onClick={clearAllFilters}
+              className="text-xs text-muted-foreground hover:text-foreground underline"
+            >
+              Clear all filters
+            </button>
+          )}
+        </div>
+        
+        {/* Lifecycle Phase Filter */}
+        <div className="space-y-1.5">
+          <span className="text-xs font-medium text-muted-foreground">Lifecycle Phase</span>
+          <div className="flex flex-wrap gap-1.5">
+            {phases.map(phase => {
+              const config = phaseConfig[phase] || defaultConfig;
+              const isSelected = selectedPhases.has(phase);
+              return (
+                <button
+                  key={phase}
+                  onClick={() => toggleFilter(selectedPhases, phase, setSelectedPhases)}
+                  className={cn(
+                    "px-2 py-1 text-xs rounded-md border transition-colors",
+                    isSelected
+                      ? config.badgeColor
+                      : "bg-background/50 text-muted-foreground border-border/50 hover:border-border"
+                  )}
+                >
+                  {phase}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Role Filter */}
+        <div className="space-y-1.5">
+          <span className="text-xs font-medium text-muted-foreground">Role</span>
+          <div className="flex flex-wrap gap-1.5">
+            {typedRaciData.roles.map(role => {
+              const isSelected = selectedRoles.has(role);
+              return (
+                <button
+                  key={role}
+                  onClick={() => toggleFilter(selectedRoles, role, setSelectedRoles)}
+                  className={cn(
+                    "px-2 py-1 text-xs rounded-md border transition-colors",
+                    isSelected
+                      ? "bg-primary/20 text-primary border-primary/30"
+                      : "bg-background/50 text-muted-foreground border-border/50 hover:border-border"
+                  )}
+                >
+                  {roleAbbreviations[role] || role}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* RACI Filter */}
+        <div className="space-y-1.5">
+          <span className="text-xs font-medium text-muted-foreground">RACI Type</span>
+          <div className="flex flex-wrap gap-1.5">
+            {raciTypes.map(raci => {
+              const isSelected = selectedRaci.has(raci);
+              const labels: Record<string, string> = { R: "Responsible", A: "Accountable", C: "Consulted", I: "Informed" };
+              return (
+                <button
+                  key={raci}
+                  onClick={() => toggleFilter(selectedRaci, raci, setSelectedRaci)}
+                  className={cn(
+                    "flex items-center gap-1.5 px-2 py-1 text-xs rounded-md border transition-colors",
+                    isSelected
+                      ? raciColors[raci] + " border-transparent"
+                      : "bg-background/50 text-muted-foreground border-border/50 hover:border-border"
+                  )}
+                >
+                  <span className={cn(
+                    "w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold",
+                    isSelected ? "bg-white/20" : raciColors[raci]
+                  )}>
+                    {raci}
+                  </span>
+                  {labels[raci]}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -167,10 +315,11 @@ export function RolesResponsibilitiesView() {
 
       {/* Phase Tiles */}
       <div className="grid grid-cols-1 gap-4">
-        {phases.map((phase) => {
+        {filteredPhases.map((phase) => {
           const config = phaseConfig[phase] || defaultConfig;
           const isExpanded = expandedPhases.has(phase);
-          const activities = typedRaciData.phases[phase] || [];
+          const allActivities = typedRaciData.phases[phase] || [];
+          const activities = filterActivities(allActivities);
 
           return (
             <Card
@@ -193,6 +342,9 @@ export function RolesResponsibilitiesView() {
                       <h3 className="text-base font-semibold text-foreground">{phase}</h3>
                       <span className="text-xs text-muted-foreground">
                         {activities.length} {activities.length === 1 ? "activity" : "activities"}
+                        {activities.length !== allActivities.length && (
+                          <span className="text-muted-foreground/60"> (of {allActivities.length})</span>
+                        )}
                       </span>
                     </div>
                   </div>
