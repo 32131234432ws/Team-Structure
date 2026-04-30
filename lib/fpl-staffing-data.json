@@ -945,5 +945,50 @@
     "Workstream": "IR4",
     "Release": "IR4",
     "Valuestream": "Billing & Usage"
+  },
+  {
+    "Name": "Ziyad Auti",
+    "Email": "ziyad.auti@pwc.com",
+    "Designation": "Intern",
+    "Role": "Intern",
+    "Workstream": "Cross-Functional",
+    "Release": "All",
+    "Valuestream": "Interns"
+  },
+  {
+    "Name": "Kishor S",
+    "Email": "kishor.s@pwc.com",
+    "Designation": "Intern",
+    "Role": "Intern",
+    "Workstream": "Cross-Functional",
+    "Release": "All",
+    "Valuestream": "Interns"
+  },
+  {
+    "Name": "Krithika Harishchandra Shettigar",
+    "Email": "krithika.shettigar@pwc.com",
+    "Designation": "Intern",
+    "Role": "Intern",
+    "Workstream": "Cross-Functional",
+    "Release": "All",
+    "Valuestream": "Interns"
+  },
+  {
+    "Name": "Potumanchi Sree Yashana",
+    "Email": "potumanchi.yashana@pwc.com",
+    "Designation": "Intern",
+    "Role": "Intern",
+    "Workstream": "Cross-Functional",
+    "Release": "All",
+    "Valuestream": "Interns"
+  },
+  {
+    "Name": "Adithya Sankar S",
+    "Email": "adithya.sankar@pwc.com",
+    "Designation": "Intern",
+    "Role": "Intern",
+    "Workstream": "Cross-Functional",
+    "Release": "All",
+    "Valuestream": "Interns"
   }
 ]
