@@ -357,6 +357,7 @@ export const sitUatExecutionTeam: SitUatMember[] = [
   { name: "Prasanna", role: "QA", status: "Active", valueStreams: ["Billing Programs"] },
   { name: "Nikita", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options"] },
   { name: "Grace Nazareno", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options", "Billing Programs"] },
+  { name: "Mindi Sai Bhavana", role: "QA", status: "Active", valueStreams: ["Case Management"] },
 ];
 
 // Hypercare pods for IR3.2
