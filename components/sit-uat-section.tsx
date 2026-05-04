@@ -65,7 +65,7 @@ export function SitUatSection({ defaultOpen = true }: SitUatSectionProps) {
               )}
               <TestTube2 className="h-5 w-5 text-rose-400" />
               <h2 className="text-lg font-semibold text-foreground">
-                SIT/UAT Execution Team
+                Testing/QA Team
               </h2>
               <Badge
                 variant="outline"

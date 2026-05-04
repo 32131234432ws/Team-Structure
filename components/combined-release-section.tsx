@@ -176,7 +176,7 @@ export function CombinedReleaseSection({
                       <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
                     )}
                     <h3 className="text-md font-medium text-foreground group-hover:text-primary transition-colors">
-                      SIT / UAT Execution POD
+                      Testing/QA Team
                     </h3>
                   </div>
                   <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-rose-500/20 text-rose-400 border-rose-500/30">

@@ -29,7 +29,7 @@ export function SitUatPodCard({ team }: SitUatPodCardProps) {
       <CardHeader className="pb-2">
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="text-lg font-semibold text-foreground">SIT / UAT Execution Team</h3>
+            <h3 className="text-lg font-semibold text-foreground">Testing/QA Team</h3>
             <p className="text-sm text-muted-foreground mt-1">
               Quality assurance team supporting all value streams
             </p>
