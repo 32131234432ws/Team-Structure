@@ -382,7 +382,7 @@ export function DetailedTeamView() {
                   )}
                 </div>
                 {member.isFPL ? (
-                  <div className="text-xs text-blue-300/70">FPL Employee</div>
+                  <div className="text-xs text-blue-300/70">FPL</div>
                 ) : member.Email ? (
                   <div className="text-xs text-muted-foreground truncate">{member.Email}</div>
                 ) : null}
