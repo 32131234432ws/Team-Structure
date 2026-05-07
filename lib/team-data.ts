@@ -1,6 +1,6 @@
 export interface TeamMember {
   name: string;
-  role: "Lead" | "Onshore Solution Analyst" | "Offshore Solution Analyst" | "Dev" | "QA" | "Team" | "Program Lead" | "PMO" | "Architecture" | "QA Lead" | "Intern";
+  role: "Lead" | "Scrum Master" | "Onshore Solution Analyst" | "Offshore Solution Analyst" | "Dev" | "QA" | "Team" | "Program Lead" | "PMO" | "Architecture" | "QA Lead" | "Intern";
   status: "Active" | "Planned" | "Open";
   valueStreams?: string[]; // For QA execution team to show which value streams they support
 }
@@ -19,9 +19,12 @@ export const leadershipTeam: LeadershipMember[] = [
   { name: "Matthew Rupas", role: "Lead", status: "Active" },
   { name: "Sujith Pillai", role: "Lead", status: "Active" },
   { name: "Anto Germans", role: "Lead", status: "Active" },
+  { name: "Charlie Martinez", role: "Lead", status: "Active" },
   { name: "Hemant Jain", role: "Architect", subRole: "Technical Architect", status: "Active" },
   { name: "Tyaga Pati", role: "Architect", subRole: "Solution Architect", status: "Active" },
   { name: "Susan Matthews", role: "Architect", subRole: "Business Architect", status: "Active" },
+  { name: "Lisa Pell", role: "Architect", status: "Active" },
+  { name: "Mukul Sagar", role: "Architect", status: "Active" },
   { name: "Shanta Samlal", role: "PMO", status: "Active" },
   { name: "Paarth Sonwaney", role: "PMO", status: "Active" },
   { name: "Courtney Hawkins", role: "PMO", status: "Active" },
@@ -119,7 +122,7 @@ export const devPods: DevPod[] = [
   },
   {
     id: "pod-ir32-fpl",
-    name: "FPL POD",
+    name: "FPL Dev POD",
     valueStream: "Release",
     description: "FPL-specific preferences and billing program configurations",
     color: "from-cyan-500/20 to-cyan-500/5",
@@ -128,6 +131,7 @@ export const devPods: DevPod[] = [
     team: [
       { name: "Sona Muthayala", role: "Dev", status: "Active", valueStreams: ["Preferences"] },
       { name: "Sriharsha Sambaraj", role: "Dev", status: "Active", valueStreams: ["Billing Programs"] },
+      { name: "Santhosh Maduri", role: "Dev", status: "Active", valueStreams: ["Billing Programs"] },
     ],
   },
   {
@@ -256,15 +260,19 @@ export const devPods: DevPod[] = [
     team: [
       { name: "Shreya LNU", role: "Lead", status: "Active" },
       { name: "Aditya Talwar", role: "Lead", status: "Active" },
-      { name: "FPL", role: "Onshore Solution Analyst", status: "Active" },
+      { name: "Tameka Robinson", role: "Lead", status: "Active" },
+      { name: "Maria Vidal Parra", role: "Scrum Master", status: "Active" },
+      { name: "Naveen Tayal", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["Solar", "Name Change"] },
+      { name: "Harsh Shah", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["DSM Programs", "FPLES", "Preferences"] },
+      { name: "Sama Balayeva", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["Billing Programs"] },
       { name: "Jake Garrell", role: "Dev", status: "Active", valueStreams: ["Name Change"] },
-      { name: "Sona Muthayala", role: "Dev", status: "Active", valueStreams: ["FPLES Programs"] },
-      { name: "John Harrison", role: "Dev", status: "Active", valueStreams: ["DSM Programs - MyOnCall, Net Metering"] },
-      { name: "Shashank Satvai", role: "Dev", status: "Active", valueStreams: ["DSM Programs - MyDSM"] },
-      { name: "Bryan Camacho", role: "Dev", status: "Active", valueStreams: ["Dev Programs - EV"] },
-      { name: "Yolanda Espinoza", role: "Dev", status: "Active", valueStreams: ["Dev Programs - Solar"] },
-      { name: "Sriharsha Sambaraj", role: "Dev", status: "Active", valueStreams: ["Billing Programs"] },
-      { name: "Santhosh Maduri", role: "Dev", status: "Active", valueStreams: ["Billing Programs"] },
+      { name: "Sona Muthayala", role: "Dev", status: "Active", valueStreams: ["FPLES & Preferences"] },
+      { name: "John Harrison", role: "Dev", status: "Active", valueStreams: ["MyOnCall, Net Metering"] },
+      { name: "Shashank Satvai", role: "Dev", status: "Active", valueStreams: ["MyDSM"] },
+      { name: "Bryan Camacho", role: "Dev", status: "Active", valueStreams: ["EV"] },
+      { name: "Yolanda Espinoza", role: "Dev", status: "Active", valueStreams: ["Solar"] },
+      { name: "Sriharsha Sambaraj", role: "Dev", status: "Active", valueStreams: ["Billing Programs - Consolidated Ebill, Friendly Reminder, Summary Billing"] },
+      { name: "Santhosh Maduri", role: "Dev", status: "Active", valueStreams: ["Billing Programs - Consolidated Ebill, Friendly Reminder, Summary Billing"] },
     ],
   },
   {
@@ -307,15 +315,36 @@ export const devPods: DevPod[] = [
     badges: ["Field Management"],
     team: [
       { name: "Niket Saxena", role: "Lead", status: "Active" },
+      { name: "Ramya Kothuri", role: "Scrum Master", status: "Active" },
       { name: "Chaitra Hanchinal", role: "Dev", status: "Active" },
       { name: "Jaya Lakshmi Papolu", role: "Dev", status: "Active" },
       { name: "Mrithika Kumaresan", role: "Dev", status: "Active" },
+      { name: "David Sotolongo", role: "Dev", status: "Active" },
+      { name: "Vamsi Papulo", role: "Dev", status: "Active" },
+    ],
+  },
+  {
+    id: "pod-15",
+    name: "FPL Case Management POD",
+    valueStream: "Release",
+    description: "FPL-specific case handling and resolution workflows",
+    color: "from-fuchsia-500/20 to-fuchsia-500/5",
+    release: "IR4",
+    badges: ["Case Management"],
+    team: [
+      { name: "Tejaswini Pathade", role: "Lead", status: "Active" },
+      { name: "Maria Vidal Parra", role: "Scrum Master", status: "Active" },
+      { name: "Andhy Gomez", role: "Dev", status: "Active" },
+      { name: "Kelvin Mobley", role: "Dev", status: "Active" },
+      { name: "Bharath Reddy Baddam", role: "Dev", status: "Active" },
+      { name: "Shweta Tiwari", role: "Dev", status: "Active" },
     ],
   },
 ];
 
 export const roleColors: Record<TeamMember["role"], string> = {
   Lead: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+  "Scrum Master": "bg-teal-500/20 text-teal-400 border-teal-500/30",
   "Onshore Solution Analyst": "bg-blue-500/20 text-blue-400 border-blue-500/30",
   "Offshore Solution Analyst": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
   Dev: "bg-amber-500/20 text-amber-400 border-amber-500/30",
@@ -410,6 +439,9 @@ export const hypercarePods: HypercarePod[] = [
       { name: "Shikhar Sanjeev", role: "Dev", status: "Active" },
       { name: "Sandesh Saravanan", role: "Dev", status: "Active" },
       { name: "Pratik Kurdukar", role: "Dev", status: "Active" },
+      { name: "Bryan Camacho", role: "Dev", status: "Active" },
+      { name: "Santhosh Maduri", role: "Dev", status: "Active" },
+      { name: "John Harrison", role: "Dev", status: "Active" },
     ],
   },
 ];
