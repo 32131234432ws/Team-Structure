@@ -305,6 +305,25 @@ export const devPods: DevPod[] = [
       { name: "Mrithika Kumaresan", role: "Dev", status: "Active" },
     ],
   },
+  {
+    id: "pod-ir4-fpl",
+    name: "FPL POD",
+    valueStream: "Release",
+    description: "FPL-specific programs across name change, FPLES, DSM, dev, and billing",
+    color: "from-cyan-500/20 to-cyan-500/5",
+    release: "IR4",
+    badges: ["Name Change", "FPLES", "DSM", "Dev Programs", "Billing Programs"],
+    team: [
+      { name: "Jake Garrell", role: "Dev", status: "Active", valueStreams: ["Name Change"] },
+      { name: "Sona Muthayala", role: "Dev", status: "Active", valueStreams: ["FPLES Programs"] },
+      { name: "John Harrison", role: "Dev", status: "Active", valueStreams: ["DSM Programs - MyOnCall, Net Metering"] },
+      { name: "Shashank Satvai", role: "Dev", status: "Active", valueStreams: ["DSM Programs - MyDSM"] },
+      { name: "Bryan Camacho", role: "Dev", status: "Active", valueStreams: ["Dev Programs - EV"] },
+      { name: "Yolanda Espinoza", role: "Dev", status: "Active", valueStreams: ["Dev Programs - Solar"] },
+      { name: "Sriharsha Sambaraj", role: "Dev", status: "Active", valueStreams: ["Billing Programs"] },
+      { name: "Santhosh Maduri", role: "Dev", status: "Active", valueStreams: ["Billing Programs"] },
+    ],
+  },
 ];
 
 export const roleColors: Record<TeamMember["role"], string> = {
