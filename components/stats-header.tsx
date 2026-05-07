@@ -173,9 +173,11 @@ export function StatsHeader() {
               {fplCounts.Lead} FPL - Leads
             </Badge>
           )}
-          <Badge variant="outline" className="bg-teal-500/20 text-teal-400 border-teal-500/30">
-            {counts["Scrum Master"]} Scrum Masters
-          </Badge>
+          {counts["Scrum Master"] > 0 && (
+            <Badge variant="outline" className="bg-teal-500/20 text-teal-400 border-teal-500/30">
+              {counts["Scrum Master"]} Scrum Masters
+            </Badge>
+          )}
           {fplCounts["Scrum Master"] > 0 && (
             <Badge variant="outline" className={fplBadgeClass}>
               {fplCounts["Scrum Master"]} FPL - Scrum Masters
