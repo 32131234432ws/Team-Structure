@@ -133,7 +133,6 @@ export const devPods: DevPod[] = [
     team: [
       { name: "Sona Muthayala", role: "Dev", status: "Active", valueStreams: ["Preferences"], isFPL: true },
       { name: "Sriharsha Sambaraj", role: "Dev", status: "Active", valueStreams: ["Billing Programs"], isFPL: true },
-      { name: "Santhosh Maduri", role: "Dev", status: "Active", valueStreams: ["Billing Programs"], isFPL: true },
     ],
   },
   {
