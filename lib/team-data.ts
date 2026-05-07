@@ -118,6 +118,19 @@ export const devPods: DevPod[] = [
     ],
   },
   {
+    id: "pod-ir32-fpl",
+    name: "FPL POD",
+    valueStream: "Release",
+    description: "FPL-specific preferences and billing program configurations",
+    color: "from-cyan-500/20 to-cyan-500/5",
+    release: "IR3.2",
+    badges: ["Preferences", "Billing Programs"],
+    team: [
+      { name: "Sona Muthayala", role: "Dev", status: "Active", valueStreams: ["Preferences"] },
+      { name: "Sriharsha Sambaraj", role: "Dev", status: "Active", valueStreams: ["Billing Programs"] },
+    ],
+  },
+  {
     id: "pod-ir33-1",
     name: "Dev POD 5/Pornima",
     valueStream: "Release",
