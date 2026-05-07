@@ -3,6 +3,7 @@ export interface TeamMember {
   role: "Lead" | "Scrum Master" | "Onshore Solution Analyst" | "Offshore Solution Analyst" | "Dev" | "QA" | "Team" | "Program Lead" | "PMO" | "Architecture" | "QA Lead" | "Intern";
   status: "Active" | "Planned" | "Open";
   valueStreams?: string[]; // For QA execution team to show which value streams they support
+  isFPL?: boolean; // FPL team member identifier
 }
 
 // Leadership team interface
@@ -11,6 +12,7 @@ export interface LeadershipMember {
   role: "Lead" | "Architect" | "PMO";
   subRole?: string; // For architect types: Technical Architect, Solution Architect, Business Architect
   status: "Active" | "Planned" | "Open";
+  isFPL?: boolean; // FPL team member identifier
 }
 
 // Leadership team data
@@ -19,12 +21,12 @@ export const leadershipTeam: LeadershipMember[] = [
   { name: "Matthew Rupas", role: "Lead", status: "Active" },
   { name: "Sujith Pillai", role: "Lead", status: "Active" },
   { name: "Anto Germans", role: "Lead", status: "Active" },
-  { name: "Charlie Martinez", role: "Lead", status: "Active" },
+  { name: "Charlie Martinez", role: "Lead", status: "Active", isFPL: true },
   { name: "Hemant Jain", role: "Architect", subRole: "Technical Architect", status: "Active" },
   { name: "Tyaga Pati", role: "Architect", subRole: "Solution Architect", status: "Active" },
   { name: "Susan Matthews", role: "Architect", subRole: "Business Architect", status: "Active" },
-  { name: "Lisa Pell", role: "Architect", status: "Active" },
-  { name: "Mukul Sagar", role: "Architect", status: "Active" },
+  { name: "Lisa Pell", role: "Architect", status: "Active", isFPL: true },
+  { name: "Mukul Sagar", role: "Architect", status: "Active", isFPL: true },
   { name: "Shanta Samlal", role: "PMO", status: "Active" },
   { name: "Paarth Sonwaney", role: "PMO", status: "Active" },
   { name: "Courtney Hawkins", role: "PMO", status: "Active" },
@@ -129,9 +131,9 @@ export const devPods: DevPod[] = [
     release: "IR3.2",
     badges: ["Preferences", "Billing Programs"],
     team: [
-      { name: "Sona Muthayala", role: "Dev", status: "Active", valueStreams: ["Preferences"] },
-      { name: "Sriharsha Sambaraj", role: "Dev", status: "Active", valueStreams: ["Billing Programs"] },
-      { name: "Santhosh Maduri", role: "Dev", status: "Active", valueStreams: ["Billing Programs"] },
+      { name: "Sona Muthayala", role: "Dev", status: "Active", valueStreams: ["Preferences"], isFPL: true },
+      { name: "Sriharsha Sambaraj", role: "Dev", status: "Active", valueStreams: ["Billing Programs"], isFPL: true },
+      { name: "Santhosh Maduri", role: "Dev", status: "Active", valueStreams: ["Billing Programs"], isFPL: true },
     ],
   },
   {
@@ -260,19 +262,19 @@ export const devPods: DevPod[] = [
     team: [
       { name: "Shreya LNU", role: "Lead", status: "Active" },
       { name: "Aditya Talwar", role: "Lead", status: "Active" },
-      { name: "Tameka Robinson", role: "Lead", status: "Active" },
-      { name: "Maria Vidal Parra", role: "Scrum Master", status: "Active" },
-      { name: "Naveen Tayal", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["Solar", "Name Change"] },
-      { name: "Harsh Shah", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["DSM Programs", "FPLES", "Preferences"] },
-      { name: "Sama Balayeva", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["Billing Programs"] },
-      { name: "Jake Garrell", role: "Dev", status: "Active", valueStreams: ["Name Change"] },
-      { name: "Sona Muthayala", role: "Dev", status: "Active", valueStreams: ["FPLES & Preferences"] },
-      { name: "John Harrison", role: "Dev", status: "Active", valueStreams: ["MyOnCall, Net Metering"] },
-      { name: "Shashank Satvai", role: "Dev", status: "Active", valueStreams: ["MyDSM"] },
-      { name: "Bryan Camacho", role: "Dev", status: "Active", valueStreams: ["EV"] },
-      { name: "Yolanda Espinoza", role: "Dev", status: "Active", valueStreams: ["Solar"] },
-      { name: "Sriharsha Sambaraj", role: "Dev", status: "Active", valueStreams: ["Billing Programs - Consolidated Ebill, Friendly Reminder, Summary Billing"] },
-      { name: "Santhosh Maduri", role: "Dev", status: "Active", valueStreams: ["Billing Programs - Consolidated Ebill, Friendly Reminder, Summary Billing"] },
+      { name: "Tameka Robinson", role: "Lead", status: "Active", isFPL: true },
+      { name: "Maria Vidal Parra", role: "Scrum Master", status: "Active", isFPL: true },
+      { name: "Naveen Tayal", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["Solar", "Name Change"], isFPL: true },
+      { name: "Harsh Shah", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["DSM Programs", "FPLES", "Preferences"], isFPL: true },
+      { name: "Sama Balayeva", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["Billing Programs"], isFPL: true },
+      { name: "Jake Garrell", role: "Dev", status: "Active", valueStreams: ["Name Change"], isFPL: true },
+      { name: "Sona Muthayala", role: "Dev", status: "Active", valueStreams: ["FPLES & Preferences"], isFPL: true },
+      { name: "John Harrison", role: "Dev", status: "Active", valueStreams: ["MyOnCall, Net Metering"], isFPL: true },
+      { name: "Shashank Satvai", role: "Dev", status: "Active", valueStreams: ["MyDSM"], isFPL: true },
+      { name: "Bryan Camacho", role: "Dev", status: "Active", valueStreams: ["EV"], isFPL: true },
+      { name: "Yolanda Espinoza", role: "Dev", status: "Active", valueStreams: ["Solar"], isFPL: true },
+      { name: "Sriharsha Sambaraj", role: "Dev", status: "Active", valueStreams: ["Billing Programs - Consolidated Ebill, Friendly Reminder, Summary Billing"], isFPL: true },
+      { name: "Santhosh Maduri", role: "Dev", status: "Active", valueStreams: ["Billing Programs - Consolidated Ebill, Friendly Reminder, Summary Billing"], isFPL: true },
     ],
   },
   {
@@ -315,12 +317,12 @@ export const devPods: DevPod[] = [
     badges: ["Field Management"],
     team: [
       { name: "Niket Saxena", role: "Lead", status: "Active" },
-      { name: "Ramya Kothuri", role: "Scrum Master", status: "Active" },
+      { name: "Ramya Kothuri", role: "Scrum Master", status: "Active", isFPL: true },
       { name: "Chaitra Hanchinal", role: "Dev", status: "Active" },
       { name: "Jaya Lakshmi Papolu", role: "Dev", status: "Active" },
       { name: "Mrithika Kumaresan", role: "Dev", status: "Active" },
-      { name: "David Sotolongo", role: "Dev", status: "Active" },
-      { name: "Vamsi Papulo", role: "Dev", status: "Active" },
+      { name: "David Sotolongo", role: "Dev", status: "Active", isFPL: true },
+      { name: "Vamsi Papulo", role: "Dev", status: "Active", isFPL: true },
     ],
   },
   {
@@ -332,12 +334,12 @@ export const devPods: DevPod[] = [
     release: "IR4",
     badges: ["Case Management"],
     team: [
-      { name: "Tejaswini Pathade", role: "Lead", status: "Active" },
-      { name: "Maria Vidal Parra", role: "Scrum Master", status: "Active" },
-      { name: "Andhy Gomez", role: "Dev", status: "Active" },
-      { name: "Kelvin Mobley", role: "Dev", status: "Active" },
-      { name: "Bharath Reddy Baddam", role: "Dev", status: "Active" },
-      { name: "Shweta Tiwari", role: "Dev", status: "Active" },
+      { name: "Tejaswini Pathade", role: "Lead", status: "Active", isFPL: true },
+      { name: "Maria Vidal Parra", role: "Scrum Master", status: "Active", isFPL: true },
+      { name: "Andhy Gomez", role: "Dev", status: "Active", isFPL: true },
+      { name: "Kelvin Mobley", role: "Dev", status: "Active", isFPL: true },
+      { name: "Bharath Reddy Baddam", role: "Dev", status: "Active", isFPL: true },
+      { name: "Shweta Tiwari", role: "Dev", status: "Active", isFPL: true },
     ],
   },
 ];
@@ -439,9 +441,9 @@ export const hypercarePods: HypercarePod[] = [
       { name: "Shikhar Sanjeev", role: "Dev", status: "Active" },
       { name: "Sandesh Saravanan", role: "Dev", status: "Active" },
       { name: "Pratik Kurdukar", role: "Dev", status: "Active" },
-      { name: "Bryan Camacho", role: "Dev", status: "Active" },
-      { name: "Santhosh Maduri", role: "Dev", status: "Active" },
-      { name: "John Harrison", role: "Dev", status: "Active" },
+      { name: "Bryan Camacho", role: "Dev", status: "Active", isFPL: true },
+      { name: "Santhosh Maduri", role: "Dev", status: "Active", isFPL: true },
+      { name: "John Harrison", role: "Dev", status: "Active", isFPL: true },
     ],
   },
 ];

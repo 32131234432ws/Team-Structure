@@ -12,12 +12,13 @@ export interface DevPodCardProps {
   defaultExpanded?: boolean;
 }
 
-const roleOrder: TeamMember["role"][] = ["Lead", "Onshore Solution Analyst", "Offshore Solution Analyst", "Dev", "QA"];
+const roleOrder: TeamMember["role"][] = ["Lead", "Scrum Master", "Onshore Solution Analyst", "Offshore Solution Analyst", "Dev", "QA"];
 
 export function DevPodCard({ pod, defaultExpanded = true }: DevPodCardProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [expandedRoles, setExpandedRoles] = useState<Record<string, boolean>>({
     Lead: true,
+    "Scrum Master": true,
     "Onshore Solution Analyst": true,
     "Offshore Solution Analyst": true,
     Dev: true,
@@ -111,9 +112,19 @@ export function DevPodCard({ pod, defaultExpanded = true }: DevPodCardProps) {
                         className="flex items-center justify-between py-2 px-3 rounded-lg bg-background/50 border border-border/50"
                       >
                         <div className="flex flex-col">
-                          <span className="text-sm text-foreground">
-                            {member.name}
-                          </span>
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm text-foreground">
+                              {member.name}
+                            </span>
+                            {member.isFPL && (
+                              <Badge
+                                variant="outline"
+                                className="text-[10px] py-0 px-1.5 h-4 bg-blue-500/15 text-blue-300 border-blue-500/40"
+                              >
+                                FPL
+                              </Badge>
+                            )}
+                          </div>
                           {member.valueStreams && member.valueStreams.length > 0 && (
                             <span className="text-xs text-muted-foreground">
                               {member.valueStreams.join(", ")}
