@@ -184,7 +184,7 @@ export const devPods: DevPod[] = [
       { name: "Sneha Girigoudar", role: "Lead", status: "Active" },
       { name: "Rohan Bandla", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["SCV"] },
       { name: "Michael O'shea", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["Correspondence", "PEXT"] },
-      { name: "TBD", role: "Offshore Solution Analyst", status: "Open" },
+      { name: "Prayas Abinash", role: "Offshore Solution Analyst", status: "Active" },
       { name: "Amarjeet Singh", role: "Dev", status: "Active" },
       { name: "Ankit Mishra", role: "Dev", status: "Active" },
       { name: "Pranay Reddy", role: "Dev", status: "Active" },
