@@ -474,6 +474,7 @@ export const crossFunctionalTeams: CrossFunctionalTeam[] = [
       { name: "Rhitik Khanna", role: "Team", status: "Active" },
       { name: "Shatakshi Srivastava", role: "Team", status: "Active" },
       { name: "Vinay Vadrevu", role: "Team", status: "Active" },
+      { name: "B Rajkumar", role: "Team", status: "Active" },
     ],
   },
   {
