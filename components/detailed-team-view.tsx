@@ -328,13 +328,13 @@ export function DetailedTeamView() {
       </div>
 
       {/* Table */}
-      <div className="border border-border/50 rounded-lg overflow-hidden">
+      <div className="border border-border/50 rounded-lg overflow-x-auto">
         {/* Header Row with Filters */}
-        <div className="grid grid-cols-12 gap-2 px-3 py-2 bg-muted/30 border-b border-border/50">
-          <div className="col-span-4 text-xs font-medium text-muted-foreground uppercase tracking-wider">
+        <div className="grid gap-2 px-3 py-2 bg-muted/30 border-b border-border/50 min-w-min" style={{ gridTemplateColumns: "3fr 2fr 1.5fr 2fr 1fr" }}>
+          <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
             Name
           </div>
-          <div className="col-span-3">
+          <div>
             <FilterDropdown
               label="Role"
               options={roles}
@@ -342,7 +342,7 @@ export function DetailedTeamView() {
               onChange={setFilterRole}
             />
           </div>
-          <div className="col-span-2">
+          <div>
             <FilterDropdown
               label="Release"
               options={releases}
@@ -350,13 +350,16 @@ export function DetailedTeamView() {
               onChange={setFilterRelease}
             />
           </div>
-          <div className="col-span-3">
+          <div>
             <MultiSelectFilterDropdown
               label="POD"
               options={pods}
               values={filterPods}
               onChange={setFilterPods}
             />
+          </div>
+          <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+            End Date
           </div>
         </div>
 
@@ -365,9 +368,10 @@ export function DetailedTeamView() {
           {filteredData.map((member, idx) => (
             <div
               key={`${member.Name}-${idx}`}
-              className="grid grid-cols-12 gap-2 px-3 py-2 hover:bg-muted/20 transition-colors items-center"
+              className="grid gap-2 px-3 py-2 hover:bg-muted/20 transition-colors items-center min-w-min"
+              style={{ gridTemplateColumns: "3fr 2fr 1.5fr 2fr 1fr" }}
             >
-              <div className="col-span-4">
+              <div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-medium text-foreground leading-tight">
                     {member.Name}
@@ -387,7 +391,7 @@ export function DetailedTeamView() {
                   <div className="text-xs text-muted-foreground truncate">{member.Email}</div>
                 ) : null}
               </div>
-              <div className="col-span-3">
+              <div>
                 {member.Role && (
                   <Badge
                     variant="outline"
@@ -400,7 +404,7 @@ export function DetailedTeamView() {
                   </Badge>
                 )}
               </div>
-              <div className="col-span-2">
+              <div>
                 {member.Release && (
                   <Badge
                     variant="outline"
@@ -413,9 +417,14 @@ export function DetailedTeamView() {
                   </Badge>
                 )}
               </div>
-              <div className="col-span-3">
+              <div>
                 <span className="text-sm text-muted-foreground truncate block">
                   {member.Valuestream || "-"}
+                </span>
+              </div>
+              <div>
+                <span className="text-sm text-muted-foreground truncate block">
+                  {member["Planned End Date"] || "-"}
                 </span>
               </div>
             </div>
