@@ -662,15 +662,6 @@
     "Valuestream": "Energy Management"
   },
   {
-    "Name": "Prayas Abinash",
-    "Email": "prayas.abinash@pwc.com",
-    "Designation": "Associate",
-    "Role": "Offshore SA",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance"
-  },
-  {
     "Name": "Sahithi Chebrolu",
     "Email": "",
     "Designation": "Associate",
@@ -705,14 +696,5 @@
     "Workstream": "IR4",
     "Release": "IR4",
     "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance"
-  },
-  {
-    "Name": "Prayas Abinash",
-    "Email": "prayas.abinash@pwc.com",
-    "Designation": "Associate",
-    "Role": "Offshore SA",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Account Maintenance"
   }
 ]
