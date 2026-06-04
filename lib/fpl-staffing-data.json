@@ -6,7 +6,10 @@
     "Role": "Engagement Lead",
     "Workstream": "Leadership",
     "Release": "All",
-    "Valuestream": "Program Leadership"
+    "Valuestream": "Program Leadership",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Matthew Rupas",
@@ -15,7 +18,10 @@
     "Role": "Engagement Lead",
     "Workstream": "Leadership",
     "Release": "All",
-    "Valuestream": "Program Leadership"
+    "Valuestream": "Program Leadership",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Sujith Pillai",
@@ -24,7 +30,10 @@
     "Role": "Engagement Lead",
     "Workstream": "Leadership",
     "Release": "All",
-    "Valuestream": "Program Leadership"
+    "Valuestream": "Program Leadership",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Anto Germans",
@@ -33,7 +42,10 @@
     "Role": "Engagement Lead",
     "Workstream": "Leadership",
     "Release": "All",
-    "Valuestream": "Program Leadership"
+    "Valuestream": "Program Leadership",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Hemant Jain",
@@ -42,7 +54,10 @@
     "Role": "Technical Architect",
     "Workstream": "Leadership",
     "Release": "All",
-    "Valuestream": "Architecture"
+    "Valuestream": "Architecture",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Tyaga Pati",
@@ -51,7 +66,10 @@
     "Role": "Solution Architect",
     "Workstream": "Leadership",
     "Release": "All",
-    "Valuestream": "Architecture"
+    "Valuestream": "Architecture",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Susan Matthews",
@@ -60,7 +78,10 @@
     "Role": "Business Architect",
     "Workstream": "Leadership",
     "Release": "All",
-    "Valuestream": "Architecture"
+    "Valuestream": "Architecture",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Shanta Samlal",
@@ -69,7 +90,10 @@
     "Role": "PMO",
     "Workstream": "Leadership",
     "Release": "All",
-    "Valuestream": "PMO"
+    "Valuestream": "PMO",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Paarth Sonwaney",
@@ -78,7 +102,10 @@
     "Role": "PMO",
     "Workstream": "Leadership",
     "Release": "All",
-    "Valuestream": "PMO"
+    "Valuestream": "PMO",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Courtney Hawkins",
@@ -87,7 +114,10 @@
     "Role": "PMO",
     "Workstream": "Leadership",
     "Release": "All",
-    "Valuestream": "PMO"
+    "Valuestream": "PMO",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Kodi Elangovan",
@@ -96,7 +126,10 @@
     "Role": "Integration Lead",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "Integration"
+    "Valuestream": "Integration",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Arun Kumar Krishnareddy Obannareddy",
@@ -105,7 +138,10 @@
     "Role": "Integration Lead",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "Integration"
+    "Valuestream": "Integration",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Pranav Singh",
@@ -114,7 +150,10 @@
     "Role": "Integration Dev",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "Integration"
+    "Valuestream": "Integration",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Vasudha Tandon",
@@ -123,7 +162,10 @@
     "Role": "Integration Dev",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "Integration"
+    "Valuestream": "Integration",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Ritesh Nanda",
@@ -132,7 +174,10 @@
     "Role": "DevOps Lead",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "DevOps"
+    "Valuestream": "DevOps",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Shabnam Nasreen",
@@ -141,7 +186,10 @@
     "Role": "DevOps Lead",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "DevOps"
+    "Valuestream": "DevOps",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Santosh Kumar Jangam",
@@ -150,7 +198,10 @@
     "Role": "DevOps",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "DevOps"
+    "Valuestream": "DevOps",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Rhitik Khanna",
@@ -159,7 +210,10 @@
     "Role": "DevOps",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "DevOps"
+    "Valuestream": "DevOps",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Shatakshi Srivastava",
@@ -168,7 +222,10 @@
     "Role": "DevOps",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "DevOps"
+    "Valuestream": "DevOps",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Vinay Vadrevu",
@@ -181,12 +238,15 @@
   },
   {
     "Name": "B Rajkumar",
-    "Email": "",
-    "Designation": "Associate",
+    "Email": "b.rajkumar@pwc.com",
+    "Designation": "Senior Associate",
     "Role": "DevOps",
-    "Workstream": "Cross-Functional",
-    "Release": "All",
-    "Valuestream": "DevOps"
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "DevOps",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Harish Govindareddy",
@@ -195,7 +255,10 @@
     "Role": "Windsurf/Performance Dev",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "Windsurf/Performance"
+    "Valuestream": "Windsurf/Performance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Sanket Mundargi",
@@ -204,7 +267,10 @@
     "Role": "Windsurf/Performance Dev",
     "Workstream": "Cross-Functional",
     "Release": "All",
-    "Valuestream": "Windsurf/Performance"
+    "Valuestream": "Windsurf/Performance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Sneha Girigoudar",
@@ -213,7 +279,10 @@
     "Role": "Dev Lead",
     "Workstream": "IR3.2",
     "Release": "IR3.2/IR4",
-    "Valuestream": "Interactions/Search | Correspondence/360s/PEXT/Account Maintenance"
+    "Valuestream": "Interactions/Search | Correspondence/360s/PEXT/Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Michael O'shea",
@@ -222,7 +291,10 @@
     "Role": "Onshore SA",
     "Workstream": "IR3.2",
     "Release": "IR3.2",
-    "Valuestream": "Interactions/Search"
+    "Valuestream": "Interactions/Search",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Madhumita Kodidela",
@@ -231,7 +303,10 @@
     "Role": "Dev",
     "Workstream": "IR3.2",
     "Release": "IR3.2",
-    "Valuestream": "Interactions/Search"
+    "Valuestream": "Interactions/Search",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Suraj Ghodmare",
@@ -240,7 +315,10 @@
     "Role": "Dev Lead",
     "Workstream": "IR3.2",
     "Release": "IR3.2",
-    "Valuestream": "Move In/Move Out/Transfer"
+    "Valuestream": "Move In/Move Out/Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Gianna Caruso",
@@ -249,7 +327,10 @@
     "Role": "Onshore SA",
     "Workstream": "IR3.2",
     "Release": "IR3.2/IR4",
-    "Valuestream": "Move In/Move Out/Transfer | Multi Move In/Transfer/Amend"
+    "Valuestream": "Move In/Move Out/Transfer | Multi Move In/Transfer/Amend",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Piyush Singh",
@@ -258,7 +339,10 @@
     "Role": "Dev",
     "Workstream": "IR3.2",
     "Release": "IR3.2",
-    "Valuestream": "Move In/Move Out/Transfer"
+    "Valuestream": "Move In/Move Out/Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Shikhar Sanjeev",
@@ -267,7 +351,10 @@
     "Role": "Dev",
     "Workstream": "IR3.2",
     "Release": "IR3.2",
-    "Valuestream": "Move In/Move Out/Transfer"
+    "Valuestream": "Move In/Move Out/Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Aditya Talwar",
@@ -276,7 +363,10 @@
     "Role": "Dev Lead",
     "Workstream": "IR3.2",
     "Release": "IR3.2/IR4",
-    "Valuestream": "Account Maintenance | Customer ID & Fraud"
+    "Valuestream": "Account Maintenance | Customer ID & Fraud",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Nishi Narendra Jain",
@@ -285,7 +375,10 @@
     "Role": "Dev",
     "Workstream": "IR3.2",
     "Release": "IR3.2",
-    "Valuestream": "Account Maintenance"
+    "Valuestream": "Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Shreya LNU",
@@ -294,7 +387,10 @@
     "Role": "Dev Lead",
     "Workstream": "IR3.2",
     "Release": "IR3.2/IR4",
-    "Valuestream": "Payment & Payment Options/Billing Programs"
+    "Valuestream": "Payment & Payment Options/Billing Programs",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Mounika Depuri",
@@ -303,7 +399,10 @@
     "Role": "Dev",
     "Workstream": "IR3.2",
     "Release": "IR3.2/IR4",
-    "Valuestream": "Payment & Payment Options/Billing Programs"
+    "Valuestream": "Payment & Payment Options/Billing Programs",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Sandesh Saravanan",
@@ -312,7 +411,10 @@
     "Role": "Dev",
     "Workstream": "IR3.2",
     "Release": "IR3.2",
-    "Valuestream": "Payment & Payment Options/Billing Programs"
+    "Valuestream": "Payment & Payment Options/Billing Programs",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Rinky Chawla",
@@ -321,7 +423,10 @@
     "Role": "Dev Lead",
     "Workstream": "IR3.2",
     "Release": "IR3.2/IR4",
-    "Valuestream": "Case Management"
+    "Valuestream": "Case Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Deneys Van Der Merwe",
@@ -330,7 +435,10 @@
     "Role": "Onshore SA",
     "Workstream": "IR3.2",
     "Release": "IR3.2/IR4",
-    "Valuestream": "Case Management"
+    "Valuestream": "Case Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Cicily Deng",
@@ -339,7 +447,10 @@
     "Role": "Onshore SA",
     "Workstream": "IR3.2",
     "Release": "IR3.2/IR4",
-    "Valuestream": "Case Management"
+    "Valuestream": "Case Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Pratik Kurdukar",
@@ -348,7 +459,10 @@
     "Role": "Dev",
     "Workstream": "IR3.2",
     "Release": "IR3.2",
-    "Valuestream": "Case Management"
+    "Valuestream": "Case Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Rajaraman A",
@@ -357,15 +471,22 @@
     "Role": "QA Lead",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "QA - All Value Streams"
+    "Valuestream": "QA - All Value Streams",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Maneesha",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Move In/Move Out/Transfer"
+    "Valuestream": "Move In/Move Out/Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Bhyravabhotla Naga Lakshmi Sirisha",
@@ -374,7 +495,10 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Move In/Move Out"
+    "Valuestream": "Move In/Move Out",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Dnyanesh Prakash Painjane",
@@ -383,7 +507,10 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Move In/Transfer"
+    "Valuestream": "Move In/Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Girlee P. Alvarado",
@@ -392,15 +519,22 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Move Out/Transfer"
+    "Valuestream": "Move Out/Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Venugopal Sinde",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Move In/Move Out"
+    "Valuestream": "Move In/Move Out",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Raveendra Reddy",
@@ -409,7 +543,10 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Transfer"
+    "Valuestream": "Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Naga Srilekha Thummalacheruvu",
@@ -418,7 +555,10 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Move In"
+    "Valuestream": "Move In",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Israel L. Jacinto",
@@ -427,15 +567,22 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Move Out"
+    "Valuestream": "Move Out",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Keerthana Manjunath",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Transfer"
+    "Valuestream": "Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Sonal Yadav",
@@ -444,7 +591,10 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Move In/Move Out"
+    "Valuestream": "Move In/Move Out",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Argene M. Francisco",
@@ -453,15 +603,22 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Move In/Transfer"
+    "Valuestream": "Move In/Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Sanjana",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Interactions/Search"
+    "Valuestream": "Interactions/Search",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Pratik Mahajan",
@@ -470,31 +627,46 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Interactions/Search"
+    "Valuestream": "Interactions/Search",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Nilesh",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Account Maintenance"
+    "Valuestream": "Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Pritam",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Account Maintenance"
+    "Valuestream": "Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Smita",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Payment & Payment Options/Billing Programs"
+    "Valuestream": "Payment & Payment Options/Billing Programs",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Vidyashree S R",
@@ -503,7 +675,10 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Payment & Payment Options"
+    "Valuestream": "Payment & Payment Options",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Prasanna Nangnure",
@@ -512,15 +687,22 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Billing Programs"
+    "Valuestream": "Billing Programs",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Nikita",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Payment & Payment Options"
+    "Valuestream": "Payment & Payment Options",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Mary Grace Carinan Nazareno",
@@ -529,7 +711,10 @@
     "Role": "QA",
     "Workstream": "IR3.2",
     "Release": "All",
-    "Valuestream": "Payment & Payment Options/Billing Programs"
+    "Valuestream": "Payment & Payment Options/Billing Programs",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Pornima Rajguru",
@@ -538,15 +723,22 @@
     "Role": "Dev Lead",
     "Workstream": "IR3.X",
     "Release": "IR3.X",
-    "Valuestream": "Outage"
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Jitain Mohun",
+    "Email": "",
     "Designation": "Manager",
     "Role": "Onshore SA",
     "Workstream": "IR3.X",
     "Release": "IR3.X/IR4",
-    "Valuestream": "Outage"
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Mayur Kinhekar",
@@ -555,7 +747,10 @@
     "Role": "Offshore SA",
     "Workstream": "IR3.X",
     "Release": "IR3.X/IR4",
-    "Valuestream": "Outage"
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Jayoti Chatterji",
@@ -564,31 +759,46 @@
     "Role": "Dev",
     "Workstream": "IR3.X",
     "Release": "IR3.X",
-    "Valuestream": "Outage"
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Aakanksha",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "QA",
     "Workstream": "IR3.X",
     "Release": "IR3.X",
-    "Valuestream": "Outage"
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Diksha",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "QA",
     "Workstream": "IR3.X",
     "Release": "IR3.X",
-    "Valuestream": "Outage"
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Sahithi Manne",
+    "Email": "",
     "Designation": "Infosys",
     "Role": "Onshore SA",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Billing & Usage/Payment Programs | Energy Management"
+    "Valuestream": "Billing & Usage/Payment Programs | Energy Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Namrata Uttareshwar Bansode",
@@ -597,7 +807,10 @@
     "Role": "Offshore SA",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Billing & Usage/Payment Programs"
+    "Valuestream": "Billing & Usage/Payment Programs",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Shivam Surendra Shete",
@@ -606,7 +819,10 @@
     "Role": "Dev",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Billing & Usage/Payment Programs"
+    "Valuestream": "Billing & Usage/Payment Programs",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Rubasri S",
@@ -615,15 +831,22 @@
     "Role": "Dev",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Billing & Usage/Payment Programs"
+    "Valuestream": "Billing & Usage/Payment Programs",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Rohan Bandla",
+    "Email": "",
     "Designation": "Senior Associate",
     "Role": "Onshore SA",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance"
+    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Amarjeet Singh",
@@ -632,7 +855,10 @@
     "Role": "Dev",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance"
+    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Ankit Mishra",
@@ -641,7 +867,10 @@
     "Role": "Dev",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance"
+    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Cheruku Pranay Reddy",
@@ -650,7 +879,10 @@
     "Role": "Dev",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance"
+    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Anurag Jakkal",
@@ -659,42 +891,549 @@
     "Role": "Dev Lead",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Energy Management"
+    "Valuestream": "Energy Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Sahithi Chebrolu",
-    "Email": "",
-    "Designation": "Associate",
+    "Email": "sahithi.chebrolu@pwc.com",
+    "Designation": "Senior Associate",
     "Role": "Dev",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Billing & Usage/Payment Programs"
+    "Valuestream": "Billing & Usage/Payment Programs",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Sahil Thadani",
     "Email": "sahil.kumar.thadani@pwc.com",
-    "Designation": "Associate",
+    "Designation": "Senior Associate",
     "Role": "Dev",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Billing & Usage"
+    "Valuestream": "Billing & Usage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Kankshitha Yalamuru",
     "Email": "yalamuru.sai.kankshitha@pwc.com",
-    "Designation": "Associate",
+    "Designation": "Senior Associate",
     "Role": "Dev",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Billing & Usage"
+    "Valuestream": "Billing & Usage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   },
   {
     "Name": "Sunandha Sanda",
-    "Email": "",
+    "Email": "sunandha.sanda@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Parul Prasad",
+    "Email": "parul.prasad@pwc.com",
+    "Designation": "Associate",
+    "Role": "Offshore SA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Aaditi Madhavan",
+    "Email": "aaditi.madhavan@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Naman Hiran",
+    "Email": "naman.h.hiran@pwc.com ",
     "Designation": "Associate",
     "Role": "Dev",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance"
+    "Valuestream": "Energy Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Mylavarapu V N R Saketh",
+    "Email": "mylavarapu.v.n.r.saketh@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Ambati Venkata Sai Harika",
+    "Email": "venkata.sai.harika.ambati@pwc.com",
+    "Designation": "Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Ashit Golwala",
+    "Email": "ashit.prashant.golwala@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Sagnik Chakraborty",
+    "Email": "sagnik.c.chakraborty@pwc.com",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Lokesh Sai",
+    "Email": "madana.lokesh.dhana.sai@pwc.com",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Jason Pereira",
+    "Email": "jason.c.pereira@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev Lead",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Multi Move In/Transfer/Amend",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Akhil J Palakeel",
+    "Email": "akhil.j.palakeel@pwc.com",
+    "Designation": "Associate",
+    "Role": "Offshore SA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Multi Move In/Transfer/Amend",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Sridaran Natarajan Muralidharan",
+    "Email": "sridaran.n.m@pwc.com",
+    "Designation": "Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Multi Move In/Transfer/Amend",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Prasad P",
+    "Email": "prasad.p@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Multi Move In/Transfer/Amend",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Pradeep L",
+    "Email": "pradeep.l@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Multi Move In/Transfer/Amend",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Nivetha Sudharsanam",
+    "Email": "nivetha.sudharsanam@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Multi Move In/Transfer/Amend",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Sweta Sharma",
+    "Email": "sweta.s.sharma@pwc.com",
+    "Designation": "Manager",
+    "Role": "Dev Lead",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Shravya Nanjundaswamy",
+    "Email": "shravya.nanjundaswamy@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Rida Maryam Mohammad",
+    "Email": "rida.maryam.mohammad@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Surya Teja Poka",
+    "Email": "poka.suryateja@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Kavita Jha",
+    "Email": "kavita.jha@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Sanniboina Murali Krishna",
+    "Email": "sanniboina.murali.krishna@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Outage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Ankit Prasad Verma",
+    "Email": "ankit.prasad.verma@pwc.com",
+    "Designation": "Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Case Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Sree Sowndarya Barani K",
+    "Email": "sree.sowndarya.barani.k@pwc.com",
+    "Designation": "Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Case Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Jyothula John Paramjyothi",
+    "Email": "john.paramjyothi.jyothula@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Case Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Chaitra Hanchinal",
+    "Email": "chaitra.s.hanchinal@pwc.com",
+    "Designation": "Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Field Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Jaya Lakshmi Papolu",
+    "Email": "jaya.lakshmi.papolu@pwc.com",
+    "Designation": "Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Field Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Mrithika Kumaresan",
+    "Email": "mrithika.kumaresan@pwc.com",
+    "Designation": "Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Field Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Mindi Sai Bhavana",
+    "Email": "mindi.sai.bhavana@pwc.com",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Shreya Maji",
+    "Email": "shreya.maji@pwc.com",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Niket Saxena",
+    "Email": "niket.saxena@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev Lead",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Field Management",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Manu Tyagi",
+    "Email": "manu.tyagi@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Interactions/Search",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Navyashree Shantharam",
+    "Email": "navyashree.s.shantharam@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Rodolfo",
+    "Email": "rodolfo.d.duarte@pwc.com",
+    "Designation": "Administrative",
+    "Role": "DevOps",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "DevOps",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Russell Stein",
+    "Email": "russell.stein@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Onshore SA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Billing & Usage",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Ziyad Auti",
+    "Email": "ziyad.auti@pwc.com",
+    "Designation": "Intern",
+    "Role": "Intern",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Kishor S",
+    "Email": "kishor.selvakumar@pwc.com",
+    "Designation": "Intern",
+    "Role": "Intern",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Krithika Harishchandra Shettigar",
+    "Email": "krithika.h.shettigar@pwc.com",
+    "Designation": "Intern",
+    "Role": "Intern",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Potumanchi Sree Yashana",
+    "Email": "potumanchi.sree.yashana@pwc.com",
+    "Designation": "Intern",
+    "Role": "Intern",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Adithya Sankar S",
+    "Email": "adithya.sankar.s@pwc.com",
+    "Designation": "Intern",
+    "Role": "Intern",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Prayas Abinash",
+    "Email": "prayas.abinash@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Offshore SA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Sumit Bhele",
+    "Email": "sumit.vijay.bhele@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "PMO",
+    "Workstream": "Leadership",
+    "Release": "All",
+    "Valuestream": "PMO",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Mayand Mani",
+    "Email": "mayand.mani@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
   }
 ]
