@@ -662,57 +662,84 @@
     "Valuestream": "Energy Management"
   },
   {
-    "Name": "Prayas Abinash",
-    "Email": "prayas.abinash@pwc.com",
-    "Designation": "Associate",
+    "Name": "Parul Prasad",
+    "Email": "parul.prasad@pwc.com",
+    "Designation": "Senior Associate",
     "Role": "Offshore SA",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance"
+    "Valuestream": "Energy Management"
   },
   {
-    "Name": "Sahithi Chebrolu",
+    "Name": "Aaditi Madhavan",
+    "Email": "aaditi.madhavan@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management"
+  },
+  {
+    "Name": "Naman Hiran",
+    "Email": "naman.hiran@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management"
+  },
+  {
+    "Name": "Mylavarapu V N R Saketh",
+    "Email": "mylavarapu.v.n.r.saketh@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management"
+  },
+  {
+    "Name": "Venkata Sai Harika Ambati",
+    "Email": "venkata.sai.harika.ambati@pwc.com",
+    "Designation": "Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management"
+  },
+  {
+    "Name": "Ashit Prashant Golwala",
+    "Email": "ashit.prashant.golwala@pwc.com",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management"
+  },
+  {
+    "Name": "Sagnik Chakraborty",
+    "Email": "sagnik.chakraborty@pwc.com",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management"
+  },
+  {
+    "Name": "Lokesh Sai",
+    "Email": "lokesh.sai@pwc.com",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Energy Management"
+  },
+  {
+    "Name": "Mayand Mani",
     "Email": "",
     "Designation": "Associate",
-    "Role": "Dev",
+    "Role": "QA",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "Billing & Usage/Payment Programs"
-  },
-  {
-    "Name": "Sahil Thadani",
-    "Email": "sahil.kumar.thadani@pwc.com",
-    "Designation": "Associate",
-    "Role": "Dev",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Billing & Usage"
-  },
-  {
-    "Name": "Kankshitha Yalamuru",
-    "Email": "yalamuru.sai.kankshitha@pwc.com",
-    "Designation": "Associate",
-    "Role": "Dev",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Billing & Usage"
-  },
-  {
-    "Name": "Sunandha Sanda",
-    "Email": "",
-    "Designation": "Associate",
-    "Role": "Dev",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Correspondence/360s/PEXT/Customer Auth/Account Maintenance"
-  },
-  {
-    "Name": "Prayas Abinash",
-    "Email": "prayas.abinash@pwc.com",
-    "Designation": "Associate",
-    "Role": "Offshore SA",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Account Maintenance"
+    "Valuestream": "Energy Management"
   }
 ]
