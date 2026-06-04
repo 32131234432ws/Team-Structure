@@ -330,7 +330,7 @@ export function DetailedTeamView() {
       {/* Table */}
       <div className="border border-border/50 rounded-lg overflow-x-auto">
         {/* Header Row with Filters */}
-        <div className="grid gap-2 px-3 py-2 bg-muted/30 border-b border-border/50 min-w-min" style={{ gridTemplateColumns: "3fr 2fr 1.5fr 2fr 1fr" }}>
+        <div className="grid gap-3 px-4 py-3 bg-muted/30 border-b border-border/50 min-w-min" style={{ gridTemplateColumns: "1fr 120px 100px 200px 120px" }}>
           <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
             Name
           </div>
@@ -368,12 +368,12 @@ export function DetailedTeamView() {
           {filteredData.map((member, idx) => (
             <div
               key={`${member.Name}-${idx}`}
-              className="grid gap-2 px-3 py-2 hover:bg-muted/20 transition-colors items-center min-w-min"
-              style={{ gridTemplateColumns: "3fr 2fr 1.5fr 2fr 1fr" }}
+              className="grid gap-3 px-4 py-3 hover:bg-muted/20 transition-colors items-center min-w-min"
+              style={{ gridTemplateColumns: "1fr 120px 100px 200px 120px" }}
             >
-              <div>
+              <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-foreground leading-tight">
+                  <span className="text-sm font-medium text-foreground leading-tight truncate">
                     {member.Name}
                   </span>
                   {member.isFPL && (
@@ -391,12 +391,12 @@ export function DetailedTeamView() {
                   <div className="text-xs text-muted-foreground truncate">{member.Email}</div>
                 ) : null}
               </div>
-              <div>
+              <div className="flex justify-center">
                 {member.Role && (
                   <Badge
                     variant="outline"
                     className={cn(
-                      "text-xs py-0",
+                      "text-xs py-0 px-2 whitespace-nowrap",
                       roleColors[member.Role] || "bg-muted text-muted-foreground"
                     )}
                   >
@@ -404,12 +404,12 @@ export function DetailedTeamView() {
                   </Badge>
                 )}
               </div>
-              <div>
+              <div className="flex justify-center">
                 {member.Release && (
                   <Badge
                     variant="outline"
                     className={cn(
-                      "text-xs py-0",
+                      "text-xs py-0 px-2 whitespace-nowrap",
                       releaseColors[member.Release] || "bg-muted text-muted-foreground"
                     )}
                   >
@@ -417,13 +417,13 @@ export function DetailedTeamView() {
                   </Badge>
                 )}
               </div>
-              <div>
-                <span className="text-sm text-muted-foreground truncate block">
+              <div className="min-w-0">
+                <span className="text-sm text-muted-foreground truncate block" title={member.Valuestream || ""}>
                   {member.Valuestream || "-"}
                 </span>
               </div>
-              <div>
-                <span className="text-sm text-muted-foreground truncate block">
+              <div className="flex justify-end">
+                <span className="text-sm text-muted-foreground whitespace-nowrap">
                   {member["Planned End Date"] || "-"}
                 </span>
               </div>
