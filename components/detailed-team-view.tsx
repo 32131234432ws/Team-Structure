@@ -3,7 +3,7 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { fplStaffingData } from "@/lib/fpl-staffing-types";
+import { detailedTeamMembers, type DetailedTeamMember } from "@/lib/detailed-team-data";
 import { cn } from "@/lib/utils";
 import { Search, ChevronDown, X } from "lucide-react";
 
@@ -215,24 +215,24 @@ export function DetailedTeamView() {
 
   const roles = useMemo(() => {
     const set = new Set<string>();
-    fplStaffingData.forEach((m) => m.Role && set.add(m.Role));
+    detailedTeamMembers.forEach((m) => m.Role && set.add(m.Role));
     return Array.from(set).sort();
   }, []);
 
   const releases = useMemo(() => {
     const set = new Set<string>();
-    fplStaffingData.forEach((m) => m.Release && set.add(m.Release));
+    detailedTeamMembers.forEach((m) => m.Release && set.add(m.Release));
     return Array.from(set).sort();
   }, []);
 
   const pods = useMemo(() => {
     const set = new Set<string>();
-    fplStaffingData.forEach((m) => m.Valuestream && set.add(m.Valuestream));
+    detailedTeamMembers.forEach((m) => m.Valuestream && set.add(m.Valuestream));
     return Array.from(set).sort();
   }, []);
 
   const filteredData = useMemo(() => {
-    return fplStaffingData.filter((member) => {
+    return detailedTeamMembers.filter((member) => {
       const matchesSearch =
         searchTerm === "" ||
         member.Name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -259,8 +259,8 @@ export function DetailedTeamView() {
     setFplFilter("all");
   };
 
-  const fplCount = fplStaffingData.filter((m) => m.isFPL).length;
-  const nonFplCount = fplStaffingData.length - fplCount;
+  const fplCount = detailedTeamMembers.filter((m) => m.isFPL).length;
+  const nonFplCount = detailedTeamMembers.length - fplCount;
 
   return (
     <div className="space-y-3">
@@ -287,7 +287,7 @@ export function DetailedTeamView() {
                 : "text-muted-foreground hover:text-foreground"
             )}
           >
-            All ({fplStaffingData.length})
+            All ({detailedTeamMembers.length})
           </button>
           <button
             onClick={() => setFplFilter("fpl")}
@@ -314,7 +314,7 @@ export function DetailedTeamView() {
         </div>
 
         <span className="text-sm text-muted-foreground">
-          {filteredData.length} of {fplStaffingData.length}
+          {filteredData.length} of {detailedTeamMembers.length}
         </span>
         {hasFilters && (
           <button
