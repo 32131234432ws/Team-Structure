@@ -11,6 +11,7 @@ export interface DetailedTeamMember {
   Valuestream: string;
   POD?: string;
   isFPL: boolean;
+  "Planned End Date"?: string;
 }
 
 const baseStaffingData = staffingData as any[];
@@ -33,6 +34,7 @@ baseStaffingData.forEach((m) => {
     Release: m.Release || "All",
     Valuestream: m.Valuestream || "",
     isFPL: m.isFPL || false,
+    "Planned End Date": m["Planned End Date"] || "",
   });
 });
 
