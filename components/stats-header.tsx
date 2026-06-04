@@ -87,14 +87,16 @@ export function StatsHeader() {
     return null;
   };
 
-  fplData.forEach((m) => {
-    if (m.Name && m.Name !== "TBD" && !peopleMap.has(m.Name)) {
-      const bucket = fplRoleToBucket(m.Role);
-      if (bucket) {
-        peopleMap.set(m.Name, { role: bucket, isFPL: false });
-      }
-    }
-  });
+  // Only count active POD members (no backfill from JSON)
+  // All POD members are now synced to JSON, so we only need POD data
+  // fplData.forEach((m) => {
+  //   if (m.Name && m.Name !== "TBD" && !peopleMap.has(m.Name)) {
+  //     const bucket = fplRoleToBucket(m.Role);
+  //     if (bucket) {
+  //       peopleMap.set(m.Name, { role: bucket, isFPL: false });
+  //     }
+  //   }
+  // });
 
   const totalUniquePeople = peopleMap.size;
 
