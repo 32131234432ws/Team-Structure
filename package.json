@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
-    "generate:master": "node scripts/generate-master-staffing-xlsx.js",
-    "sync-staffing": "node scripts/sync-master-staffing.js && node scripts/update-fpl-staffing-xlsx.js"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

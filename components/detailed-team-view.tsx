@@ -3,7 +3,7 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { detailedTeamMembers, type DetailedTeamMember } from "@/lib/detailed-team-data";
+import { fplStaffingData } from "@/lib/fpl-staffing-types";
 import { cn } from "@/lib/utils";
 import { Search, ChevronDown, X } from "lucide-react";
 
@@ -215,24 +215,24 @@ export function DetailedTeamView() {
 
   const roles = useMemo(() => {
     const set = new Set<string>();
-    detailedTeamMembers.forEach((m) => m.Role && set.add(m.Role));
+    fplStaffingData.forEach((m) => m.Role && set.add(m.Role));
     return Array.from(set).sort();
   }, []);
 
   const releases = useMemo(() => {
     const set = new Set<string>();
-    detailedTeamMembers.forEach((m) => m.Release && set.add(m.Release));
+    fplStaffingData.forEach((m) => m.Release && set.add(m.Release));
     return Array.from(set).sort();
   }, []);
 
   const pods = useMemo(() => {
     const set = new Set<string>();
-    detailedTeamMembers.forEach((m) => m.Valuestream && set.add(m.Valuestream));
+    fplStaffingData.forEach((m) => m.Valuestream && set.add(m.Valuestream));
     return Array.from(set).sort();
   }, []);
 
   const filteredData = useMemo(() => {
-    return detailedTeamMembers.filter((member) => {
+    return fplStaffingData.filter((member) => {
       const matchesSearch =
         searchTerm === "" ||
         member.Name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -259,8 +259,8 @@ export function DetailedTeamView() {
     setFplFilter("all");
   };
 
-  const fplCount = detailedTeamMembers.filter((m) => m.isFPL).length;
-  const nonFplCount = detailedTeamMembers.length - fplCount;
+  const fplCount = fplStaffingData.filter((m) => m.isFPL).length;
+  const nonFplCount = fplStaffingData.length - fplCount;
 
   return (
     <div className="space-y-3">
@@ -287,7 +287,7 @@ export function DetailedTeamView() {
                 : "text-muted-foreground hover:text-foreground"
             )}
           >
-            All ({detailedTeamMembers.length})
+            All ({fplStaffingData.length})
           </button>
           <button
             onClick={() => setFplFilter("fpl")}
@@ -314,7 +314,7 @@ export function DetailedTeamView() {
         </div>
 
         <span className="text-sm text-muted-foreground">
-          {filteredData.length} of {detailedTeamMembers.length}
+          {filteredData.length} of {fplStaffingData.length}
         </span>
         {hasFilters && (
           <button
@@ -328,13 +328,13 @@ export function DetailedTeamView() {
       </div>
 
       {/* Table */}
-      <div className="border border-border/50 rounded-lg overflow-x-auto">
+      <div className="border border-border/50 rounded-lg overflow-hidden">
         {/* Header Row with Filters */}
-        <div className="grid gap-2 px-3 py-2 bg-muted/30 border-b border-border/50 min-w-min" style={{ gridTemplateColumns: "2fr 1.5fr 1fr 1.5fr 1.2fr 1fr" }}>
-          <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+        <div className="grid grid-cols-12 gap-2 px-3 py-2 bg-muted/30 border-b border-border/50">
+          <div className="col-span-4 text-xs font-medium text-muted-foreground uppercase tracking-wider">
             Name
           </div>
-          <div>
+          <div className="col-span-3">
             <FilterDropdown
               label="Role"
               options={roles}
@@ -342,7 +342,7 @@ export function DetailedTeamView() {
               onChange={setFilterRole}
             />
           </div>
-          <div>
+          <div className="col-span-2">
             <FilterDropdown
               label="Release"
               options={releases}
@@ -350,19 +350,13 @@ export function DetailedTeamView() {
               onChange={setFilterRelease}
             />
           </div>
-          <div>
+          <div className="col-span-3">
             <MultiSelectFilterDropdown
               label="POD"
               options={pods}
               values={filterPods}
               onChange={setFilterPods}
             />
-          </div>
-          <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-            Workstream
-          </div>
-          <div className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-            End Date
           </div>
         </div>
 
@@ -371,10 +365,9 @@ export function DetailedTeamView() {
           {filteredData.map((member, idx) => (
             <div
               key={`${member.Name}-${idx}`}
-              className="grid gap-2 px-3 py-2 hover:bg-muted/20 transition-colors items-center min-w-min"
-              style={{ gridTemplateColumns: "2fr 1.5fr 1fr 1.5fr 1.2fr 1fr" }}
+              className="grid grid-cols-12 gap-2 px-3 py-2 hover:bg-muted/20 transition-colors items-center"
             >
-              <div>
+              <div className="col-span-4">
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-medium text-foreground leading-tight">
                     {member.Name}
@@ -394,7 +387,7 @@ export function DetailedTeamView() {
                   <div className="text-xs text-muted-foreground truncate">{member.Email}</div>
                 ) : null}
               </div>
-              <div>
+              <div className="col-span-3">
                 {member.Role && (
                   <Badge
                     variant="outline"
@@ -407,7 +400,7 @@ export function DetailedTeamView() {
                   </Badge>
                 )}
               </div>
-              <div>
+              <div className="col-span-2">
                 {member.Release && (
                   <Badge
                     variant="outline"
@@ -420,19 +413,9 @@ export function DetailedTeamView() {
                   </Badge>
                 )}
               </div>
-              <div>
+              <div className="col-span-3">
                 <span className="text-sm text-muted-foreground truncate block">
                   {member.Valuestream || "-"}
-                </span>
-              </div>
-              <div>
-                <span className="text-sm text-muted-foreground truncate block">
-                  {member.Workstream || "-"}
-                </span>
-              </div>
-              <div>
-                <span className="text-sm text-muted-foreground truncate block">
-                  {member["Planned End Date"] || "-"}
                 </span>
               </div>
             </div>
