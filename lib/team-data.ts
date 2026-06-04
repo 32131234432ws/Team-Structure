@@ -90,7 +90,6 @@ export const devPods: DevPod[] = [
     team: [
       { name: "Aditya Talwar", role: "Lead", status: "Active" },
       { name: "Gianna Caruso", role: "Onshore Solution Analyst", status: "Active" },
-      { name: "Nishi Jain", role: "Dev", status: "Active" },
     ],
   },
   {
@@ -444,7 +443,6 @@ export const hypercarePods: HypercarePod[] = [
       { name: "Shikhar Sanjeev", role: "Dev", status: "Active" },
       { name: "Sandesh Saravanan", role: "Dev", status: "Active" },
       { name: "Pratik Kurdukar", role: "Dev", status: "Active" },
-      { name: "Nishi Jain", role: "Dev", status: "Active" },
       { name: "Bryan Camacho", role: "Dev", status: "Active", isFPL: true },
       { name: "Santhosh Maduri", role: "Dev", status: "Active", isFPL: true },
       { name: "John Harrison", role: "Dev", status: "Active", isFPL: true },
