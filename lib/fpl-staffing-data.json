@@ -1443,8 +1443,8 @@
     "Role": "QA",
     "Workstream": "IR4",
     "Release": "IR4",
-    "Valuestream": "",
-    "POD": "",
+    "Valuestream": "Energy Management",
+    "POD": "Dev POD 3/Anurag",
     "isFPL": false,
     "Planned End Date": ""
   }
