@@ -213,7 +213,6 @@ export const devPods: DevPod[] = [
       { name: "Venkata Sai Harika Ambati", role: "Dev", status: "Active" },
       { name: "TBD", role: "Dev", status: "Open" },
       { name: "Ashit Prashant Golwala", role: "QA", status: "Active" },
-      { name: "Sagnik Chakraborty", role: "QA", status: "Active" },
       { name: "Lokesh Sai", role: "QA", status: "Active" },
       { name: "Mayand Mani", role: "QA", status: "Active" },
     ],
