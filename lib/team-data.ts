@@ -30,7 +30,7 @@ export const leadershipTeam: LeadershipMember[] = [
   { name: "Shanta Samlal", role: "PMO", status: "Active" },
   { name: "Paarth Sonwaney", role: "PMO", status: "Active" },
   { name: "Courtney Hawkins", role: "PMO", status: "Active" },
-  { name: "Sumit Bhele", role: "PMO", status: "Active" },
+  { name: "Pravitha Mohanan", role: "PMO", status: "Active" },
 ];
 
 // Interns data
