@@ -501,18 +501,6 @@
     "Planned End Date": ""
   },
   {
-    "Name": "Bhyravabhotla Naga Lakshmi Sirisha",
-    "Email": "bhyravabhotla.naga.lakshmi.sirisha@pwc.com",
-    "Designation": "Senior Associate",
-    "Role": "QA",
-    "Workstream": "IR3.2",
-    "Release": "All",
-    "Valuestream": "Move In/Move Out",
-    "POD": "",
-    "isFPL": false,
-    "Planned End Date": "08/24/2026"
-  },
-  {
     "Name": "Dnyanesh Prakash Painjane",
     "Email": "dnyanesh.prakash.painjane@pwc.com",
     "Designation": "Associate",
@@ -1401,7 +1389,7 @@
     "Planned End Date": "06/29/2026"
   },
   {
-    "Name": "Sirisha B",
+    "Name": "Bhyravabhotla Naga Lakshmi Sirisha",
     "Email": "",
     "Designation": "Senior Associate",
     "Role": "Offshore SA",
