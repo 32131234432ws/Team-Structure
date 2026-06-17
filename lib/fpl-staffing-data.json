@@ -48,6 +48,42 @@
     "Planned End Date": "08/31/2026"
   },
   {
+    "Name": "Hemant Jain",
+    "Email": "hemant.jain@pwc.com",
+    "Designation": "Senior Manager",
+    "Role": "Technical Architect",
+    "Workstream": "Leadership",
+    "Release": "All",
+    "Valuestream": "Architecture",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": "08/24/2026"
+  },
+  {
+    "Name": "Tyaga Pati",
+    "Email": "tyaga.pati@pwc.com",
+    "Designation": "Senior Manager",
+    "Role": "Solution Architect",
+    "Workstream": "Leadership",
+    "Release": "All",
+    "Valuestream": "Architecture",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": "07/27/2026"
+  },
+  {
+    "Name": "Susan Matthews",
+    "Email": "susan.m.mathew@pwc.com",
+    "Designation": "Senior Manager",
+    "Role": "Business Architect",
+    "Workstream": "Leadership",
+    "Release": "All",
+    "Valuestream": "Architecture",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": "07/20/2026"
+  },
+  {
     "Name": "Shanta Samlal",
     "Email": "shanta.samlal@pwc.com",
     "Designation": "Manager",
@@ -345,6 +381,18 @@
     "Planned End Date": "08/24/2026"
   },
   {
+    "Name": "Nishi Narendra Jain",
+    "Email": "jain.u.nishi@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "Dev",
+    "Workstream": "IR3.2",
+    "Release": "IR3.2",
+    "Valuestream": "Account Maintenance",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": "08/24/2026"
+  },
+  {
     "Name": "Shreya LNU",
     "Email": "shreya.l.lnu@pwc.com",
     "Designation": "Manager",
@@ -405,6 +453,30 @@
     "Planned End Date": "06/29/2026"
   },
   {
+    "Name": "Dnyanesh Prakash Painjane",
+    "Email": "dnyanesh.prakash.painjane@pwc.com",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR3.2",
+    "Release": "All",
+    "Valuestream": "Move In/Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": "06/29/2026"
+  },
+  {
+    "Name": "Girlee P. Alvarado",
+    "Email": "girlee.alvarado@pwc.com",
+    "Designation": "Senior Associate",
+    "Role": "QA",
+    "Workstream": "IR3.2",
+    "Release": "All",
+    "Valuestream": "Move Out/Transfer",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": "06/01/2026"
+  },
+  {
     "Name": "Venugopal Sinde",
     "Email": "",
     "Designation": "Infosys",
@@ -442,6 +514,42 @@
   },
   {
     "Name": "Argene Francisco",
+    "Email": "",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Vidyashree",
+    "Email": "",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Prasanna",
+    "Email": "",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Grace Nazareno",
     "Email": "",
     "Designation": "Associate",
     "Role": "QA",
