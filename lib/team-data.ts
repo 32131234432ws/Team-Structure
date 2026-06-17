@@ -436,10 +436,10 @@ export const hypercarePods: HypercarePod[] = [
       { name: "Sandesh Saravanan", role: "Dev", status: "Active" },
       { name: "Pratik Kurdukar", role: "Dev", status: "Active" },
       { name: "Nishi Jain", role: "Dev", status: "Active" },
+      { name: "Sandeep Kalidindi", role: "Dev", status: "Active" },
       { name: "Bryan Camacho", role: "Dev", status: "Active", isFPL: true },
       { name: "Santhosh Maduri", role: "Dev", status: "Active", isFPL: true },
       { name: "John Harrison", role: "Dev", status: "Active", isFPL: true },
-      { name: "Sandeep Kalidindi", role: "Dev", status: "Active" },
     ],
   },
 ];
