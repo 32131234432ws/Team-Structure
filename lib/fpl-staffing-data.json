@@ -1269,18 +1269,6 @@
     "Planned End Date": ""
   },
   {
-    "Name": "John Harrison",
-    "Email": "",
-    "Designation": "Associate",
-    "Role": "Dev",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Development",
-    "POD": "",
-    "isFPL": false,
-    "Planned End Date": ""
-  },
-  {
     "Name": "Shashank Satvai",
     "Email": "",
     "Designation": "Associate",
@@ -1342,18 +1330,6 @@
   },
   {
     "Name": "Sree Sowndarya Barani K",
-    "Email": "",
-    "Designation": "Associate",
-    "Role": "Dev",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Development",
-    "POD": "",
-    "isFPL": false,
-    "Planned End Date": ""
-  },
-  {
-    "Name": "John Jyothula",
     "Email": "",
     "Designation": "Associate",
     "Role": "Dev",
@@ -1618,18 +1594,6 @@
   },
   {
     "Name": "Santhosh Maduri",
-    "Email": "",
-    "Designation": "Associate",
-    "Role": "Dev",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Development",
-    "POD": "",
-    "isFPL": false,
-    "Planned End Date": ""
-  },
-  {
-    "Name": "John Harrison",
     "Email": "",
     "Designation": "Associate",
     "Role": "Dev",
