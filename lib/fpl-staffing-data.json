@@ -120,7 +120,19 @@
     "Planned End Date": "08/31/2026"
   },
   {
-    "Name": "Pravitha Mohanan",
+    "Name": "Nishi Jain",
+    "Email": "",
+    "Designation": "Associate",
+    "Role": "Dev",
+    "Workstream": "IR4",
+    "Release": "IR4",
+    "Valuestream": "Development",
+    "POD": "",
+    "isFPL": false,
+    "Planned End Date": ""
+  },
+  {
+    "Name": "Bryan Camacho",
     "Email": "",
     "Designation": "Associate",
     "Role": "PMO",
@@ -616,18 +628,6 @@
     "Workstream": "IR4",
     "Release": "IR4",
     "Valuestream": "Architecture",
-    "POD": "",
-    "isFPL": false,
-    "Planned End Date": ""
-  },
-  {
-    "Name": "Nishi Jain",
-    "Email": "",
-    "Designation": "Associate",
-    "Role": "Dev",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Development",
     "POD": "",
     "isFPL": false,
     "Planned End Date": ""
