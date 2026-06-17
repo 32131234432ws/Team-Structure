@@ -400,7 +400,6 @@ export const sitUatExecutionTeam: SitUatMember[] = [
   { name: "Raveendra Reddy", role: "QA", status: "Active", valueStreams: ["Transfer"] },
   { name: "ISH Jacinto", role: "QA", status: "Active", valueStreams: ["Move Out"] },
   { name: "Keerthana Manjunath", role: "QA", status: "Active", valueStreams: ["Transfer"] },
-  { name: "Sonal Yadav", role: "QA", status: "Active", valueStreams: ["Move In", "Move Out"] },
   { name: "Argene Francisco", role: "QA", status: "Active", valueStreams: ["Move In", "Transfer"] },
   { name: "Sanjana", role: "QA", status: "Active", valueStreams: ["Interactions", "Search"] },
   { name: "Pratik Mahajan", role: "QA", status: "Active", valueStreams: ["Interactions", "Search"] },
