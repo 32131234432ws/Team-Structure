@@ -172,6 +172,7 @@ export const devPods: DevPod[] = [
       { name: "Sahil Thadani", role: "Dev", status: "Active" },
       { name: "Kankshitha Yalamuru", role: "Dev", status: "Active" },
       { name: "Sahithi Chebrolu", role: "Dev", status: "Active" },
+      { name: "Paras Grover", role: "Dev", status: "Active" },
     ],
   },
   {
