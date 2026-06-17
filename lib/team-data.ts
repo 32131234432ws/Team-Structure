@@ -405,13 +405,7 @@ export const sitUatExecutionTeam: SitUatMember[] = [
   { name: "Sanjana", role: "QA", status: "Active", valueStreams: ["Interactions", "Search"] },
   { name: "Pratik Mahajan", role: "QA", status: "Active", valueStreams: ["Interactions", "Search"] },
   { name: "Nilesh", role: "QA", status: "Active", valueStreams: ["Account Maintenance"] },
-  { name: "Pritam", role: "QA", status: "Active", valueStreams: ["Account Maintenance"] },
-  { name: "Smita", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options", "Billing Programs"] },
-  { name: "Vidyashree", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options"] },
-  { name: "Prasanna", role: "QA", status: "Active", valueStreams: ["Billing Programs"] },
-  { name: "Nikita", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options"] },
-  { name: "Grace Nazareno", role: "QA", status: "Active", valueStreams: ["Payment & Payment Options", "Billing Programs"] },
-  { name: "Mindi Sai Bhavana", role: "QA", status: "Active", valueStreams: ["Case Management"] },
+  { name: "Haseena Begam Shaik", role: "QA", status: "Active", valueStreams: ["Account Maintenance"] },
 ];
 
 // Hypercare pods for IR3.2
