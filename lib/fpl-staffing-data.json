@@ -1281,18 +1281,6 @@
     "Planned End Date": ""
   },
   {
-    "Name": "Bryan Camacho",
-    "Email": "",
-    "Designation": "Associate",
-    "Role": "Dev",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Development",
-    "POD": "",
-    "isFPL": false,
-    "Planned End Date": ""
-  },
-  {
     "Name": "Yolanda Espinoza",
     "Email": "",
     "Designation": "Associate",
@@ -1570,18 +1558,6 @@
   },
   {
     "Name": "Nishi Jain",
-    "Email": "",
-    "Designation": "Associate",
-    "Role": "Dev",
-    "Workstream": "IR4",
-    "Release": "IR4",
-    "Valuestream": "Development",
-    "POD": "",
-    "isFPL": false,
-    "Planned End Date": ""
-  },
-  {
-    "Name": "Bryan Camacho",
     "Email": "",
     "Designation": "Associate",
     "Role": "Dev",
