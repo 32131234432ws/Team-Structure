@@ -1651,5 +1651,17 @@
     "POD": "Dev POD 1/Shreya",
     "isFPL": false,
     "Planned End Date": ""
+  },
+  {
+    "Name": "Suraje V",
+    "Email": "suraje.v@pwc.com",
+    "Designation": "Associate",
+    "Role": "DevOps",
+    "Workstream": "Cross-Functional",
+    "Release": "All",
+    "Valuestream": "DevOps",
+    "POD": "DevOps POD",
+    "isFPL": false,
+    "Planned End Date": ""
   }
 ]
