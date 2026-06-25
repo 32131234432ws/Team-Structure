@@ -107,6 +107,8 @@ export const devPods: DevPod[] = [
       { name: "FPL", role: "Onshore Solution Analyst", status: "Active", valueStreams: ["Billing Programs"] },
       { name: "Mounika Depuri", role: "Dev", status: "Active" },
       { name: "Sandesh Saravanan", role: "Dev", status: "Active" },
+      { name: "Adharsha AS", role: "Dev", status: "Active" },
+      { name: "Avinesh T", role: "Dev", status: "Active" },
     ],
   },
   {
