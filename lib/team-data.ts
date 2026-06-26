@@ -45,7 +45,7 @@ export interface DevPod {
   description: string;
   team: TeamMember[];
   color: string;
-  release: "IR3.2" | "IR3.3" | "IR4";
+  release: "IR3.2" | "IR3.3" | "IR4" | "IR4.1" | "IR4.2";
   badges?: string[];
 }
 
