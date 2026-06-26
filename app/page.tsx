@@ -38,15 +38,6 @@ export default function Home() {
           defaultOpen={true}
         />
 
-        <ReleaseSection
-          title="3.X (Outage)"
-          phase="Planning"
-          pods={ir33Pods}
-          badgeColor="bg-cyan-500/20 text-cyan-400 border-cyan-500/30"
-          phaseColor="bg-cyan-500/20 text-cyan-400 border-cyan-500/30"
-          defaultOpen={true}
-        />
-
         {/* IR4 with sub-sections */}
         <CombinedReleaseSection
           title="IR4"
