@@ -22,6 +22,7 @@ interface CombinedReleaseSectionProps {
   badgeColor: string;
   phaseColor: string;
   defaultOpen?: boolean;
+  showSubReleases?: boolean;
 }
 
 export function CombinedReleaseSection({
@@ -33,6 +34,7 @@ export function CombinedReleaseSection({
   badgeColor,
   phaseColor,
   defaultOpen = true,
+  showSubReleases = false,
 }: CombinedReleaseSectionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const [devPodsOpen, setDevPodsOpen] = useState(true);
@@ -136,33 +138,87 @@ export function CombinedReleaseSection({
       </CollapsibleTrigger>
       <CollapsibleContent>
         <div className="space-y-6 pl-4 border-l-2 border-border/50">
-          {/* Development PODs Sub-section */}
-          <Collapsible open={devPodsOpen} onOpenChange={setDevPodsOpen}>
-            <CollapsibleTrigger className="w-full">
-              <div className="flex items-center gap-3 mb-3 cursor-pointer group">
-                <div className="flex items-center gap-2">
-                  {devPodsOpen ? (
-                    <ChevronDown className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                  ) : (
-                    <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-                  )}
-                  <h3 className="text-md font-medium text-foreground group-hover:text-primary transition-colors">
-                    Development PODs
-                  </h3>
-                </div>
-                <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-amber-500/20 text-amber-400 border-amber-500/30">
-                  {devPods.length} {devPods.length === 1 ? "Pod" : "Pods"}
-                </span>
-              </div>
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                {devPods.map((pod) => (
-                  <DevPodCard key={pod.id} pod={pod} />
-                ))}
-              </div>
-            </CollapsibleContent>
-          </Collapsible>
+          {showSubReleases ? (
+            <>
+              {/* IR4.1 Sub-section */}
+              <Collapsible defaultOpen={true}>
+                <CollapsibleTrigger className="w-full">
+                  <div className="flex items-center gap-3 mb-3 cursor-pointer group">
+                    <div className="flex items-center gap-2">
+                      <ChevronDown className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <h3 className="text-md font-medium text-foreground group-hover:text-primary transition-colors">
+                        IR4.1
+                      </h3>
+                    </div>
+                    <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-amber-500/20 text-amber-400 border-amber-500/30">
+                      {devPods.filter(p => p.release === "IR4.1").length} {devPods.filter(p => p.release === "IR4.1").length === 1 ? "Pod" : "Pods"}
+                    </span>
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    {devPods.filter(p => p.release === "IR4.1").map((pod) => (
+                      <DevPodCard key={pod.id} pod={pod} />
+                    ))}
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+
+              {/* IR4.2 Sub-section */}
+              <Collapsible defaultOpen={true}>
+                <CollapsibleTrigger className="w-full">
+                  <div className="flex items-center gap-3 mb-3 cursor-pointer group">
+                    <div className="flex items-center gap-2">
+                      <ChevronDown className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <h3 className="text-md font-medium text-foreground group-hover:text-primary transition-colors">
+                        IR4.2
+                      </h3>
+                    </div>
+                    <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-amber-500/20 text-amber-400 border-amber-500/30">
+                      {devPods.filter(p => p.release === "IR4.2").length} {devPods.filter(p => p.release === "IR4.2").length === 1 ? "Pod" : "Pods"}
+                    </span>
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    {devPods.filter(p => p.release === "IR4.2").map((pod) => (
+                      <DevPodCard key={pod.id} pod={pod} />
+                    ))}
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            </>
+          ) : (
+            <>
+              {/* Development PODs Sub-section */}
+              <Collapsible open={devPodsOpen} onOpenChange={setDevPodsOpen}>
+                <CollapsibleTrigger className="w-full">
+                  <div className="flex items-center gap-3 mb-3 cursor-pointer group">
+                    <div className="flex items-center gap-2">
+                      {devPodsOpen ? (
+                        <ChevronDown className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      )}
+                      <h3 className="text-md font-medium text-foreground group-hover:text-primary transition-colors">
+                        Development PODs
+                      </h3>
+                    </div>
+                    <span className="px-2 py-0.5 text-xs font-medium rounded-full border bg-amber-500/20 text-amber-400 border-amber-500/30">
+                      {devPods.length} {devPods.length === 1 ? "Pod" : "Pods"}
+                    </span>
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    {devPods.map((pod) => (
+                      <DevPodCard key={pod.id} pod={pod} />
+                    ))}
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            </>
+          )}
 
           {/* SIT/UAT Execution POD Sub-section */}
           {sitUatTeam.length > 0 && (

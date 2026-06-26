@@ -11,7 +11,9 @@ import { RolesResponsibilitiesView } from "@/components/roles-responsibilities-v
 export default function Home() {
   const ir32Pods = devPods.filter((pod) => pod.release === "IR3.2");
   const ir33Pods = devPods.filter((pod) => pod.release === "IR3.3");
-  const ir4Pods = devPods.filter((pod) => pod.release === "IR4");
+  const ir41Pods = devPods.filter((pod) => pod.release === "IR4.1");
+  const ir42Pods = devPods.filter((pod) => pod.release === "IR4.2");
+  const allIr4Pods = [...ir41Pods, ...ir42Pods];
   const ir32HypercarePods = hypercarePods.filter((pod) => pod.release === "IR3.2-Hypercare");
 
   const structureView = (
@@ -49,10 +51,11 @@ export default function Home() {
         <CombinedReleaseSection
           title="IR4"
           phase="Development"
-          devPods={ir4Pods}
+          devPods={allIr4Pods}
           badgeColor="bg-amber-500/20 text-amber-400 border-amber-500/30"
           phaseColor="bg-amber-500/20 text-amber-400 border-amber-500/30"
           defaultOpen={true}
+          showSubReleases={true}
         />
       </div>
     </>
