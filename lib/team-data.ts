@@ -159,7 +159,7 @@ export const devPods: DevPod[] = [
     valueStream: "Release",
     description: "Usage tracking, metering, and billing calculations for customer accounts",
     color: "from-cyan-500/20 to-cyan-500/5",
-    release: "IR4",
+    release: "IR4.1",
     badges: ["Billing & Usage", "Payment Programs"],
     team: [
       { name: "Shreya LNU", role: "Lead", status: "Active" },
@@ -183,7 +183,7 @@ export const devPods: DevPod[] = [
     valueStream: "Release",
     description: "Managing account updates, modifications, and lifecycle operations",
     color: "from-teal-500/20 to-teal-500/5",
-    release: "IR4",
+    release: "IR4.1",
     badges: ["Correspondence", "360s", "PEXT", "Customer Authentication", "Account Maintenance"],
     team: [
       { name: "Sneha Girigoudar", role: "Lead", status: "Active" },
@@ -203,7 +203,7 @@ export const devPods: DevPod[] = [
     valueStream: "Release",
     description: "Energy consumption monitoring, analytics, and optimization features",
     color: "from-amber-500/20 to-amber-500/5",
-    release: "IR4",
+    release: "IR4.2",
     badges: ["Energy Management"],
     team: [
       { name: "Anurag Jakkal", role: "Lead", status: "Active" },
@@ -225,7 +225,7 @@ export const devPods: DevPod[] = [
     valueStream: "Release",
     description: "Move-in and move-out service management and processing",
     color: "from-blue-500/20 to-blue-500/5",
-    release: "IR4",
+    release: "IR4.2",
     badges: ["Multi Move In", "Transfer", "Amend"],
     team: [
       { name: "Jason Pereira", role: "Lead", status: "Active" },
@@ -243,7 +243,7 @@ export const devPods: DevPod[] = [
     valueStream: "Release",
     description: "Outage detection, reporting, and restoration management",
     color: "from-rose-500/20 to-rose-500/5",
-    release: "IR4",
+    release: "IR4.2",
     badges: ["Untap/Retap", "Vegetation Reporting", "Ticket Research", "TLOC", "Emergency PF", "Field Conditions", "Streetlight", "IR3 Spillovers"],
     team: [
       { name: "Sweta Sharma", role: "Lead", status: "Active" },
@@ -262,7 +262,7 @@ export const devPods: DevPod[] = [
     valueStream: "Release",
     description: "Customer programs, incentives, and enrollment management",
     color: "from-emerald-500/20 to-emerald-500/5",
-    release: "IR4",
+    release: "IR4.1",
     badges: ["Billing Programs", "Preferences", "FPLES Programs", "Development Programs", "DSM Programs", "Name Change"],
     team: [
       { name: "Shreya LNU", role: "Lead", status: "Active" },
@@ -288,7 +288,7 @@ export const devPods: DevPod[] = [
     valueStream: "Release",
     description: "Customer identity management and fraud detection",
     color: "from-violet-500/20 to-violet-500/5",
-    release: "IR4",
+    release: "IR4.1",
     badges: ["Customer ID & Fraud"],
     team: [
       { name: "Aditya Talwar", role: "Lead", status: "Active" },
@@ -301,7 +301,7 @@ export const devPods: DevPod[] = [
     valueStream: "Release",
     description: "Case handling and resolution workflows",
     color: "from-pink-500/20 to-pink-500/5",
-    release: "IR4",
+    release: "IR4.1",
     badges: ["Case Management"],
     team: [
       { name: "Rinky Chawla", role: "Lead", status: "Active" },
@@ -318,7 +318,7 @@ export const devPods: DevPod[] = [
     valueStream: "Release",
     description: "Field operations and service management workflows",
     color: "from-sky-500/20 to-sky-500/5",
-    release: "IR4",
+    release: "IR4.1",
     badges: ["Field Management"],
     team: [
       { name: "Niket Saxena", role: "Lead", status: "Active" },
@@ -336,7 +336,7 @@ export const devPods: DevPod[] = [
     valueStream: "Release",
     description: "FPL-specific case handling and resolution workflows",
     color: "from-fuchsia-500/20 to-fuchsia-500/5",
-    release: "IR4",
+    release: "IR4.1",
     badges: ["Case Management"],
     team: [
       { name: "Tejaswini Pathade", role: "Lead", status: "Active", isFPL: true },
