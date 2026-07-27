@@ -238,6 +238,18 @@ export const devPods: DevPod[] = [
     ],
   },
   {
+    id: "pod-9",
+    name: "Dev POD 5/Sweta S",
+    valueStream: "Release",
+    description: "Outage detection, reporting, and restoration management",
+    color: "from-rose-500/20 to-rose-500/5",
+    release: "IR4.2",
+    badges: [],
+    team: [
+      { name: "Sweta Sharma", role: "Lead", status: "Active" },
+    ],
+  },
+  {
     id: "pod-10",
     name: "FPL Dev POD",
     valueStream: "Release",
