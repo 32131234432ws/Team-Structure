@@ -244,9 +244,17 @@ export const devPods: DevPod[] = [
     description: "Outage detection, reporting, and restoration management",
     color: "from-rose-500/20 to-rose-500/5",
     release: "IR4.2",
-    badges: [],
+    badges: ["Untap/Retap", "Vegetation Reporting", "Ticket Research", "TLOC", "Emergency PF", "Field Conditions", "Streetlight", "IR3 Spillovers"],
     team: [
       { name: "Sweta Sharma", role: "Lead", status: "Active" },
+      { name: "Jitain Mohun", role: "Onshore Solution Analyst", status: "Active" },
+      { name: "Mayur Kinhekar", role: "Offshore Solution Analyst", status: "Active" },
+      { name: "Shravya Nanjundaswamy", role: "Dev", status: "Active" },
+      { name: "Rida Maryam Mohammad", role: "Dev", status: "Active" },
+      { name: "Surya Teja Poka", role: "Dev", status: "Active" },
+      { name: "Kavita Jha", role: "Dev", status: "Active" },
+      { name: "Sanniboina Murali Krishna", role: "Dev", status: "Active" },
+      { name: "Prathamesh Kulkarni", role: "Dev", status: "Active" },
     ],
   },
   {
