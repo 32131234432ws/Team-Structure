@@ -21,6 +21,7 @@ export const leadershipTeam: LeadershipMember[] = [
   { name: "Matthew Rupas", role: "Lead", status: "Active" },
   { name: "Sujith Pillai", role: "Lead", status: "Active" },
   { name: "Anto Germans", role: "Lead", status: "Active" },
+  { name: "Anirudh Kulkarni", role: "Lead", status: "Active" },
   { name: "Charlie Martinez", role: "Lead", status: "Active", isFPL: true },
   { name: "Hemant Jain", role: "Architect", subRole: "Technical Architect", status: "Active" },
   { name: "Tyaga Pati", role: "Architect", subRole: "Solution Architect", status: "Active" },
@@ -311,6 +312,7 @@ export const devPods: DevPod[] = [
       { name: "Ankit Verma", role: "Dev", status: "Active" },
       { name: "Sree Sowndarya Barani K", role: "Dev", status: "Active" },
       { name: "John Jyothula", role: "Dev", status: "Active" },
+      { name: "Sanjog Majarkhede", role: "Dev", status: "Active" },
     ],
   },
   {
