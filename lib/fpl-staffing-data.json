@@ -1699,5 +1699,17 @@
     "POD": "Case Management POD",
     "isFPL": false,
     "Planned End Date": ""
+  },
+  {
+    "Name": "Jyoti Kumari",
+    "Email": "",
+    "Designation": "Lead",
+    "Role": "Lead",
+    "Workstream": "IR4",
+    "Release": "IR4.1",
+    "Valuestream": "Development",
+    "POD": "Dev POD 1/Shreya",
+    "isFPL": false,
+    "Planned End Date": ""
   }
 ]
