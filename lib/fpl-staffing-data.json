@@ -1663,5 +1663,17 @@
     "POD": "DevOps POD",
     "isFPL": false,
     "Planned End Date": ""
+  },
+  {
+    "Name": "Lovely Kumari",
+    "Email": "",
+    "Designation": "Associate",
+    "Role": "QA",
+    "Workstream": "QA/Testing",
+    "Release": "All",
+    "Valuestream": "Quality Assurance",
+    "POD": "QA Team",
+    "isFPL": false,
+    "Planned End Date": ""
   }
 ]
