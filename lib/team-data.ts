@@ -470,7 +470,7 @@ export const crossFunctionalTeams: CrossFunctionalTeam[] = [
     description: "CI/CD, infrastructure, and deployment across all releases",
     color: "from-indigo-500/20 to-indigo-500/5",
     team: [
-      { name: "Ritesh Nanda", role: "Lead", status: "Active" },
+      { name: "Feroz Kotcherla", role: "Lead", status: "Active" },
       { name: "Shabnam Nasreen", role: "Lead", status: "Active" },
       { name: "Rodolfo Duarte", role: "Team", status: "Active" },
       { name: "Santosh Kumar Jangam", role: "Team", status: "Active" },
