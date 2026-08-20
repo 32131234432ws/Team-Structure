@@ -32,7 +32,6 @@ export default function Home() {
           phase="SIT"
           devPods={ir32Pods}
           hypercarePods={ir32HypercarePods}
-          sitUatTeam={sitUatExecutionTeam}
           badgeColor="bg-blue-500/20 text-blue-400 border-blue-500/30"
           phaseColor="bg-blue-500/20 text-blue-400 border-blue-500/30"
           defaultOpen={true}
@@ -43,6 +42,7 @@ export default function Home() {
           title="IR4"
           phase="Development"
           devPods={allIr4Pods}
+          sitUatTeam={sitUatExecutionTeam}
           badgeColor="bg-amber-500/20 text-amber-400 border-amber-500/30"
           phaseColor="bg-amber-500/20 text-amber-400 border-amber-500/30"
           defaultOpen={true}
