@@ -19,6 +19,7 @@ export interface LeadershipMember {
 export const leadershipTeam: LeadershipMember[] = [
   { name: "Ted Capaldi", role: "Lead", status: "Active" },
   { name: "Matthew Rupas", role: "Lead", status: "Active" },
+  { name: "Timm Watt", role: "Lead", status: "Active" },
   { name: "Sujith Pillai", role: "Lead", status: "Active" },
   { name: "Anto Germans", role: "Lead", status: "Active" },
   { name: "Anirudh Kulkarni", role: "Lead", status: "Active" },
