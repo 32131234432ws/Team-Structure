@@ -487,7 +487,7 @@ export const crossFunctionalTeams: CrossFunctionalTeam[] = [
     team: [
       { name: "Harish Govindareddy", role: "Team", status: "Active" },
       { name: "Sanket Mundargi", role: "Team", status: "Active" },
-      { name: "Sanniboina Murali Krishna", role: "Dev", status: "Active" },
+      { name: "Sanniboina Murali Krishna", role: "Team", status: "Active" },
     ],
   },
   {
