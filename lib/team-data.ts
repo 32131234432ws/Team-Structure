@@ -256,7 +256,6 @@ export const devPods: DevPod[] = [
       { name: "Rida Maryam Mohammad", role: "Dev", status: "Active" },
       { name: "Surya Teja Poka", role: "Dev", status: "Active" },
       { name: "Kavita Jha", role: "Dev", status: "Active" },
-      { name: "Sanniboina Murali Krishna", role: "Dev", status: "Active" },
       { name: "Prathamesh Kulkarni", role: "Dev", status: "Active" },
     ],
   },
@@ -488,6 +487,7 @@ export const crossFunctionalTeams: CrossFunctionalTeam[] = [
     team: [
       { name: "Harish Govindareddy", role: "Team", status: "Active" },
       { name: "Sanket Mundargi", role: "Team", status: "Active" },
+      { name: "Sanniboina Murali Krishna", role: "Dev", status: "Active" },
     ],
   },
   {
